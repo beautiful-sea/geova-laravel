@@ -16,7 +16,7 @@
 							<ul class="widget w-friend-pages-added notification-list friend-requests">
 								<li class="inline-items">
 									<div class="author-thumb">
-										<img src="" onerror="this.src='/files/media/users/profile_default.png'" width="40px" alt="author">
+										<img src=""  width="40px" alt="author">
 									</div>
 									<div class="notification-event">
 										<a href="#" class="h6 notification-friend">Igreja Metodista</a>
@@ -572,7 +572,7 @@
 											<div class="tab-pane active" id="home-1" role="tabpanel" aria-expanded="true">
 												<form>
 													<div class="author-thumb">
-														<img src="{$user.img_profile}" onerror="this.src='/files/media/users/profile_default.png'" width="40px" alt="author">
+														<img src="{$user.img_profile}"  width="40px" alt="author">
 													</div>
 													<div class="form-group with-icon label-floating is-empty">
 														<label class="control-label">Compartilhe o que está pensando aqui...</label>
@@ -667,7 +667,7 @@
 											<article class="hentry post has-post-thumbnail">
 
 												<div class="post__author author vcard inline-items">
-													<img src='{if="$value.img_profile == null "}{$value.img_profile}{else}/files/media/users/profile_default.png{/if}' alt="Foto de perfil" onerror="this.src='/files/media/users/profile_default.png'">
+													<img src='' alt="Foto de perfil">
 
 													<div class="author-date">
 														<a class="h6 post__author-name fn" href="#">{$value.name}</a>

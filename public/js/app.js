@@ -54847,13 +54847,7 @@ var render = function() {
                         },
                         [
                           _c("img", {
-                            attrs: {
-                              src:
-                                '{if="$value.img_profile == null "}{$value.img_profile}{else}/files/media/users/profile_default.png{/if}',
-                              alt: "Foto de perfil",
-                              onerror:
-                                "this.src='/files/media/users/profile_default.png'"
-                            }
+                            attrs: { src: "", alt: "Foto de perfil" }
                           }),
                           _vm._v(" "),
                           _vm._m(25),
@@ -55379,14 +55373,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "author-thumb" }, [
-      _c("img", {
-        attrs: {
-          src: "",
-          onerror: "this.src='/files/media/users/profile_default.png'",
-          width: "40px",
-          alt: "author"
-        }
-      })
+      _c("img", { attrs: { src: "", width: "40px", alt: "author" } })
     ])
   },
   function() {
@@ -55957,12 +55944,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "author-thumb" }, [
       _c("img", {
-        attrs: {
-          src: "{$user.img_profile}",
-          onerror: "this.src='/files/media/users/profile_default.png'",
-          width: "40px",
-          alt: "author"
-        }
+        attrs: { src: "{$user.img_profile}", width: "40px", alt: "author" }
       })
     ])
   },
