@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\DB;
 
 
-class User extends Authenticatable
+class Post extends Authenticatable
 {
     use Notifiable;
 
@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'text',
     ];
 
     /**
@@ -26,12 +26,8 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
 
-    public function post()
-    {
-        return $this->hasMany('App\Post', 'user_id');
+    public function user(){
+        return $this->belongsTo('App\User');
     }
 }

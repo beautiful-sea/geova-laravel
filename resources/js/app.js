@@ -21,6 +21,11 @@ Vue.component('example', require('./components/ExampleComponent.vue'));
 Vue.component('leftsidebar', require('./components/LeftSideBarComponent.vue'));
 Vue.component('header-component', require('./components/HeaderComponent.vue'));
 Vue.component('feed', require('./components/FeedComponent.vue'));
+Vue.component('post', require('./components/PostComponent.vue'));
+Vue.component('form-post', require('./components/FormPostComponent.vue'));
+Vue.component('modal', require('./components/ModalComponent.vue'));
+
+
 
 
 

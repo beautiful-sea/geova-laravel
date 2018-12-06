@@ -14058,6 +14058,9 @@ Vue.component('example', __webpack_require__(40));
 Vue.component('leftsidebar', __webpack_require__(43));
 Vue.component('header-component', __webpack_require__(46));
 Vue.component('feed', __webpack_require__(49));
+Vue.component('post', __webpack_require__(57));
+Vue.component('form-post', __webpack_require__(60));
+Vue.component('modal', __webpack_require__(63));
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
@@ -49901,7 +49904,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+	props: ['user'],
+	mounted: function mounted() {
+		console.log(this.user);
+	}
+});
 
 /***/ }),
 /* 48 */
@@ -50511,7 +50519,7 @@ var render = function() {
                   staticClass: "avatar",
                   attrs: {
                     alt: "author",
-                    src: "{$user.img_profile}",
+                    src: "/img/avatar1.jpg",
                     width: "45px"
                   }
                 }),
@@ -50612,11 +50620,11 @@ var render = function() {
                 "a",
                 {
                   staticClass: "author-name fn",
-                  attrs: { href: "/{$user.username}" }
+                  attrs: { href: "/img/avatar1.jpg" }
                 },
                 [
                   _c("div", { staticClass: "author-title" }, [
-                    _vm._v("\n\t\t\t\t\t\t\t{$user.name} "),
+                    _vm._v("\n\t\t\t\t\t\t\t" + _vm._s(_vm.user.name)),
                     _c("svg", { staticClass: "olymp-dropdown-arrow-icon" }, [
                       _c("use", {
                         attrs: {
@@ -50628,7 +50636,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("span", { staticClass: "author-subtitle" }, [
-                    _vm._v("@{$user.username}")
+                    _vm._v("username")
                   ])
                 ]
               )
@@ -53002,237 +53010,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
@@ -54365,667 +54142,14 @@ var render = function() {
                 "col col-xl-12 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12"
             },
             [
-              _c("div", { staticClass: "ui-block" }, [
-                _c("div", { staticClass: "news-feed-form" }, [
-                  _c(
-                    "ul",
-                    { staticClass: "nav nav-tabs", attrs: { role: "tablist" } },
-                    [
-                      _c("li", { staticClass: "nav-item" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "nav-link active inline-items",
-                            attrs: {
-                              "data-toggle": "tab",
-                              href: "#home-1",
-                              role: "tab",
-                              "aria-expanded": "true"
-                            }
-                          },
-                          [
-                            _c("svg", { staticClass: "olymp-status-icon" }, [
-                              _c("use", {
-                                attrs: {
-                                  "xlink:href":
-                                    "svg-icons/sprites/icons.svg#olymp-status-icon"
-                                }
-                              })
-                            ]),
-                            _vm._v(" "),
-                            _c("span", [_vm._v("Status")])
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("li", { staticClass: "nav-item" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "nav-link inline-items",
-                            attrs: {
-                              "data-toggle": "tab",
-                              href: "#profile-1",
-                              role: "tab",
-                              "aria-expanded": "false"
-                            }
-                          },
-                          [
-                            _c(
-                              "svg",
-                              { staticClass: "olymp-multimedia-icon" },
-                              [
-                                _c("use", {
-                                  attrs: {
-                                    "xlink:href":
-                                      "svg-icons/sprites/icons.svg#olymp-multimedia-icon"
-                                  }
-                                })
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("span", [_vm._v("Foto/ Vídeo")])
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("li", { staticClass: "nav-item" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "nav-link inline-items",
-                            attrs: {
-                              "data-toggle": "tab",
-                              href: "#blog",
-                              role: "tab",
-                              "aria-expanded": "false"
-                            }
-                          },
-                          [
-                            _c("svg", { staticClass: "olymp-blog-icon" }, [
-                              _c("use", {
-                                attrs: {
-                                  "xlink:href":
-                                    "svg-icons/sprites/icons.svg#olymp-blog-icon"
-                                }
-                              })
-                            ]),
-                            _vm._v(" "),
-                            _c("span", [_vm._v("Blog")])
-                          ]
-                        )
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "tab-content" }, [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "tab-pane active",
-                        attrs: {
-                          id: "home-1",
-                          role: "tabpanel",
-                          "aria-expanded": "true"
-                        }
-                      },
-                      [
-                        _c("form", [
-                          _vm._m(19),
-                          _vm._v(" "),
-                          _vm._m(20),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "add-options-message" }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "options-message",
-                                attrs: {
-                                  href: "#",
-                                  "data-toggle": "tooltip",
-                                  "data-placement": "top",
-                                  "data-original-title": "ADD PHOTOS"
-                                }
-                              },
-                              [
-                                _c(
-                                  "svg",
-                                  {
-                                    staticClass: "olymp-camera-icon",
-                                    attrs: {
-                                      "data-toggle": "modal",
-                                      "data-target": "#update-header-photo"
-                                    }
-                                  },
-                                  [
-                                    _c("use", {
-                                      attrs: {
-                                        "xlink:href":
-                                          "svg-icons/sprites/icons.svg#olymp-camera-icon"
-                                      }
-                                    })
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "options-message",
-                                attrs: {
-                                  href: "#",
-                                  "data-toggle": "tooltip",
-                                  "data-placement": "top",
-                                  "data-original-title": "TAG YOUR FRIENDS"
-                                }
-                              },
-                              [
-                                _c(
-                                  "svg",
-                                  { staticClass: "olymp-computer-icon" },
-                                  [
-                                    _c("use", {
-                                      attrs: {
-                                        "xlink:href":
-                                          "svg-icons/sprites/icons.svg#olymp-computer-icon"
-                                      }
-                                    })
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "options-message",
-                                attrs: {
-                                  href: "#",
-                                  "data-toggle": "tooltip",
-                                  "data-placement": "top",
-                                  "data-original-title": "ADD LOCATION"
-                                }
-                              },
-                              [
-                                _c(
-                                  "svg",
-                                  { staticClass: "olymp-small-pin-icon" },
-                                  [
-                                    _c("use", {
-                                      attrs: {
-                                        "xlink:href":
-                                          "svg-icons/sprites/icons.svg#olymp-small-pin-icon"
-                                      }
-                                    })
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              { staticClass: "btn btn-primary btn-md-2" },
-                              [_vm._v("Publicar")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "btn btn-md-2 btn-border-think btn-transparent c-grey"
-                              },
-                              [_vm._v("Ver")]
-                            )
-                          ])
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "tab-pane",
-                        attrs: {
-                          id: "profile-1",
-                          role: "tabpanel",
-                          "aria-expanded": "true"
-                        }
-                      },
-                      [
-                        _c("form", [
-                          _vm._m(21),
-                          _vm._v(" "),
-                          _vm._m(22),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "add-options-message" }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "options-message",
-                                attrs: {
-                                  href: "#",
-                                  "data-toggle": "tooltip",
-                                  "data-placement": "top",
-                                  "data-original-title": "ADD PHOTOS"
-                                }
-                              },
-                              [
-                                _c(
-                                  "svg",
-                                  {
-                                    staticClass: "olymp-camera-icon",
-                                    attrs: {
-                                      "data-toggle": "modal",
-                                      "data-target": "#update-header-photo"
-                                    }
-                                  },
-                                  [
-                                    _c("use", {
-                                      attrs: {
-                                        "xlink:href":
-                                          "svg-icons/sprites/icons.svg#olymp-camera-icon"
-                                      }
-                                    })
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "options-message",
-                                attrs: {
-                                  href: "#",
-                                  "data-toggle": "tooltip",
-                                  "data-placement": "top",
-                                  "data-original-title": "TAG YOUR FRIENDS"
-                                }
-                              },
-                              [
-                                _c(
-                                  "svg",
-                                  { staticClass: "olymp-computer-icon" },
-                                  [
-                                    _c("use", {
-                                      attrs: {
-                                        "xlink:href":
-                                          "svg-icons/sprites/icons.svg#olymp-computer-icon"
-                                      }
-                                    })
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "options-message",
-                                attrs: {
-                                  href: "#",
-                                  "data-toggle": "tooltip",
-                                  "data-placement": "top",
-                                  "data-original-title": "ADD LOCATION"
-                                }
-                              },
-                              [
-                                _c(
-                                  "svg",
-                                  { staticClass: "olymp-small-pin-icon" },
-                                  [
-                                    _c("use", {
-                                      attrs: {
-                                        "xlink:href":
-                                          "svg-icons/sprites/icons.svg#olymp-small-pin-icon"
-                                      }
-                                    })
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              { staticClass: "btn btn-primary btn-md-2" },
-                              [_vm._v("Publicar")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "btn btn-md-2 btn-border-think btn-transparent c-grey"
-                              },
-                              [_vm._v("Ver")]
-                            )
-                          ])
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "tab-pane",
-                        attrs: {
-                          id: "blog",
-                          role: "tabpanel",
-                          "aria-expanded": "true"
-                        }
-                      },
-                      [
-                        _c("form", [
-                          _vm._m(23),
-                          _vm._v(" "),
-                          _vm._m(24),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "add-options-message" }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "options-message",
-                                attrs: {
-                                  href: "#",
-                                  "data-toggle": "tooltip",
-                                  "data-placement": "top",
-                                  "data-original-title": "ADD PHOTOS"
-                                }
-                              },
-                              [
-                                _c(
-                                  "svg",
-                                  {
-                                    staticClass: "olymp-camera-icon",
-                                    attrs: {
-                                      "data-toggle": "modal",
-                                      "data-target": "#update-header-photo"
-                                    }
-                                  },
-                                  [
-                                    _c("use", {
-                                      attrs: {
-                                        "xlink:href":
-                                          "svg-icons/sprites/icons.svg#olymp-camera-icon"
-                                      }
-                                    })
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "options-message",
-                                attrs: {
-                                  href: "#",
-                                  "data-toggle": "tooltip",
-                                  "data-placement": "top",
-                                  "data-original-title": "TAG YOUR FRIENDS"
-                                }
-                              },
-                              [
-                                _c(
-                                  "svg",
-                                  { staticClass: "olymp-computer-icon" },
-                                  [
-                                    _c("use", {
-                                      attrs: {
-                                        "xlink:href":
-                                          "svg-icons/sprites/icons.svg#olymp-computer-icon"
-                                      }
-                                    })
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "options-message",
-                                attrs: {
-                                  href: "#",
-                                  "data-toggle": "tooltip",
-                                  "data-placement": "top",
-                                  "data-original-title": "ADD LOCATION"
-                                }
-                              },
-                              [
-                                _c(
-                                  "svg",
-                                  { staticClass: "olymp-small-pin-icon" },
-                                  [
-                                    _c("use", {
-                                      attrs: {
-                                        "xlink:href":
-                                          "svg-icons/sprites/icons.svg#olymp-small-pin-icon"
-                                      }
-                                    })
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              { staticClass: "btn btn-primary btn-md-2" },
-                              [_vm._v("Publicar")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "btn btn-md-2 btn-border-think btn-transparent c-grey"
-                              },
-                              [_vm._v("Ver")]
-                            )
-                          ])
-                        ])
-                      ]
-                    )
-                  ])
-                ])
-              ]),
+              _c("div", { staticClass: "ui-block" }, [_vm._t("form-post")], 2),
               _vm._v(" "),
-              _c("div", { attrs: { id: "newsfeed-items-grid" } }, [
-                _vm._v(
-                  '\n\t\t\t\t\t\t\t\t\t{loop="$posts"}\n\t\t\t\t\t\t\t\t\t'
-                ),
-                _c("div", { staticClass: "ui-block" }, [
-                  _c(
-                    "article",
-                    { staticClass: "hentry post has-post-thumbnail" },
-                    [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "post__author author vcard inline-items"
-                        },
-                        [
-                          _c("img", {
-                            attrs: { src: "", alt: "Foto de perfil" }
-                          }),
-                          _vm._v(" "),
-                          _vm._m(25),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "more" }, [
-                            _c(
-                              "svg",
-                              { staticClass: "olymp-three-dots-icon" },
-                              [
-                                _c("use", {
-                                  attrs: {
-                                    "xlink:href":
-                                      "svg-icons/sprites/icons.svg#olymp-three-dots-icon"
-                                  }
-                                })
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _vm._m(26)
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("p", [
-                        _vm._v("{$value.description}\n\t\t\t\t\t\t\t\t\t\t\t")
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "post-additional-info inline-items" },
-                        [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "post-add-icon inline-items",
-                              attrs: { href: "#" }
-                            },
-                            [
-                              _c("svg", { staticClass: "olymp-heart-icon" }, [
-                                _c("use", {
-                                  attrs: {
-                                    "xlink:href":
-                                      "svg-icons/sprites/icons.svg#olymp-heart-icon"
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c("span", [_vm._v("22")])
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _vm._m(27),
-                          _vm._v(" "),
-                          _vm._m(28),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "comments-shared" }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "post-add-icon inline-items",
-                                attrs: { href: "#" }
-                              },
-                              [
-                                _c(
-                                  "svg",
-                                  { staticClass: "olymp-speech-balloon-icon" },
-                                  [
-                                    _c("use", {
-                                      attrs: {
-                                        "xlink:href":
-                                          "svg-icons/sprites/icons.svg#olymp-speech-balloon-icon"
-                                      }
-                                    })
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c("span", [_vm._v("{$value.qtdComments}")])
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "post-add-icon inline-items",
-                                attrs: { href: "#" }
-                              },
-                              [
-                                _c("svg", { staticClass: "olymp-share-icon" }, [
-                                  _c("use", {
-                                    attrs: {
-                                      "xlink:href":
-                                        "svg-icons/sprites/icons.svg#olymp-share-icon"
-                                    }
-                                  })
-                                ]),
-                                _vm._v(" "),
-                                _c("span", [_vm._v("2")])
-                              ]
-                            )
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "control-block-button post-control-button"
-                        },
-                        [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "btn btn-control",
-                              attrs: { href: "#" }
-                            },
-                            [
-                              _c(
-                                "svg",
-                                { staticClass: "olymp-like-post-icon" },
-                                [
-                                  _c("use", {
-                                    attrs: {
-                                      "xlink:href":
-                                        "svg-icons/sprites/icons.svg#olymp-like-post-icon"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass: "btn btn-control",
-                              attrs: { href: "#" }
-                            },
-                            [
-                              _c(
-                                "svg",
-                                { staticClass: "olymp-comments-post-icon" },
-                                [
-                                  _c("use", {
-                                    attrs: {
-                                      "xlink:href":
-                                        "svg-icons/sprites/icons.svg#olymp-comments-post-icon"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass: "btn btn-control",
-                              attrs: { href: "#" }
-                            },
-                            [
-                              _c("svg", { staticClass: "olymp-share-icon" }, [
-                                _c("use", {
-                                  attrs: {
-                                    "xlink:href":
-                                      "svg-icons/sprites/icons.svg#olymp-share-icon"
-                                  }
-                                })
-                              ])
-                            ]
-                          )
-                        ]
-                      )
-                    ]
-                  )
-                ]),
-                _vm._v("\n\t\t\t\t\t\t\t\t\t{/loop}\n\n\t\t\t\t\t\t\t\t")
-              ]),
+              _c(
+                "div",
+                { attrs: { id: "newsfeed-items-grid" } },
+                [_vm._t("post")],
+                2
+              ),
               _vm._v(" "),
               _c(
                 "a",
@@ -55086,13 +54210,10 @@ var render = function() {
                       "widget w-friend-pages-added notification-list friend-requests"
                   },
                   [
-                    _vm._v(
-                      '\n\t\t\t\t\t\t\t\t{loop="$notfollows"}\n\t\t\t\t\t\t\t\t'
-                    ),
                     _c("li", { staticClass: "inline-items" }, [
-                      _vm._m(29),
+                      _vm._m(19),
                       _vm._v(" "),
-                      _vm._m(30),
+                      _vm._m(20),
                       _vm._v(" "),
                       _c("span", { staticClass: "notification-icon" }, [
                         _c(
@@ -55123,8 +54244,7 @@ var render = function() {
                           ]
                         )
                       ])
-                    ]),
-                    _vm._v("\n\t\t\t\t\t\t\t\t{/loop}\n\t\t\t\t\t\t\t")
+                    ])
                   ]
                 )
               ]),
@@ -55147,7 +54267,7 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _vm._m(31)
+                _vm._m(21)
               ])
             ]
           )
@@ -55198,7 +54318,7 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _vm._m(32),
+              _vm._m(22),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
                 _c(
@@ -55357,14 +54477,14 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _vm._m(33)
+              _vm._m(23)
             ])
           ]
         )
       ]
     ),
     _vm._v(" "),
-    _vm._m(34)
+    _vm._m(24)
   ])
 }
 var staticRenderFns = [
@@ -55944,182 +55064,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "author-thumb" }, [
       _c("img", {
-        attrs: { src: "{$user.img_profile}", width: "40px", alt: "author" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "form-group with-icon label-floating is-empty" },
-      [
-        _c("label", { staticClass: "control-label" }, [
-          _vm._v("Compartilhe o que está pensando aqui...")
-        ]),
-        _vm._v(" "),
-        _c("textarea", {
-          staticClass: "form-control",
-          attrs: { placeholder: "" }
-        })
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "author-thumb" }, [
-      _c("img", { attrs: { src: "img/author-page.jpg", alt: "author" } })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "form-group with-icon label-floating is-empty" },
-      [
-        _c("label", { staticClass: "control-label" }, [
-          _vm._v("Compartilhe o que você está pensando aqui...")
-        ]),
-        _vm._v(" "),
-        _c("textarea", {
-          staticClass: "form-control",
-          attrs: { placeholder: "" }
-        })
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "author-thumb" }, [
-      _c("img", { attrs: { src: "img/author-page.jpg", alt: "author" } })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "form-group with-icon label-floating is-empty" },
-      [
-        _c("label", { staticClass: "control-label" }, [
-          _vm._v("Compartilhe o que você está pensando aqui...")
-        ]),
-        _vm._v(" "),
-        _c("textarea", {
-          staticClass: "form-control",
-          attrs: { placeholder: "" }
-        })
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "author-date" }, [
-      _c(
-        "a",
-        { staticClass: "h6 post__author-name fn", attrs: { href: "#" } },
-        [_vm._v("{$value.name}")]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "post__date" }, [
-        _c("time", {
-          staticClass: "published",
-          attrs: { id: "timePost{$value.id}", datetime: "2004-07-24T18:18" }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("ul", { staticClass: "more-dropdown" }, [
-      _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Editar")])]),
-      _vm._v(" "),
-      _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Deletar")])]),
-      _vm._v(" "),
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [_vm._v("Desligar notificações")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("ul", { staticClass: "friends-harmonic" }, [
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "img/friend-harmonic9.jpg", alt: "friend" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "img/friend-harmonic10.jpg", alt: "friend" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "img/friend-harmonic7.jpg", alt: "friend" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "img/friend-harmonic8.jpg", alt: "friend" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "img/friend-harmonic11.jpg", alt: "friend" }
-          })
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "names-people-likes" }, [
-      _c("a", { attrs: { href: "#" } }, [_vm._v("Jimmy")]),
-      _vm._v(", "),
-      _c("a", { attrs: { href: "#" } }, [_vm._v("Andrea")]),
-      _vm._v(" and\n\t\t\t\t\t\t\t\t\t\t\t\t\t"),
-      _c("br"),
-      _vm._v("47 more liked this\n\t\t\t\t\t\t\t\t\t\t\t\t")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "author-thumb" }, [
-      _c("img", {
-        attrs: { width: "100%", src: "{$value.img_profile}", alt: "author" }
+        attrs: { width: "100%", src: "/img/avatar1.jpg", alt: "author" }
       })
     ])
   },
@@ -56129,7 +55074,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "notification-event" }, [
       _c("a", { staticClass: "h6 notification-friend", attrs: { href: "#" } }, [
-        _vm._v("{$value.name}")
+        _vm._v("Name")
       ]),
       _vm._v(" "),
       _c("span", { staticClass: "chat-message-item" }, [
@@ -56601,6 +55546,1242 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 53 */,
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(58)
+/* template */
+var __vue_template__ = __webpack_require__(59)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/PostComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-54a00d62", Component.options)
+  } else {
+    hotAPI.reload("data-v-54a00d62", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 58 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	props: ['text'],
+	mounted: function mounted() {
+		console.log(this.text);
+	}
+});
+
+/***/ }),
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "ui-block" }, [
+      _c(
+        "article",
+        { staticClass: "hentry post has-post-thumbnail" },
+        [
+          _c("div", { staticClass: "post__author author vcard inline-items" }, [
+            _c("img", {
+              attrs: { src: "/img/avatar1.jpg", alt: "Foto de perfil" }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "author-date" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "h6 post__author-name fn",
+                  attrs: { href: "#" }
+                },
+                [_vm._v("Lindomar")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "post__date" }, [
+                _c(
+                  "time",
+                  {
+                    staticClass: "published",
+                    attrs: { id: "", datetime: "2004-07-24T18:18" }
+                  },
+                  [_vm._t("created_at")],
+                  2
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "more" }, [
+              _c("svg", { staticClass: "olymp-three-dots-icon" }, [
+                _c("use", {
+                  attrs: {
+                    "xlink:href":
+                      "svg-icons/sprites/icons.svg#olymp-three-dots-icon"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _vm._m(0)
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._t("text"),
+          _vm._v(" "),
+          _c("div", { staticClass: "post-additional-info inline-items" }, [
+            _c(
+              "a",
+              {
+                staticClass: "post-add-icon inline-items",
+                attrs: { href: "#" }
+              },
+              [
+                _c("svg", { staticClass: "olymp-heart-icon" }, [
+                  _c("use", {
+                    attrs: {
+                      "xlink:href":
+                        "svg-icons/sprites/icons.svg#olymp-heart-icon"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("span", [_vm._v("22")])
+              ]
+            ),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _vm._m(2),
+            _vm._v(" "),
+            _c("div", { staticClass: "comments-shared" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "post-add-icon inline-items",
+                  attrs: { href: "#" }
+                },
+                [
+                  _c("svg", { staticClass: "olymp-speech-balloon-icon" }, [
+                    _c("use", {
+                      attrs: {
+                        "xlink:href":
+                          "svg-icons/sprites/icons.svg#olymp-speech-balloon-icon"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("5")])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "post-add-icon inline-items",
+                  attrs: { href: "#" }
+                },
+                [
+                  _c("svg", { staticClass: "olymp-share-icon" }, [
+                    _c("use", {
+                      attrs: {
+                        "xlink:href":
+                          "svg-icons/sprites/icons.svg#olymp-share-icon"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("2")])
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "control-block-button post-control-button" },
+            [
+              _c(
+                "a",
+                { staticClass: "btn btn-control", attrs: { href: "#" } },
+                [
+                  _c("svg", { staticClass: "olymp-like-post-icon" }, [
+                    _c("use", {
+                      attrs: {
+                        "xlink:href":
+                          "svg-icons/sprites/icons.svg#olymp-like-post-icon"
+                      }
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                { staticClass: "btn btn-control", attrs: { href: "#" } },
+                [
+                  _c("svg", { staticClass: "olymp-comments-post-icon" }, [
+                    _c("use", {
+                      attrs: {
+                        "xlink:href":
+                          "svg-icons/sprites/icons.svg#olymp-comments-post-icon"
+                      }
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                { staticClass: "btn btn-control", attrs: { href: "#" } },
+                [
+                  _c("svg", { staticClass: "olymp-share-icon" }, [
+                    _c("use", {
+                      attrs: {
+                        "xlink:href":
+                          "svg-icons/sprites/icons.svg#olymp-share-icon"
+                      }
+                    })
+                  ])
+                ]
+              )
+            ]
+          )
+        ],
+        2
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "more-dropdown" }, [
+      _c("li", [
+        _c("a", { attrs: { href: "/home/update" } }, [_vm._v("Editar")])
+      ]),
+      _vm._v(" "),
+      _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Deletar")])]),
+      _vm._v(" "),
+      _c("li", [
+        _c("a", { attrs: { href: "#" } }, [_vm._v("Desligar notificações")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "friends-harmonic" }, [
+      _c("li", [
+        _c("a", { attrs: { href: "#" } }, [
+          _c("img", {
+            attrs: { src: "img/friend-harmonic9.jpg", alt: "friend" }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _c("a", { attrs: { href: "#" } }, [
+          _c("img", {
+            attrs: { src: "img/friend-harmonic10.jpg", alt: "friend" }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _c("a", { attrs: { href: "#" } }, [
+          _c("img", {
+            attrs: { src: "img/friend-harmonic7.jpg", alt: "friend" }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _c("a", { attrs: { href: "#" } }, [
+          _c("img", {
+            attrs: { src: "img/friend-harmonic8.jpg", alt: "friend" }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _c("a", { attrs: { href: "#" } }, [
+          _c("img", {
+            attrs: { src: "img/friend-harmonic11.jpg", alt: "friend" }
+          })
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "names-people-likes" }, [
+      _c("a", { attrs: { href: "#" } }, [_vm._v("Jimmy")]),
+      _vm._v(", "),
+      _c("a", { attrs: { href: "#" } }, [_vm._v("Andrea")]),
+      _vm._v(" and\n\t\t\t\t\t"),
+      _c("br"),
+      _vm._v("47 more liked this\n\t\t\t\t")
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-54a00d62", module.exports)
+  }
+}
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(61)
+/* template */
+var __vue_template__ = __webpack_require__(62)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/FormPostComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-234cdb04", Component.options)
+  } else {
+    hotAPI.reload("data-v-234cdb04", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 61 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	props: ['action_status', 'action_media', 'action_blog', 'token', 'method']
+});
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "news-feed-form" }, [
+    _c("ul", { staticClass: "nav nav-tabs", attrs: { role: "tablist" } }, [
+      _c("li", { staticClass: "nav-item" }, [
+        _c(
+          "a",
+          {
+            staticClass: "nav-link active inline-items",
+            attrs: {
+              "data-toggle": "tab",
+              href: "#home-1",
+              role: "tab",
+              "aria-expanded": "true"
+            }
+          },
+          [
+            _c("svg", { staticClass: "olymp-status-icon" }, [
+              _c("use", {
+                attrs: {
+                  "xlink:href": "svg-icons/sprites/icons.svg#olymp-status-icon"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("span", [_vm._v("Status")])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "nav-item" }, [
+        _c(
+          "a",
+          {
+            staticClass: "nav-link inline-items",
+            attrs: {
+              "data-toggle": "tab",
+              href: "#profile-1",
+              role: "tab",
+              "aria-expanded": "false"
+            }
+          },
+          [
+            _c("svg", { staticClass: "olymp-multimedia-icon" }, [
+              _c("use", {
+                attrs: {
+                  "xlink:href":
+                    "svg-icons/sprites/icons.svg#olymp-multimedia-icon"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("span", [_vm._v("Foto/ Vídeo")])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "nav-item" }, [
+        _c(
+          "a",
+          {
+            staticClass: "nav-link inline-items",
+            attrs: {
+              "data-toggle": "tab",
+              href: "#blog",
+              role: "tab",
+              "aria-expanded": "false"
+            }
+          },
+          [
+            _c("svg", { staticClass: "olymp-blog-icon" }, [
+              _c("use", {
+                attrs: {
+                  "xlink:href": "svg-icons/sprites/icons.svg#olymp-blog-icon"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("span", [_vm._v("Blog")])
+          ]
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "tab-content" }, [
+      _c(
+        "div",
+        {
+          staticClass: "tab-pane active",
+          attrs: { id: "home-1", role: "tabpanel", "aria-expanded": "true" }
+        },
+        [
+          _c(
+            "form",
+            { attrs: { action: _vm.action_status, method: _vm.method } },
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _vm._m(1),
+              _vm._v(" "),
+              _vm.token
+                ? _c("input", {
+                    attrs: { type: "hidden", name: "" },
+                    domProps: { value: _vm.token }
+                  })
+                : _vm._e(),
+              _vm._v(" "),
+              _c("input", {
+                attrs: { type: "hidden", name: "type", value: "status" }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "add-options-message" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "options-message",
+                    attrs: {
+                      href: "#",
+                      "data-toggle": "tooltip",
+                      "data-placement": "top",
+                      "data-original-title": "ADD PHOTOS"
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "olymp-camera-icon",
+                        attrs: {
+                          "data-toggle": "modal",
+                          "data-target": "#update-header-photo"
+                        }
+                      },
+                      [
+                        _c("use", {
+                          attrs: {
+                            "xlink:href":
+                              "svg-icons/sprites/icons.svg#olymp-camera-icon"
+                          }
+                        })
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "options-message",
+                    attrs: {
+                      href: "#",
+                      "data-toggle": "tooltip",
+                      "data-placement": "top",
+                      "data-original-title": "TAG YOUR FRIENDS"
+                    }
+                  },
+                  [
+                    _c("svg", { staticClass: "olymp-computer-icon" }, [
+                      _c("use", {
+                        attrs: {
+                          "xlink:href":
+                            "svg-icons/sprites/icons.svg#olymp-computer-icon"
+                        }
+                      })
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "options-message",
+                    attrs: {
+                      href: "#",
+                      "data-toggle": "tooltip",
+                      "data-placement": "top",
+                      "data-original-title": "ADD LOCATION"
+                    }
+                  },
+                  [
+                    _c("svg", { staticClass: "olymp-small-pin-icon" }, [
+                      _c("use", {
+                        attrs: {
+                          "xlink:href":
+                            "svg-icons/sprites/icons.svg#olymp-small-pin-icon"
+                        }
+                      })
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("button", { staticClass: "btn btn-primary btn-md-2" }, [
+                  _vm._v("Publicar")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "btn btn-md-2 btn-border-think btn-transparent c-grey"
+                  },
+                  [_vm._v("Ver")]
+                )
+              ])
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "tab-pane",
+          attrs: { id: "profile-1", role: "tabpanel", "aria-expanded": "true" }
+        },
+        [
+          _c("form", [
+            _vm._m(2),
+            _vm._v(" "),
+            _vm._m(3),
+            _vm._v(" "),
+            _c("div", { staticClass: "add-options-message" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "options-message",
+                  attrs: {
+                    href: "#",
+                    "data-toggle": "tooltip",
+                    "data-placement": "top",
+                    "data-original-title": "ADD PHOTOS"
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "olymp-camera-icon",
+                      attrs: {
+                        "data-toggle": "modal",
+                        "data-target": "#update-header-photo"
+                      }
+                    },
+                    [
+                      _c("use", {
+                        attrs: {
+                          "xlink:href":
+                            "svg-icons/sprites/icons.svg#olymp-camera-icon"
+                        }
+                      })
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "options-message",
+                  attrs: {
+                    href: "#",
+                    "data-toggle": "tooltip",
+                    "data-placement": "top",
+                    "data-original-title": "TAG YOUR FRIENDS"
+                  }
+                },
+                [
+                  _c("svg", { staticClass: "olymp-computer-icon" }, [
+                    _c("use", {
+                      attrs: {
+                        "xlink:href":
+                          "svg-icons/sprites/icons.svg#olymp-computer-icon"
+                      }
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "options-message",
+                  attrs: {
+                    href: "#",
+                    "data-toggle": "tooltip",
+                    "data-placement": "top",
+                    "data-original-title": "ADD LOCATION"
+                  }
+                },
+                [
+                  _c("svg", { staticClass: "olymp-small-pin-icon" }, [
+                    _c("use", {
+                      attrs: {
+                        "xlink:href":
+                          "svg-icons/sprites/icons.svg#olymp-small-pin-icon"
+                      }
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("button", { staticClass: "btn btn-primary btn-md-2" }, [
+                _vm._v("Publicar")
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "btn btn-md-2 btn-border-think btn-transparent c-grey"
+                },
+                [_vm._v("Ver")]
+              )
+            ])
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "tab-pane",
+          attrs: { id: "blog", role: "tabpanel", "aria-expanded": "true" }
+        },
+        [
+          _c("form", [
+            _vm._m(4),
+            _vm._v(" "),
+            _vm._m(5),
+            _vm._v(" "),
+            _c("div", { staticClass: "add-options-message" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "options-message",
+                  attrs: {
+                    href: "#",
+                    "data-toggle": "tooltip",
+                    "data-placement": "top",
+                    "data-original-title": "ADD PHOTOS"
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "olymp-camera-icon",
+                      attrs: {
+                        "data-toggle": "modal",
+                        "data-target": "#update-header-photo"
+                      }
+                    },
+                    [
+                      _c("use", {
+                        attrs: {
+                          "xlink:href":
+                            "svg-icons/sprites/icons.svg#olymp-camera-icon"
+                        }
+                      })
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "options-message",
+                  attrs: {
+                    href: "#",
+                    "data-toggle": "tooltip",
+                    "data-placement": "top",
+                    "data-original-title": "TAG YOUR FRIENDS"
+                  }
+                },
+                [
+                  _c("svg", { staticClass: "olymp-computer-icon" }, [
+                    _c("use", {
+                      attrs: {
+                        "xlink:href":
+                          "svg-icons/sprites/icons.svg#olymp-computer-icon"
+                      }
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "options-message",
+                  attrs: {
+                    href: "#",
+                    "data-toggle": "tooltip",
+                    "data-placement": "top",
+                    "data-original-title": "ADD LOCATION"
+                  }
+                },
+                [
+                  _c("svg", { staticClass: "olymp-small-pin-icon" }, [
+                    _c("use", {
+                      attrs: {
+                        "xlink:href":
+                          "svg-icons/sprites/icons.svg#olymp-small-pin-icon"
+                      }
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("button", { staticClass: "btn btn-primary btn-md-2" }, [
+                _vm._v("Publicar")
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "btn btn-md-2 btn-border-think btn-transparent c-grey"
+                },
+                [_vm._v("Ver")]
+              )
+            ])
+          ])
+        ]
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "author-thumb" }, [
+      _c("img", {
+        attrs: { src: "/img/avatar1.jpg", width: "40px", alt: "author" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "form-group with-icon label-floating is-empty" },
+      [
+        _c("label", { staticClass: "control-label" }, [
+          _vm._v("Compartilhe o que está pensando aqui...")
+        ]),
+        _vm._v(" "),
+        _c("textarea", {
+          staticClass: "form-control",
+          attrs: { placeholder: "", name: "text" }
+        })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "author-thumb" }, [
+      _c("img", { attrs: { src: "img/author-page.jpg", alt: "author" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "form-group with-icon label-floating is-empty" },
+      [
+        _c("label", { staticClass: "control-label" }, [
+          _vm._v("Compartilhe o que você está pensando aqui...")
+        ]),
+        _vm._v(" "),
+        _c("textarea", {
+          staticClass: "form-control",
+          attrs: { placeholder: "" }
+        })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "author-thumb" }, [
+      _c("img", { attrs: { src: "img/author-page.jpg", alt: "author" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "form-group with-icon label-floating is-empty" },
+      [
+        _c("label", { staticClass: "control-label" }, [
+          _vm._v("Compartilhe o que você está pensando aqui...")
+        ]),
+        _vm._v(" "),
+        _c("textarea", {
+          staticClass: "form-control",
+          attrs: { placeholder: "" }
+        })
+      ]
+    )
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-234cdb04", module.exports)
+  }
+}
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(64)
+/* template */
+var __vue_template__ = __webpack_require__(65)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/ModalComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4b2d100a", Component.options)
+  } else {
+    hotAPI.reload("data-v-4b2d100a", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 64 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div")
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-4b2d100a", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

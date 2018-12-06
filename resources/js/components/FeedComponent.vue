@@ -536,243 +536,16 @@
 
 								<div class="ui-block">
 
-									<!-- News Feed Form  -->
+									<!-- Formulário da postagem  -->
 
-									<div class="news-feed-form">
-										<!-- Nav tabs -->
-										<ul class="nav nav-tabs" role="tablist">
-											<li class="nav-item">
-												<a class="nav-link active inline-items" data-toggle="tab" href="#home-1" role="tab" aria-expanded="true">
+									<slot name="form-post"></slot>
 
-													<svg class="olymp-status-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-status-icon"></use></svg>
-
-													<span>Status</span>
-												</a>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link inline-items" data-toggle="tab" href="#profile-1" role="tab" aria-expanded="false">
-
-													<svg class="olymp-multimedia-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-multimedia-icon"></use></svg>
-
-													<span>Foto/ Vídeo</span>
-												</a>
-											</li>
-
-											<li class="nav-item">
-												<a class="nav-link inline-items" data-toggle="tab" href="#blog" role="tab" aria-expanded="false">
-													<svg class="olymp-blog-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-blog-icon"></use></svg>
-
-													<span>Blog</span>
-												</a>
-											</li>
-										</ul>
-
-										<!-- Tab panes -->
-										<div class="tab-content">
-											<div class="tab-pane active" id="home-1" role="tabpanel" aria-expanded="true">
-												<form>
-													<div class="author-thumb">
-														<img src="{$user.img_profile}"  width="40px" alt="author">
-													</div>
-													<div class="form-group with-icon label-floating is-empty">
-														<label class="control-label">Compartilhe o que está pensando aqui...</label>
-														<textarea class="form-control" placeholder=""></textarea>
-													</div>
-													<div class="add-options-message">
-														<a href="#" class="options-message" data-toggle="tooltip" data-placement="top"   data-original-title="ADD PHOTOS">
-															<svg class="olymp-camera-icon" data-toggle="modal" data-target="#update-header-photo"><use xlink:href="svg-icons/sprites/icons.svg#olymp-camera-icon"></use></svg>
-														</a>
-														<a href="#" class="options-message" data-toggle="tooltip" data-placement="top"   data-original-title="TAG YOUR FRIENDS">
-															<svg class="olymp-computer-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-computer-icon"></use></svg>
-														</a>
-
-														<a href="#" class="options-message" data-toggle="tooltip" data-placement="top"   data-original-title="ADD LOCATION">
-															<svg class="olymp-small-pin-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-small-pin-icon"></use></svg>
-														</a>
-
-														<button class="btn btn-primary btn-md-2">Publicar</button>
-														<button   class="btn btn-md-2 btn-border-think btn-transparent c-grey">Ver</button>
-
-													</div>
-
-												</form>
-											</div>
-
-											<div class="tab-pane" id="profile-1" role="tabpanel" aria-expanded="true">
-												<form>
-													<div class="author-thumb">
-														<img src="img/author-page.jpg" alt="author">
-													</div>
-													<div class="form-group with-icon label-floating is-empty">
-														<label class="control-label">Compartilhe o que você está pensando aqui...</label>
-														<textarea class="form-control" placeholder=""  ></textarea>
-													</div>
-													<div class="add-options-message">
-														<a href="#" class="options-message" data-toggle="tooltip" data-placement="top"   data-original-title="ADD PHOTOS">
-															<svg class="olymp-camera-icon" data-toggle="modal" data-target="#update-header-photo"><use xlink:href="svg-icons/sprites/icons.svg#olymp-camera-icon"></use></svg>
-														</a>
-														<a href="#" class="options-message" data-toggle="tooltip" data-placement="top"   data-original-title="TAG YOUR FRIENDS">
-															<svg class="olymp-computer-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-computer-icon"></use></svg>
-														</a>
-
-														<a href="#" class="options-message" data-toggle="tooltip" data-placement="top"   data-original-title="ADD LOCATION">
-															<svg class="olymp-small-pin-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-small-pin-icon"></use></svg>
-														</a>
-
-														<button class="btn btn-primary btn-md-2">Publicar</button>
-														<button   class="btn btn-md-2 btn-border-think btn-transparent c-grey">Ver</button>
-
-													</div>
-
-												</form>
-											</div>
-
-											<div class="tab-pane" id="blog" role="tabpanel" aria-expanded="true">
-												<form>
-													<div class="author-thumb">
-														<img src="img/author-page.jpg" alt="author">
-													</div>
-													<div class="form-group with-icon label-floating is-empty">
-														<label class="control-label">Compartilhe o que você está pensando aqui...</label>
-														<textarea class="form-control" placeholder=""  ></textarea>
-													</div>
-													<div class="add-options-message">
-														<a href="#" class="options-message" data-toggle="tooltip" data-placement="top"   data-original-title="ADD PHOTOS">
-															<svg class="olymp-camera-icon" data-toggle="modal" data-target="#update-header-photo"><use xlink:href="svg-icons/sprites/icons.svg#olymp-camera-icon"></use></svg>
-														</a>
-														<a href="#" class="options-message" data-toggle="tooltip" data-placement="top"   data-original-title="TAG YOUR FRIENDS">
-															<svg class="olymp-computer-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-computer-icon"></use></svg>
-														</a>
-
-														<a href="#" class="options-message" data-toggle="tooltip" data-placement="top"   data-original-title="ADD LOCATION">
-															<svg class="olymp-small-pin-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-small-pin-icon"></use></svg>
-														</a>
-
-														<button class="btn btn-primary btn-md-2">Publicar</button>
-														<button   class="btn btn-md-2 btn-border-think btn-transparent c-grey">Ver</button>
-
-													</div>
-
-												</form>
-											</div>
-										</div>
-									</div>
-
-									<!-- ... end News Feed Form  -->			</div>
-
+									<!-- ... Fim formulário de postagem  -->
+								</div>
 									<div id="newsfeed-items-grid">
-										{loop="$posts"}
-										<div class="ui-block">
-
-											<article class="hentry post has-post-thumbnail">
-
-												<div class="post__author author vcard inline-items">
-													<img src='' alt="Foto de perfil">
-
-													<div class="author-date">
-														<a class="h6 post__author-name fn" href="#">{$value.name}</a>
-														<div class="post__date">
-															<time class="published" id="timePost{$value.id}" datetime="2004-07-24T18:18">
-
-															</time>
-														</div>
-													</div>
-
-													<div class="more"><svg class="olymp-three-dots-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg>
-														<ul class="more-dropdown">
-															<li>
-																<a href="#">Editar</a>
-															</li>
-															<li>
-																<a href="#">Deletar</a>
-															</li>
-															<li>
-																<a href="#">Desligar notificações</a>
-															</li>
-														</ul>
-													</div>
-
-												</div>
-
-												<p>{$value.description}
-												</p>
-
-												<div class="post-additional-info inline-items">
-
-													<a href="#" class="post-add-icon inline-items">
-														<svg class="olymp-heart-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-heart-icon"></use></svg>
-														<span>22</span>
-													</a>
-
-													<ul class="friends-harmonic">
-														<li>
-															<a href="#">
-																<img src="img/friend-harmonic9.jpg" alt="friend">
-															</a>
-														</li>
-														<li>
-															<a href="#">
-																<img src="img/friend-harmonic10.jpg" alt="friend">
-															</a>
-														</li>
-														<li>
-															<a href="#">
-																<img src="img/friend-harmonic7.jpg" alt="friend">
-															</a>
-														</li>
-														<li>
-															<a href="#">
-																<img src="img/friend-harmonic8.jpg" alt="friend">
-															</a>
-														</li>
-														<li>
-															<a href="#">
-																<img src="img/friend-harmonic11.jpg" alt="friend">
-															</a>
-														</li>
-													</ul>
-
-													<div class="names-people-likes">
-														<a href="#">Jimmy</a>, <a href="#">Andrea</a> and
-														<br>47 more liked this
-													</div>
-
-
-													<div class="comments-shared">
-														<a href="#" class="post-add-icon inline-items">
-															<svg class="olymp-speech-balloon-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-speech-balloon-icon"></use></svg>
-															<span>{$value.qtdComments}</span>
-														</a>
-
-														<a href="#" class="post-add-icon inline-items">
-															<svg class="olymp-share-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-share-icon"></use></svg>
-															<span>2</span>
-														</a>
-													</div>
-
-
-												</div>
-
-												<div class="control-block-button post-control-button">
-
-													<a href="#" class="btn btn-control">
-														<svg class="olymp-like-post-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-like-post-icon"></use></svg>
-													</a>
-
-													<a href="#" class="btn btn-control">
-														<svg class="olymp-comments-post-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-comments-post-icon"></use></svg>
-													</a>
-
-													<a href="#" class="btn btn-control">
-														<svg class="olymp-share-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-share-icon"></use></svg>
-													</a>
-
-												</div>
-
-											</article>
-										</div>
-										{/loop}
-
+										<!-- Postagens -->
+										<slot name="post"></slot>
+										<!-- Fim Postagens -->
 									</div>
 
 									<a id="load-more-button" href="#" class="btn btn-control btn-more" data-load-link="items-to-load.html" data-container="newsfeed-items-grid"><svg class="olymp-three-dots-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg></a>
@@ -817,19 +590,16 @@
 									<h6 class="title">Seguidores Sugeridos</h6>
 									<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg></a>
 								</div>
-
-
-
 								<!-- W-Action -->
 
 								<ul class="widget w-friend-pages-added notification-list friend-requests">
-									{loop="$notfollows"}
+
 									<li class="inline-items">
 										<div class="author-thumb">
-											<img width="100%" src="{$value.img_profile}" alt="author">
+											<img width="100%" src="/img/avatar1.jpg" alt="author">
 										</div>
 										<div class="notification-event">
-											<a href="#" class="h6 notification-friend">{$value.name}</a>
+											<a href="#" class="h6 notification-friend">Name</a>
 											<span class="chat-message-item">8 Amigos em comum</span>
 										</div>
 										<span class="notification-icon">
@@ -840,7 +610,6 @@
 											</a>
 										</span>
 									</li>
-									{/loop}
 								</ul>
 
 								<!-- ... end W-Action -->

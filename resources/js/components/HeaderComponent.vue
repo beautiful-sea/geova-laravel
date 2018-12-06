@@ -261,7 +261,7 @@
 
 					<div class="author-page author vcard inline-items more">
 						<div class="author-thumb">
-							<img alt="author" src="{$user.img_profile}" width="45px" class="avatar">
+							<img alt="author" src="/img/avatar1.jpg" width="45px" class="avatar">
 							<span class="icon-status online"></span>
 							<div class="more-dropdown more-with-triangle">
 								<div class="mCustomScrollbar" data-mcs-theme="dark">
@@ -349,11 +349,11 @@
 
 							</div>
 						</div>
-						<a href="/{$user.username}" class="author-name fn">
+						<a href="/img/avatar1.jpg" class="author-name fn">
 							<div class="author-title">
-								{$user.name} <svg class="olymp-dropdown-arrow-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-dropdown-arrow-icon"></use></svg>
+								{{user.name}}<svg class="olymp-dropdown-arrow-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-dropdown-arrow-icon"></use></svg>
 							</div>
-							<span class="author-subtitle">@{$user.username}</span>
+							<span class="author-subtitle">username</span>
 						</a>
 					</div>
 
@@ -657,6 +657,9 @@
 
 <script>
 export default{
-
+	props:['user'],
+	mounted: function(){
+		console.log(this.user);
+	}
 };
 </script>
