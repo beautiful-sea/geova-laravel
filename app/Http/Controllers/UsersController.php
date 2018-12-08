@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+use Illuminate\Http\Response;
+
 use Auth;
 class UsersController extends Controller
 {
@@ -71,6 +75,20 @@ class UsersController extends Controller
     {
         $user = Auth::user();
         $data = $request->all();
+
+
+      $update = $user->update($data);
+
+      if($update){
+        return redirect()->back();
+      }else{
+        return redirect()->back()->with('errors',"Erro ao atualizar dados");
+      }
+  }
+
+  public function uploadImage(Request $request){
+        $user = Auth::user();
+        $data = $request->all();
         //Verifica se arquivo é valido
         if($request->hasFile('img_profile') && $request->file('img_profile')->isValid()){
 
@@ -78,25 +96,25 @@ class UsersController extends Controller
             $name = explode('.',$user->img_profile);
             $name = $name[0];
             }else{
-              $name = $user->id.'-'.kebab_case($user->name);             
+              $name = $user->id.'-profile-'.kebab_case($user->name);             
             }
-          
-          $extension = $request->file('img_profile')->extension();
-          $nameFile = "{$name}.png"; 
-          $data['img_profile'] = $nameFile;
-          $upload = $request->file('img_profile')->storeAs('users/profile/',$nameFile);
-
-          if(!$upload){
-            return redirect()->back()->with('errors','Erro ao salvar imagem');
+          $file = $request->file('img_profile');
+          $filename = "{$name}.png"; 
+          $data['img_profile'] = $filename;
+          if($file){
+            Storage::disk('local')->put("users/{$filename}",File::get($file));
+            $update = $user->update($data);
+          }else{
+             return redirect()->back()->with('errors','Erro ao salvar imagem');
           }
+
       }
+      return redirect()->back();
+  }
 
-      $update = $user->update($data);
-
-      if($update){
-        return redirect()->back();
-      }
-
+  public function getImage($filename){
+    $file = Storage::disk('local')->get("users/{$filename}");
+    return 'new Response($file,200)';
   }
 
     /**

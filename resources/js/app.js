@@ -36,6 +36,12 @@
  Vue.component('form-post', require('./components/FormPost.vue'));
  Vue.component('modal', require('./components/Modal.vue'));
  Vue.component('topheaderprofile', require('./components/TopHeaderProfile.vue'));
+ Vue.component('blockleftfeed', require('./components/BlockLeftFeed.vue'));
+ Vue.component('blockmainfeed', require('./components/BlockMainFeed.vue'));
+ Vue.component('blockrightfeed', require('./components/BlockRightFeed.vue'));
+
+
+
 
 
 

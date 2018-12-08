@@ -12,17 +12,24 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 Route::resource('posts','PostsController');
-Route::put('post/{id}','PostsController@update')->name('updatePost');
-Route::get('post/delete/{id}','PostsController@destroy')->name('deletePost');
-Route::get('post/{id}','PostsController@show');
-Route::put('user/{id}','UsersController@update');
+
+
+	Route::prefix('post')->group(function () {
+		Route::put('/{id}','PostsController@update');
+		Route::get('/delete/{id}','PostsController@destroy');
+		Route::get('/{id}','PostsController@show');
+	});
+
+
+Route::put('user/{id}','UsersController@uploadImage');
 
 
 

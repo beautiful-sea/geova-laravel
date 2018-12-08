@@ -71,7 +71,7 @@
 						</div>
 						<div class="top-header-author">
 							<a href="02-ProfilePage.html" class="author-thumb">
-								<img src="img/author-main1.jpg" alt="author">
+								<slot></slot>
 							</a>
 							<div class="author-content">
 								<a href="02-ProfilePage.html" class="h4 author-name">James Spiegel</a>

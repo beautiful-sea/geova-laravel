@@ -14076,6 +14076,9 @@ Vue.component('post', __webpack_require__(50));
 Vue.component('form-post', __webpack_require__(53));
 Vue.component('modal', __webpack_require__(56));
 Vue.component('topheaderprofile', __webpack_require__(59));
+Vue.component('blockleftfeed', __webpack_require__(67));
+Vue.component('blockmainfeed', __webpack_require__(70));
+Vue.component('blockrightfeed', __webpack_require__(73));
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
@@ -48713,6 +48716,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	mounted: function mounted() {
@@ -48729,7 +48733,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "fixed-sidebar", staticStyle: { top: "0" } }, [
+    _c("div", { staticClass: "fixed-sidebar" }, [
       _c(
         "div",
         {
@@ -53226,646 +53230,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: ['user']
@@ -53881,1256 +53245,18 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-3 div-block left" }, [
-          _c(
-            "aside",
-            {
-              staticClass:
-                "col col-xl-12\t order-xl-1 col-lg-6 order-lg-12 col-md-6 col-sm-12 col-12"
-            },
-            [
-              _c("div", { staticClass: "ui-block" }, [
-                _c("div", { staticClass: "ui-block-title" }, [
-                  _c("h6", { staticClass: "title" }, [
-                    _vm._v("Páginas que você pode gostar")
-                  ]),
-                  _vm._v(" "),
-                  _c("a", { staticClass: "more", attrs: { href: "#" } }, [
-                    _c("svg", { staticClass: "olymp-three-dots-icon" }, [
-                      _c("use", {
-                        attrs: {
-                          "xlink:href":
-                            "svg-icons/sprites/icons.svg#olymp-three-dots-icon"
-                        }
-                      })
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "ul",
-                  {
-                    staticClass:
-                      "widget w-friend-pages-added notification-list friend-requests"
-                  },
-                  [
-                    _c("li", { staticClass: "inline-items" }, [
-                      _vm._m(0),
-                      _vm._v(" "),
-                      _vm._m(1),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        {
-                          staticClass: "notification-icon",
-                          attrs: {
-                            "data-toggle": "tooltip",
-                            "data-placement": "top",
-                            "data-original-title": "ADD TO YOUR FAVS"
-                          }
-                        },
-                        [
-                          _c("a", { attrs: { href: "#" } }, [
-                            _c("svg", { staticClass: "olymp-star-icon" }, [
-                              _c("use", {
-                                attrs: {
-                                  "xlink:href":
-                                    "svg-icons/sprites/icons.svg#olymp-star-icon"
-                                }
-                              })
-                            ])
-                          ])
-                        ]
-                      )
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "ui-block" }, [
-                _c("div", { staticClass: "widget w-wethear" }, [
-                  _c("a", { staticClass: "more", attrs: { href: "#" } }, [
-                    _c("svg", { staticClass: "olymp-three-dots-icon" }, [
-                      _c("use", {
-                        attrs: {
-                          "xlink:href":
-                            "svg-icons/sprites/icons.svg#olymp-three-dots-icon"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "wethear-now inline-items" }, [
-                    _c("div", { staticClass: "temperature-sensor" }, [
-                      _vm._v("64°")
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(2),
-                    _vm._v(" "),
-                    _c(
-                      "svg",
-                      { staticClass: "olymp-weather-partly-sunny-icon" },
-                      [
-                        _c("use", {
-                          attrs: {
-                            "xlink:href":
-                              "svg-icons/sprites/icons-weather.svg#olymp-weather-partly-sunny-icon"
-                          }
-                        })
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(3),
-                  _vm._v(" "),
-                  _c("ul", { staticClass: "weekly-forecast" }, [
-                    _c("li", [
-                      _c("div", { staticClass: "day" }, [_vm._v("sun")]),
-                      _vm._v(" "),
-                      _c("svg", { staticClass: "olymp-weather-sunny-icon" }, [
-                        _c("use", {
-                          attrs: {
-                            "xlink:href":
-                              "svg-icons/sprites/icons-weather.svg#olymp-weather-sunny-icon"
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "temperature-sensor-day" }, [
-                        _vm._v("60°")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("div", { staticClass: "day" }, [_vm._v("mon")]),
-                      _vm._v(" "),
-                      _c(
-                        "svg",
-                        { staticClass: "olymp-weather-partly-sunny-icon" },
-                        [
-                          _c("use", {
-                            attrs: {
-                              "xlink:href":
-                                "svg-icons/sprites/icons-weather.svg#olymp-weather-partly-sunny-icon"
-                            }
-                          })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "temperature-sensor-day" }, [
-                        _vm._v("58°")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("div", { staticClass: "day" }, [_vm._v("tue")]),
-                      _vm._v(" "),
-                      _c("svg", { staticClass: "olymp-weather-cloudy-icon" }, [
-                        _c("use", {
-                          attrs: {
-                            "xlink:href":
-                              "svg-icons/sprites/icons-weather.svg#olymp-weather-cloudy-icon"
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "temperature-sensor-day" }, [
-                        _vm._v("67°")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("div", { staticClass: "day" }, [_vm._v("wed")]),
-                      _vm._v(" "),
-                      _c("svg", { staticClass: "olymp-weather-rain-icon" }, [
-                        _c("use", {
-                          attrs: {
-                            "xlink:href":
-                              "svg-icons/sprites/icons-weather.svg#olymp-weather-rain-icon"
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "temperature-sensor-day" }, [
-                        _vm._v("70°")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("div", { staticClass: "day" }, [_vm._v("thu")]),
-                      _vm._v(" "),
-                      _c("svg", { staticClass: "olymp-weather-storm-icon" }, [
-                        _c("use", {
-                          attrs: {
-                            "xlink:href":
-                              "svg-icons/sprites/icons-weather.svg#olymp-weather-storm-icon"
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "temperature-sensor-day" }, [
-                        _vm._v("58°")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("div", { staticClass: "day" }, [_vm._v("fri")]),
-                      _vm._v(" "),
-                      _c("svg", { staticClass: "olymp-weather-snow-icon" }, [
-                        _c("use", {
-                          attrs: {
-                            "xlink:href":
-                              "svg-icons/sprites/icons-weather.svg#olymp-weather-snow-icon"
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "temperature-sensor-day" }, [
-                        _vm._v("68°")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("div", { staticClass: "day" }, [_vm._v("sat")]),
-                      _vm._v(" "),
-                      _c(
-                        "svg",
-                        { staticClass: "olymp-weather-wind-icon-header" },
-                        [
-                          _c("use", {
-                            attrs: {
-                              "xlink:href":
-                                "svg-icons/sprites/icons-weather.svg#olymp-weather-wind-icon-header"
-                            }
-                          })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "temperature-sensor-day" }, [
-                        _vm._v("65°")
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(4)
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "ui-block" }, [
-                _c("div", { staticClass: "w-calendar calendar-container" }, [
-                  _c("div", { staticClass: "calendar" }, [
-                    _vm._m(5),
-                    _vm._v(" "),
-                    _vm._m(6),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "list" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "day-event",
-                          attrs: {
-                            id: "accordion-1",
-                            role: "tablist",
-                            "aria-multiselectable": "true",
-                            "data-month": "12",
-                            "data-day": "2"
-                          }
-                        },
-                        [
-                          _vm._m(7),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "card" }, [
-                            _c(
-                              "div",
-                              {
-                                staticClass: "card-header",
-                                attrs: { role: "tab", id: "headingOne-1" }
-                              },
-                              [
-                                _c("div", { staticClass: "event-time" }, [
-                                  _c("span", { staticClass: "circle" }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "time",
-                                    { attrs: { datetime: "2004-07-24T18:18" } },
-                                    [_vm._v("9:00am")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "more",
-                                      attrs: { href: "#" }
-                                    },
-                                    [
-                                      _c(
-                                        "svg",
-                                        {
-                                          staticClass: "olymp-three-dots-icon"
-                                        },
-                                        [
-                                          _c("use", {
-                                            attrs: {
-                                              "xlink:href":
-                                                "svg-icons/sprites/icons.svg#olymp-three-dots-icon"
-                                            }
-                                          })
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c("h5", { staticClass: "mb-0" }, [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        "data-toggle": "collapse",
-                                        "data-parent": "#accordion",
-                                        href: "#collapseOne-1",
-                                        "aria-expanded": "true",
-                                        "aria-controls": "collapseOne-1"
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tBreakfast at the Agency"
-                                      ),
-                                      _c(
-                                        "svg",
-                                        {
-                                          staticClass:
-                                            "olymp-dropdown-arrow-icon"
-                                        },
-                                        [
-                                          _c("use", {
-                                            attrs: {
-                                              "xlink:href":
-                                                "svg-icons/sprites/icons.svg#olymp-dropdown-arrow-icon"
-                                            }
-                                          })
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ])
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass: "collapse",
-                                attrs: { id: "collapseOne-1", role: "tabpanel" }
-                              },
-                              [
-                                _c("div", { staticClass: "card-body" }, [
-                                  _vm._v(
-                                    "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tHi Guys! I propose to go a litle earlier at the agency to have breakfast and talk a little more about the new design project we have been working on. Cheers!\n\t\t\t\t\t\t\t\t\t\t\t\t\t"
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "place inline-items" },
-                                  [
-                                    _c(
-                                      "svg",
-                                      { staticClass: "olymp-add-a-place-icon" },
-                                      [
-                                        _c("use", {
-                                          attrs: {
-                                            "xlink:href":
-                                              "svg-icons/sprites/icons.svg#olymp-add-a-place-icon"
-                                          }
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("span", [_vm._v("Daydreamz Agency")])
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _vm._m(8)
-                              ]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "card" }, [
-                            _c(
-                              "div",
-                              {
-                                staticClass: "card-header",
-                                attrs: { role: "tab", id: "headingTwo-1" }
-                              },
-                              [
-                                _c("div", { staticClass: "event-time" }, [
-                                  _c("span", { staticClass: "circle" }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "time",
-                                    { attrs: { datetime: "2004-07-24T18:18" } },
-                                    [_vm._v("9:00am")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "more",
-                                      attrs: { href: "#" }
-                                    },
-                                    [
-                                      _c(
-                                        "svg",
-                                        {
-                                          staticClass: "olymp-three-dots-icon"
-                                        },
-                                        [
-                                          _c("use", {
-                                            attrs: {
-                                              "xlink:href":
-                                                "svg-icons/sprites/icons.svg#olymp-three-dots-icon"
-                                            }
-                                          })
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c("h5", { staticClass: "mb-0" }, [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        "data-toggle": "collapse",
-                                        "data-parent": "#accordion",
-                                        href: "#collapseTwo-1",
-                                        "aria-expanded": "true",
-                                        "aria-controls": "collapseTwo-1"
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tSend the new “Olympus” project files to the Agency"
-                                      ),
-                                      _c(
-                                        "svg",
-                                        {
-                                          staticClass:
-                                            "olymp-dropdown-arrow-icon"
-                                        },
-                                        [
-                                          _c("use", {
-                                            attrs: {
-                                              "xlink:href":
-                                                "svg-icons/sprites/icons.svg#olymp-dropdown-arrow-icon"
-                                            }
-                                          })
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ])
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _vm._m(9)
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "card" }, [
-                            _c(
-                              "div",
-                              {
-                                staticClass: "card-header",
-                                attrs: { role: "tab", id: "headingThree-1" }
-                              },
-                              [
-                                _c("div", { staticClass: "event-time" }, [
-                                  _c("span", { staticClass: "circle" }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "time",
-                                    { attrs: { datetime: "2004-07-24T18:18" } },
-                                    [_vm._v("6:30am")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "more",
-                                      attrs: { href: "#" }
-                                    },
-                                    [
-                                      _c(
-                                        "svg",
-                                        {
-                                          staticClass: "olymp-three-dots-icon"
-                                        },
-                                        [
-                                          _c("use", {
-                                            attrs: {
-                                              "xlink:href":
-                                                "svg-icons/sprites/icons.svg#olymp-three-dots-icon"
-                                            }
-                                          })
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _vm._m(10)
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "place inline-items" }, [
-                              _c(
-                                "svg",
-                                { staticClass: "olymp-add-a-place-icon" },
-                                [
-                                  _c("use", {
-                                    attrs: {
-                                      "xlink:href":
-                                        "svg-icons/sprites/icons.svg#olymp-add-a-place-icon"
-                                    }
-                                  })
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("span", [_vm._v("Daydreamz Agency")])
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            { staticClass: "check-all", attrs: { href: "#" } },
-                            [_vm._v("Check all your Events")]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "day-event",
-                          attrs: {
-                            id: "accordion-2",
-                            role: "tablist",
-                            "aria-multiselectable": "true",
-                            "data-month": "12",
-                            "data-day": "10"
-                          }
-                        },
-                        [
-                          _vm._m(11),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "card" }, [
-                            _c(
-                              "div",
-                              {
-                                staticClass: "card-header",
-                                attrs: { role: "tab", id: "headingOne-2" }
-                              },
-                              [
-                                _c("div", { staticClass: "event-time" }, [
-                                  _c("span", { staticClass: "circle" }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "time",
-                                    { attrs: { datetime: "2004-07-24T18:18" } },
-                                    [_vm._v("9:00am")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "more",
-                                      attrs: { href: "#" }
-                                    },
-                                    [
-                                      _c(
-                                        "svg",
-                                        {
-                                          staticClass: "olymp-three-dots-icon"
-                                        },
-                                        [
-                                          _c("use", {
-                                            attrs: {
-                                              "xlink:href":
-                                                "svg-icons/sprites/icons.svg#olymp-three-dots-icon"
-                                            }
-                                          })
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c("h5", { staticClass: "mb-0" }, [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        "data-toggle": "collapse",
-                                        "data-parent": "#accordion",
-                                        href: "#collapseOne-2",
-                                        "aria-expanded": "true",
-                                        "aria-controls": "collapseOne-2"
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tBreakfast at the Agency"
-                                      ),
-                                      _c(
-                                        "svg",
-                                        {
-                                          staticClass:
-                                            "olymp-dropdown-arrow-icon"
-                                        },
-                                        [
-                                          _c("use", {
-                                            attrs: {
-                                              "xlink:href":
-                                                "svg-icons/sprites/icons.svg#olymp-dropdown-arrow-icon"
-                                            }
-                                          })
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ])
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass: "collapse",
-                                attrs: { id: "collapseOne-2", role: "tabpanel" }
-                              },
-                              [
-                                _c("div", { staticClass: "card-body" }, [
-                                  _vm._v(
-                                    "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tHi Guys! I propose to go a litle earlier at the agency to have breakfast and talk a little more about the new design project we have been working on. Cheers!\n\t\t\t\t\t\t\t\t\t\t\t\t\t"
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "place inline-items" },
-                                  [
-                                    _c(
-                                      "svg",
-                                      { staticClass: "olymp-add-a-place-icon" },
-                                      [
-                                        _c("use", {
-                                          attrs: {
-                                            "xlink:href":
-                                              "svg-icons/sprites/icons.svg#olymp-add-a-place-icon"
-                                          }
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("span", [_vm._v("Daydreamz Agency")])
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _vm._m(12)
-                              ]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            { staticClass: "check-all", attrs: { href: "#" } },
-                            [_vm._v("Check all your Events")]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "day-event",
-                          attrs: {
-                            id: "accordion-3",
-                            role: "tablist",
-                            "aria-multiselectable": "true",
-                            "data-month": "12",
-                            "data-day": "15"
-                          }
-                        },
-                        [
-                          _vm._m(13),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "card" }, [
-                            _c(
-                              "div",
-                              {
-                                staticClass: "card-header",
-                                attrs: { role: "tab", id: "headingOne-3" }
-                              },
-                              [
-                                _c("div", { staticClass: "event-time" }, [
-                                  _c("span", { staticClass: "circle" }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "time",
-                                    { attrs: { datetime: "2004-07-24T18:18" } },
-                                    [_vm._v("9:00am")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "more",
-                                      attrs: { href: "#" }
-                                    },
-                                    [
-                                      _c(
-                                        "svg",
-                                        {
-                                          staticClass: "olymp-three-dots-icon"
-                                        },
-                                        [
-                                          _c("use", {
-                                            attrs: {
-                                              "xlink:href":
-                                                "svg-icons/sprites/icons.svg#olymp-three-dots-icon"
-                                            }
-                                          })
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c("h5", { staticClass: "mb-0" }, [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        "data-toggle": "collapse",
-                                        "data-parent": "#accordion",
-                                        href: "#collapseOne-3",
-                                        "aria-expanded": "true",
-                                        "aria-controls": "collapseOne-3"
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tBreakfast at the Agency"
-                                      ),
-                                      _c(
-                                        "svg",
-                                        {
-                                          staticClass:
-                                            "olymp-dropdown-arrow-icon"
-                                        },
-                                        [
-                                          _c("use", {
-                                            attrs: {
-                                              "xlink:href":
-                                                "svg-icons/sprites/icons.svg#olymp-dropdown-arrow-icon"
-                                            }
-                                          })
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ])
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass: "collapse",
-                                attrs: { id: "collapseOne-3", role: "tabpanel" }
-                              },
-                              [
-                                _c("div", { staticClass: "card-body" }, [
-                                  _vm._v(
-                                    "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tHi Guys! I propose to go a litle earlier at the agency to have breakfast and talk a little more about the new design project we have been working on. Cheers!\n\t\t\t\t\t\t\t\t\t\t\t\t\t"
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "place inline-items" },
-                                  [
-                                    _c(
-                                      "svg",
-                                      { staticClass: "olymp-add-a-place-icon" },
-                                      [
-                                        _c("use", {
-                                          attrs: {
-                                            "xlink:href":
-                                              "svg-icons/sprites/icons.svg#olymp-add-a-place-icon"
-                                          }
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("span", [_vm._v("Daydreamz Agency")])
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _vm._m(14)
-                              ]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "card" }, [
-                            _c(
-                              "div",
-                              {
-                                staticClass: "card-header",
-                                attrs: { role: "tab", id: "headingTwo-3" }
-                              },
-                              [
-                                _c("div", { staticClass: "event-time" }, [
-                                  _c("span", { staticClass: "circle" }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "time",
-                                    { attrs: { datetime: "2004-07-24T18:18" } },
-                                    [_vm._v("12:00pm")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "more",
-                                      attrs: { href: "#" }
-                                    },
-                                    [
-                                      _c(
-                                        "svg",
-                                        {
-                                          staticClass: "olymp-three-dots-icon"
-                                        },
-                                        [
-                                          _c("use", {
-                                            attrs: {
-                                              "xlink:href":
-                                                "svg-icons/sprites/icons.svg#olymp-three-dots-icon"
-                                            }
-                                          })
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c("h5", { staticClass: "mb-0" }, [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        "data-toggle": "collapse",
-                                        "data-parent": "#accordion",
-                                        href: "#collapseTwo-3",
-                                        "aria-expanded": "true",
-                                        "aria-controls": "collapseTwo-3"
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tSend the new “Olympus” project files to the Agency"
-                                      ),
-                                      _c(
-                                        "svg",
-                                        {
-                                          staticClass:
-                                            "olymp-dropdown-arrow-icon"
-                                        },
-                                        [
-                                          _c("use", {
-                                            attrs: {
-                                              "xlink:href":
-                                                "svg-icons/sprites/icons.svg#olymp-dropdown-arrow-icon"
-                                            }
-                                          })
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ])
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _vm._m(15)
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "card" }, [
-                            _c(
-                              "div",
-                              {
-                                staticClass: "card-header",
-                                attrs: { role: "tab", id: "headingThree-3" }
-                              },
-                              [
-                                _c("div", { staticClass: "event-time" }, [
-                                  _c("span", { staticClass: "circle" }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "time",
-                                    { attrs: { datetime: "2004-07-24T18:18" } },
-                                    [_vm._v("6:30pm")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "more",
-                                      attrs: { href: "#" }
-                                    },
-                                    [
-                                      _c(
-                                        "svg",
-                                        {
-                                          staticClass: "olymp-three-dots-icon"
-                                        },
-                                        [
-                                          _c("use", {
-                                            attrs: {
-                                              "xlink:href":
-                                                "svg-icons/sprites/icons.svg#olymp-three-dots-icon"
-                                            }
-                                          })
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _vm._m(16)
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "place inline-items" }, [
-                              _c(
-                                "svg",
-                                { staticClass: "olymp-add-a-place-icon" },
-                                [
-                                  _c("use", {
-                                    attrs: {
-                                      "xlink:href":
-                                        "svg-icons/sprites/icons.svg#olymp-add-a-place-icon"
-                                    }
-                                  })
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("span", [_vm._v("Daydreamz Agency")])
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            { staticClass: "check-all", attrs: { href: "#" } },
-                            [_vm._v("Check all your Events")]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "day-event",
-                          attrs: {
-                            id: "accordion-4",
-                            role: "tablist",
-                            "aria-multiselectable": "true",
-                            "data-month": "12",
-                            "data-day": "28"
-                          }
-                        },
-                        [
-                          _vm._m(17),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "card" }, [
-                            _c(
-                              "div",
-                              {
-                                staticClass: "card-header",
-                                attrs: { role: "tab", id: "headingOne-4" }
-                              },
-                              [
-                                _c("div", { staticClass: "event-time" }, [
-                                  _c("span", { staticClass: "circle" }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "time",
-                                    { attrs: { datetime: "2004-07-24T18:18" } },
-                                    [_vm._v("9:00am")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "more",
-                                      attrs: { href: "#" }
-                                    },
-                                    [
-                                      _c(
-                                        "svg",
-                                        {
-                                          staticClass: "olymp-three-dots-icon"
-                                        },
-                                        [
-                                          _c("use", {
-                                            attrs: {
-                                              "xlink:href":
-                                                "svg-icons/sprites/icons.svg#olymp-three-dots-icon"
-                                            }
-                                          })
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c("h5", { staticClass: "mb-0" }, [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        "data-toggle": "collapse",
-                                        "data-parent": "#accordion",
-                                        href: "#collapseOne-4",
-                                        "aria-expanded": "true",
-                                        "aria-controls": "collapseOne-4"
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tBreakfast at the Agency"
-                                      ),
-                                      _c(
-                                        "svg",
-                                        {
-                                          staticClass:
-                                            "olymp-dropdown-arrow-icon"
-                                        },
-                                        [
-                                          _c("use", {
-                                            attrs: {
-                                              "xlink:href":
-                                                "svg-icons/sprites/icons.svg#olymp-dropdown-arrow-icon"
-                                            }
-                                          })
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ])
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass: "collapse",
-                                attrs: {
-                                  id: "collapseOne-4",
-                                  role: "tabpanel",
-                                  "aria-labelledby": "headingOne-4"
-                                }
-                              },
-                              [
-                                _c("div", { staticClass: "card-body" }, [
-                                  _vm._v(
-                                    "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tHi Guys! I propose to go a litle earlier at the agency to have breakfast and talk a little more about the new design project we have been working on. Cheers!\n\t\t\t\t\t\t\t\t\t\t\t\t\t"
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "place inline-items" },
-                                  [
-                                    _c(
-                                      "svg",
-                                      { staticClass: "olymp-add-a-place-icon" },
-                                      [
-                                        _c("use", {
-                                          attrs: {
-                                            "xlink:href":
-                                              "svg-icons/sprites/icons.svg#olymp-add-a-place-icon"
-                                          }
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("span", [_vm._v("Daydreamz Agency")])
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _vm._m(18)
-                              ]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            { staticClass: "check-all", attrs: { href: "#" } },
-                            [_vm._v("Check all your Events")]
-                          )
-                        ]
-                      )
-                    ])
-                  ])
-                ])
-              ])
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-6 div-block main" }, [
-          _c(
-            "main",
-            {
-              staticClass:
-                "col col-xl-12 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12"
-            },
-            [
-              _c("div", { staticClass: "ui-block" }, [_vm._t("form-post")], 2),
-              _vm._v(" "),
-              _c(
-                "div",
-                { attrs: { id: "newsfeed-items-grid" } },
-                [_vm._t("post")],
-                2
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "btn btn-control btn-more",
-                  attrs: {
-                    id: "load-more-button",
-                    href: "#",
-                    "data-load-link": "items-to-load.html",
-                    "data-container": "newsfeed-items-grid"
-                  }
-                },
-                [
-                  _c("svg", { staticClass: "olymp-three-dots-icon" }, [
-                    _c("use", {
-                      attrs: {
-                        "xlink:href":
-                          "svg-icons/sprites/icons.svg#olymp-three-dots-icon"
-                      }
-                    })
-                  ])
-                ]
-              )
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-3 div-block right" }, [
-          _c(
-            "aside",
-            {
-              staticClass:
-                "col col-xl-12 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-12 col-12"
-            },
-            [
-              _c("div", { staticClass: "ui-block" }, [
-                _c("div", { staticClass: "ui-block-title" }, [
-                  _c("h6", { staticClass: "title" }, [
-                    _vm._v("Seguidores Sugeridos")
-                  ]),
-                  _vm._v(" "),
-                  _c("a", { staticClass: "more", attrs: { href: "#" } }, [
-                    _c("svg", { staticClass: "olymp-three-dots-icon" }, [
-                      _c("use", {
-                        attrs: {
-                          "xlink:href":
-                            "svg-icons/sprites/icons.svg#olymp-three-dots-icon"
-                        }
-                      })
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "ul",
-                  {
-                    staticClass:
-                      "widget w-friend-pages-added notification-list friend-requests"
-                  },
-                  [
-                    _c("li", { staticClass: "inline-items" }, [
-                      _vm._m(19),
-                      _vm._v(" "),
-                      _vm._m(20),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "notification-icon" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "accept-request",
-                            attrs: { href: "#" }
-                          },
-                          [
-                            _c(
-                              "span",
-                              { staticClass: "icon-add without-text" },
-                              [
-                                _c(
-                                  "svg",
-                                  { staticClass: "olymp-happy-face-icon" },
-                                  [
-                                    _c("use", {
-                                      attrs: {
-                                        "xlink:href":
-                                          "svg-icons/sprites/icons.svg#olymp-happy-face-icon"
-                                      }
-                                    })
-                                  ]
-                                )
-                              ]
-                            )
-                          ]
-                        )
-                      ])
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "ui-block" }, [
-                _c("div", { staticClass: "ui-block-title" }, [
-                  _c("h6", { staticClass: "title" }, [
-                    _vm._v("Feed de Atividades")
-                  ]),
-                  _vm._v(" "),
-                  _c("a", { staticClass: "more", attrs: { href: "#" } }, [
-                    _c("svg", { staticClass: "olymp-three-dots-icon" }, [
-                      _c("use", {
-                        attrs: {
-                          "xlink:href":
-                            "svg-icons/sprites/icons.svg#olymp-three-dots-icon"
-                        }
-                      })
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _vm._m(21)
-              ])
-            ]
-          )
-        ])
-      ])
+      _c(
+        "div",
+        { staticClass: "row" },
+        [
+          _vm._t("blockmainfeed"),
+          _vm._v(" "),
+          _vm._t("blockleftfeed"),
+          _vm._v(" "),
+          _vm._t("blockrightfeed")
+        ],
+        2
+      )
     ]),
     _vm._v(" "),
     _c(
@@ -55176,7 +53302,7 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _vm._m(22),
+              _vm._m(0),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
                 _c(
@@ -55248,7 +53374,7 @@ var render = function() {
                       attrs: { type: "hidden", name: "_method", value: "PUT" }
                     }),
                     _vm._v(" "),
-                    _vm._m(23)
+                    _vm._m(1)
                   ]
                 )
               ])
@@ -55363,652 +53489,17 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _vm._m(24)
+              _vm._m(2)
             ])
           ]
         )
       ]
     ),
     _vm._v(" "),
-    _vm._m(25)
+    _vm._m(3)
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "author-thumb" }, [
-      _c("img", { attrs: { src: "", width: "40px", alt: "author" } })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "notification-event" }, [
-      _c("a", { staticClass: "h6 notification-friend", attrs: { href: "#" } }, [
-        _vm._v("Igreja Metodista")
-      ]),
-      _vm._v(" "),
-      _c("span", { staticClass: "chat-message-item" }, [_vm._v("Valença, RJ")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "max-min-temperature" }, [
-      _c("span", [_vm._v("58°")]),
-      _vm._v(" "),
-      _c("span", [_vm._v("76°")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "wethear-now-description" }, [
-      _c("div", { staticClass: "climate" }, [_vm._v("Partly Sunny")]),
-      _vm._v(" "),
-      _c("span", [_vm._v("Real Feel: "), _c("span", [_vm._v("67°")])]),
-      _vm._v(" "),
-      _c("span", [_vm._v("Chance of Rain: "), _c("span", [_vm._v("49%")])])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "date-and-place" }, [
-      _c("h5", { staticClass: "date" }, [_vm._v("Saturday, March 26th")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "place" }, [_vm._v("San Francisco, CA")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("header", [
-      _c("h6", { staticClass: "month" }, [_vm._v("March 2017")]),
-      _vm._v(" "),
-      _c("a", {
-        staticClass: "calendar-btn-prev fas fa-angle-left",
-        attrs: { href: "#" }
-      }),
-      _vm._v(" "),
-      _c("a", {
-        staticClass: "calendar-btn-next fas fa-angle-right",
-        attrs: { href: "#" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("table", [
-      _c("thead", [
-        _c("tr", [
-          _c("td", [_vm._v("Mon")]),
-          _c("td", [_vm._v("Tue")]),
-          _c("td", [_vm._v("Wed")]),
-          _c("td", [_vm._v("Thu")]),
-          _c("td", [_vm._v("Fri")]),
-          _c("td", [_vm._v("Sat")]),
-          _c("td", [_vm._v("San")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("tbody", [
-        _c("tr", [
-          _c("td", { attrs: { "data-month": "12", "data-day": "1" } }, [
-            _vm._v("1")
-          ]),
-          _vm._v(" "),
-          _c(
-            "td",
-            {
-              staticClass: "event-uncomplited event-complited",
-              attrs: { "data-month": "12", "data-day": "2" }
-            },
-            [_vm._v("\n\t\t\t\t\t\t\t\t\t\t\t\t\t2\n\t\t\t\t\t\t\t\t\t\t\t\t")]
-          ),
-          _vm._v(" "),
-          _c("td", { attrs: { "data-month": "12", "data-day": "3" } }, [
-            _vm._v("3")
-          ]),
-          _vm._v(" "),
-          _c("td", { attrs: { "data-month": "12", "data-day": "4" } }, [
-            _vm._v("4")
-          ]),
-          _vm._v(" "),
-          _c("td", { attrs: { "data-month": "12", "data-day": "5" } }, [
-            _vm._v("5")
-          ]),
-          _vm._v(" "),
-          _c("td", { attrs: { "data-month": "12", "data-day": "6" } }, [
-            _vm._v("6")
-          ]),
-          _vm._v(" "),
-          _c("td", { attrs: { "data-month": "12", "data-day": "7" } }, [
-            _vm._v("7")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("tr", [
-          _c("td", { attrs: { "data-month": "12", "data-day": "8" } }, [
-            _vm._v("8")
-          ]),
-          _vm._v(" "),
-          _c("td", { attrs: { "data-month": "12", "data-day": "9" } }, [
-            _vm._v("9")
-          ]),
-          _vm._v(" "),
-          _c(
-            "td",
-            {
-              staticClass: "event-complited",
-              attrs: { "data-month": "12", "data-day": "10" }
-            },
-            [_vm._v("10")]
-          ),
-          _vm._v(" "),
-          _c("td", { attrs: { "data-month": "12", "data-day": "11" } }, [
-            _vm._v("11")
-          ]),
-          _vm._v(" "),
-          _c("td", { attrs: { "data-month": "12", "data-day": "12" } }, [
-            _vm._v("12")
-          ]),
-          _vm._v(" "),
-          _c("td", { attrs: { "data-month": "12", "data-day": "13" } }, [
-            _vm._v("13")
-          ]),
-          _vm._v(" "),
-          _c("td", { attrs: { "data-month": "12", "data-day": "14" } }, [
-            _vm._v("14")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("tr", [
-          _c(
-            "td",
-            {
-              staticClass: "event-complited-2",
-              attrs: { "data-month": "12", "data-day": "15" }
-            },
-            [_vm._v("15")]
-          ),
-          _vm._v(" "),
-          _c("td", { attrs: { "data-month": "12", "data-day": "16" } }, [
-            _vm._v("16")
-          ]),
-          _vm._v(" "),
-          _c("td", { attrs: { "data-month": "12", "data-day": "17" } }, [
-            _vm._v("17")
-          ]),
-          _vm._v(" "),
-          _c("td", { attrs: { "data-month": "12", "data-day": "18" } }, [
-            _vm._v("18")
-          ]),
-          _vm._v(" "),
-          _c("td", { attrs: { "data-month": "12", "data-day": "19" } }, [
-            _vm._v("19")
-          ]),
-          _vm._v(" "),
-          _c("td", { attrs: { "data-month": "12", "data-day": "20" } }, [
-            _vm._v("20")
-          ]),
-          _vm._v(" "),
-          _c("td", { attrs: { "data-month": "12", "data-day": "21" } }, [
-            _vm._v("21")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("tr", [
-          _c("td", { attrs: { "data-month": "12", "data-day": "22" } }, [
-            _vm._v("22")
-          ]),
-          _vm._v(" "),
-          _c("td", { attrs: { "data-month": "12", "data-day": "23" } }, [
-            _vm._v("23")
-          ]),
-          _vm._v(" "),
-          _c("td", { attrs: { "data-month": "12", "data-day": "24" } }, [
-            _vm._v("24")
-          ]),
-          _vm._v(" "),
-          _c("td", { attrs: { "data-month": "12", "data-day": "25" } }, [
-            _vm._v("25")
-          ]),
-          _vm._v(" "),
-          _c("td", { attrs: { "data-month": "12", "data-day": "26" } }, [
-            _vm._v("26")
-          ]),
-          _vm._v(" "),
-          _c("td", { attrs: { "data-month": "12", "data-day": "27" } }, [
-            _vm._v("27")
-          ]),
-          _vm._v(" "),
-          _c(
-            "td",
-            {
-              staticClass: "event-uncomplited",
-              attrs: { "data-month": "12", "data-day": "28" }
-            },
-            [_vm._v("28")]
-          )
-        ]),
-        _vm._v(" "),
-        _c("tr", [
-          _c("td", { attrs: { "data-month": "12", "data-day": "29" } }, [
-            _vm._v("29")
-          ]),
-          _vm._v(" "),
-          _c("td", { attrs: { "data-month": "12", "data-day": "30" } }, [
-            _vm._v("30")
-          ]),
-          _vm._v(" "),
-          _c("td", { attrs: { "data-month": "12", "data-day": "31" } }, [
-            _vm._v("31")
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ui-block-title ui-block-title-small" }, [
-      _c("h6", { staticClass: "title" }, [_vm._v("TODAY’S EVENTS")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("ul", { staticClass: "friends-harmonic inline-items" }, [
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "img/friend-harmonic5.jpg", alt: "friend" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "img/friend-harmonic10.jpg", alt: "friend" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "img/friend-harmonic7.jpg", alt: "friend" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "img/friend-harmonic8.jpg", alt: "friend" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "img/friend-harmonic2.jpg", alt: "friend" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", { staticClass: "with-text" }, [
-        _vm._v(
-          "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tWill Assist\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "collapse",
-        attrs: { id: "collapseTwo-1", role: "tabpanel" }
-      },
-      [
-        _c("div", { staticClass: "card-body" }, [
-          _vm._v(
-            "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tHi Guys! I propose to go a litle earlier at the agency to have breakfast and talk a little more about the new design project we have been working on. Cheers!\n\t\t\t\t\t\t\t\t\t\t\t\t\t"
-          )
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h5", { staticClass: "mb-0" }, [
-      _c(
-        "a",
-        {
-          staticClass: "collapsed",
-          attrs: {
-            "data-toggle": "collapse",
-            "data-parent": "#accordion",
-            href: "#",
-            "aria-expanded": "false"
-          }
-        },
-        [
-          _vm._v(
-            "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tTake Querty to the Veterinarian\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ui-block-title ui-block-title-small" }, [
-      _c("h6", { staticClass: "title" }, [_vm._v("TODAY’S EVENTS")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("ul", { staticClass: "friends-harmonic inline-items" }, [
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "img/friend-harmonic5.jpg", alt: "friend" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "img/friend-harmonic10.jpg", alt: "friend" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "img/friend-harmonic7.jpg", alt: "friend" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "img/friend-harmonic8.jpg", alt: "friend" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "img/friend-harmonic2.jpg", alt: "friend" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", { staticClass: "with-text" }, [
-        _vm._v(
-          "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tWill Assist\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ui-block-title ui-block-title-small" }, [
-      _c("h6", { staticClass: "title" }, [_vm._v("TODAY’S EVENTS")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("ul", { staticClass: "friends-harmonic inline-items" }, [
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "img/friend-harmonic5.jpg", alt: "friend" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "img/friend-harmonic10.jpg", alt: "friend" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "img/friend-harmonic7.jpg", alt: "friend" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "img/friend-harmonic8.jpg", alt: "friend" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "img/friend-harmonic2.jpg", alt: "friend" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", { staticClass: "with-text" }, [
-        _vm._v(
-          "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tWill Assist\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "collapse",
-        attrs: { id: "collapseTwo-3", role: "tabpanel" }
-      },
-      [
-        _c("div", { staticClass: "card-body" }, [
-          _vm._v(
-            "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tHi Guys! I propose to go a litle earlier at the agency to have breakfast and talk a little more about the new design project we have been working on. Cheers!\n\t\t\t\t\t\t\t\t\t\t\t\t\t"
-          )
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h5", { staticClass: "mb-0" }, [
-      _c(
-        "a",
-        {
-          staticClass: "collapsed",
-          attrs: {
-            "data-toggle": "collapse",
-            "data-parent": "#accordion",
-            href: "#",
-            "aria-expanded": "false"
-          }
-        },
-        [
-          _vm._v(
-            "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tTake Querty to the Veterinarian\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ui-block-title ui-block-title-small" }, [
-      _c("h6", { staticClass: "title" }, [_vm._v("TODAY’S EVENTS")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("ul", { staticClass: "friends-harmonic inline-items" }, [
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "img/friend-harmonic5.jpg", alt: "friend" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "img/friend-harmonic10.jpg", alt: "friend" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "img/friend-harmonic7.jpg", alt: "friend" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "img/friend-harmonic8.jpg", alt: "friend" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "img/friend-harmonic2.jpg", alt: "friend" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", { staticClass: "with-text" }, [
-        _vm._v(
-          "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tWill Assist\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "author-thumb" }, [
-      _c("img", {
-        attrs: { width: "100%", src: "/img/avatar1.jpg", alt: "author" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "notification-event" }, [
-      _c("a", { staticClass: "h6 notification-friend", attrs: { href: "#" } }, [
-        _vm._v("Name")
-      ]),
-      _vm._v(" "),
-      _c("span", { staticClass: "chat-message-item" }, [
-        _vm._v("8 Amigos em comum")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "ul",
-      { staticClass: "widget w-activity-feed notification-list" },
-      [
-        _c("li", [
-          _c("div", { staticClass: "author-thumb" }, [
-            _c("img", { attrs: { src: "img/avatar49-sm.jpg", alt: "author" } })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "notification-event" }, [
-            _c(
-              "a",
-              { staticClass: "h6 notification-friend", attrs: { href: "#" } },
-              [_vm._v("Marina Polson")]
-            ),
-            _vm._v(" commented on Jason Mark’s "),
-            _c(
-              "a",
-              { staticClass: "notification-link", attrs: { href: "#" } },
-              [_vm._v("photo.")]
-            ),
-            _vm._v(".\n\t\t\t\t\t\t\t\t\t\t"),
-            _c("span", { staticClass: "notification-date" }, [
-              _c(
-                "time",
-                {
-                  staticClass: "entry-date updated",
-                  attrs: { datetime: "2004-07-24T18:18" }
-                },
-                [_vm._v("2 mins ago")]
-              )
-            ])
-          ])
-        ])
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -57099,6 +54590,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: ['action_status', 'action_media', 'action_blog', 'token', 'method']
@@ -57112,114 +54605,240 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "news-feed-form" }, [
-    _c("ul", { staticClass: "nav nav-tabs", attrs: { role: "tablist" } }, [
-      _c("li", { staticClass: "nav-item" }, [
+  return _c("div", { staticClass: "ui-block" }, [
+    _c("div", { staticClass: "news-feed-form" }, [
+      _c("ul", { staticClass: "nav nav-tabs", attrs: { role: "tablist" } }, [
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link active inline-items",
+              attrs: {
+                "data-toggle": "tab",
+                href: "#home-1",
+                role: "tab",
+                "aria-expanded": "true"
+              }
+            },
+            [
+              _c("svg", { staticClass: "olymp-status-icon" }, [
+                _c("use", {
+                  attrs: {
+                    "xlink:href":
+                      "svg-icons/sprites/icons.svg#olymp-status-icon"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("span", [_vm._v("Status")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link inline-items",
+              attrs: {
+                "data-toggle": "tab",
+                href: "#profile-1",
+                role: "tab",
+                "aria-expanded": "false"
+              }
+            },
+            [
+              _c("svg", { staticClass: "olymp-multimedia-icon" }, [
+                _c("use", {
+                  attrs: {
+                    "xlink:href":
+                      "svg-icons/sprites/icons.svg#olymp-multimedia-icon"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("span", [_vm._v("Foto/ Vídeo")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link inline-items",
+              attrs: {
+                "data-toggle": "tab",
+                href: "#blog",
+                role: "tab",
+                "aria-expanded": "false"
+              }
+            },
+            [
+              _c("svg", { staticClass: "olymp-blog-icon" }, [
+                _c("use", {
+                  attrs: {
+                    "xlink:href": "svg-icons/sprites/icons.svg#olymp-blog-icon"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("span", [_vm._v("Blog")])
+            ]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "tab-content" }, [
         _c(
-          "a",
+          "div",
           {
-            staticClass: "nav-link active inline-items",
+            staticClass: "tab-pane active",
+            attrs: { id: "home-1", role: "tabpanel", "aria-expanded": "true" }
+          },
+          [
+            _c(
+              "form",
+              { attrs: { action: _vm.action_status, method: _vm.method } },
+              [
+                _c(
+                  "div",
+                  { staticClass: "author-thumb" },
+                  [_vm._t("default")],
+                  2
+                ),
+                _vm._v(" "),
+                _vm._m(0),
+                _vm._v(" "),
+                _vm.token
+                  ? _c("input", {
+                      attrs: { type: "hidden", name: "" },
+                      domProps: { value: _vm.token }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: { type: "hidden", name: "type", value: "status" }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "add-options-message" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "options-message",
+                      attrs: {
+                        href: "#",
+                        "data-toggle": "tooltip",
+                        "data-placement": "top",
+                        "data-original-title": "ADD PHOTOS"
+                      }
+                    },
+                    [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "olymp-camera-icon",
+                          attrs: {
+                            "data-toggle": "modal",
+                            "data-target": "#update-header-photo"
+                          }
+                        },
+                        [
+                          _c("use", {
+                            attrs: {
+                              "xlink:href":
+                                "svg-icons/sprites/icons.svg#olymp-camera-icon"
+                            }
+                          })
+                        ]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "options-message",
+                      attrs: {
+                        href: "#",
+                        "data-toggle": "tooltip",
+                        "data-placement": "top",
+                        "data-original-title": "TAG YOUR FRIENDS"
+                      }
+                    },
+                    [
+                      _c("svg", { staticClass: "olymp-computer-icon" }, [
+                        _c("use", {
+                          attrs: {
+                            "xlink:href":
+                              "svg-icons/sprites/icons.svg#olymp-computer-icon"
+                          }
+                        })
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "options-message",
+                      attrs: {
+                        href: "#",
+                        "data-toggle": "tooltip",
+                        "data-placement": "top",
+                        "data-original-title": "ADD LOCATION"
+                      }
+                    },
+                    [
+                      _c("svg", { staticClass: "olymp-small-pin-icon" }, [
+                        _c("use", {
+                          attrs: {
+                            "xlink:href":
+                              "svg-icons/sprites/icons.svg#olymp-small-pin-icon"
+                          }
+                        })
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("button", { staticClass: "btn btn-primary btn-md-2" }, [
+                    _vm._v("Publicar")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "btn btn-md-2 btn-border-think btn-transparent c-grey"
+                    },
+                    [_vm._v("Ver")]
+                  )
+                ])
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "tab-pane",
             attrs: {
-              "data-toggle": "tab",
-              href: "#home-1",
-              role: "tab",
+              id: "profile-1",
+              role: "tabpanel",
               "aria-expanded": "true"
             }
           },
           [
-            _c("svg", { staticClass: "olymp-status-icon" }, [
-              _c("use", {
-                attrs: {
-                  "xlink:href": "svg-icons/sprites/icons.svg#olymp-status-icon"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("span", [_vm._v("Status")])
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("li", { staticClass: "nav-item" }, [
-        _c(
-          "a",
-          {
-            staticClass: "nav-link inline-items",
-            attrs: {
-              "data-toggle": "tab",
-              href: "#profile-1",
-              role: "tab",
-              "aria-expanded": "false"
-            }
-          },
-          [
-            _c("svg", { staticClass: "olymp-multimedia-icon" }, [
-              _c("use", {
-                attrs: {
-                  "xlink:href":
-                    "svg-icons/sprites/icons.svg#olymp-multimedia-icon"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("span", [_vm._v("Foto/ Vídeo")])
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("li", { staticClass: "nav-item" }, [
-        _c(
-          "a",
-          {
-            staticClass: "nav-link inline-items",
-            attrs: {
-              "data-toggle": "tab",
-              href: "#blog",
-              role: "tab",
-              "aria-expanded": "false"
-            }
-          },
-          [
-            _c("svg", { staticClass: "olymp-blog-icon" }, [
-              _c("use", {
-                attrs: {
-                  "xlink:href": "svg-icons/sprites/icons.svg#olymp-blog-icon"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("span", [_vm._v("Blog")])
-          ]
-        )
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "tab-content" }, [
-      _c(
-        "div",
-        {
-          staticClass: "tab-pane active",
-          attrs: { id: "home-1", role: "tabpanel", "aria-expanded": "true" }
-        },
-        [
-          _c(
-            "form",
-            { attrs: { action: _vm.action_status, method: _vm.method } },
-            [
-              _vm._m(0),
+            _c("form", [
+              _c(
+                "div",
+                { staticClass: "author-thumb" },
+                [_vm._t("default")],
+                2
+              ),
               _vm._v(" "),
               _vm._m(1),
-              _vm._v(" "),
-              _vm.token
-                ? _c("input", {
-                    attrs: { type: "hidden", name: "" },
-                    domProps: { value: _vm.token }
-                  })
-                : _vm._e(),
-              _vm._v(" "),
-              _c("input", {
-                attrs: { type: "hidden", name: "type", value: "status" }
-              }),
               _vm._v(" "),
               _c("div", { staticClass: "add-options-message" }, [
                 _c(
@@ -57314,242 +54933,128 @@ var render = function() {
                   [_vm._v("Ver")]
                 )
               ])
-            ]
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "tab-pane",
-          attrs: { id: "profile-1", role: "tabpanel", "aria-expanded": "true" }
-        },
-        [
-          _c("form", [
-            _vm._m(2),
-            _vm._v(" "),
-            _vm._m(3),
-            _vm._v(" "),
-            _c("div", { staticClass: "add-options-message" }, [
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "tab-pane",
+            attrs: { id: "blog", role: "tabpanel", "aria-expanded": "true" }
+          },
+          [
+            _c("form", [
               _c(
-                "a",
-                {
-                  staticClass: "options-message",
-                  attrs: {
-                    href: "#",
-                    "data-toggle": "tooltip",
-                    "data-placement": "top",
-                    "data-original-title": "ADD PHOTOS"
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "olymp-camera-icon",
-                      attrs: {
-                        "data-toggle": "modal",
-                        "data-target": "#update-header-photo"
-                      }
-                    },
-                    [
+                "div",
+                { staticClass: "author-thumb" },
+                [_vm._t("default")],
+                2
+              ),
+              _vm._v(" "),
+              _vm._m(2),
+              _vm._v(" "),
+              _c("div", { staticClass: "add-options-message" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "options-message",
+                    attrs: {
+                      href: "#",
+                      "data-toggle": "tooltip",
+                      "data-placement": "top",
+                      "data-original-title": "ADD PHOTOS"
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "olymp-camera-icon",
+                        attrs: {
+                          "data-toggle": "modal",
+                          "data-target": "#update-header-photo"
+                        }
+                      },
+                      [
+                        _c("use", {
+                          attrs: {
+                            "xlink:href":
+                              "svg-icons/sprites/icons.svg#olymp-camera-icon"
+                          }
+                        })
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "options-message",
+                    attrs: {
+                      href: "#",
+                      "data-toggle": "tooltip",
+                      "data-placement": "top",
+                      "data-original-title": "TAG YOUR FRIENDS"
+                    }
+                  },
+                  [
+                    _c("svg", { staticClass: "olymp-computer-icon" }, [
                       _c("use", {
                         attrs: {
                           "xlink:href":
-                            "svg-icons/sprites/icons.svg#olymp-camera-icon"
+                            "svg-icons/sprites/icons.svg#olymp-computer-icon"
                         }
                       })
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "options-message",
-                  attrs: {
-                    href: "#",
-                    "data-toggle": "tooltip",
-                    "data-placement": "top",
-                    "data-original-title": "TAG YOUR FRIENDS"
-                  }
-                },
-                [
-                  _c("svg", { staticClass: "olymp-computer-icon" }, [
-                    _c("use", {
-                      attrs: {
-                        "xlink:href":
-                          "svg-icons/sprites/icons.svg#olymp-computer-icon"
-                      }
-                    })
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "options-message",
-                  attrs: {
-                    href: "#",
-                    "data-toggle": "tooltip",
-                    "data-placement": "top",
-                    "data-original-title": "ADD LOCATION"
-                  }
-                },
-                [
-                  _c("svg", { staticClass: "olymp-small-pin-icon" }, [
-                    _c("use", {
-                      attrs: {
-                        "xlink:href":
-                          "svg-icons/sprites/icons.svg#olymp-small-pin-icon"
-                      }
-                    })
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c("button", { staticClass: "btn btn-primary btn-md-2" }, [
-                _vm._v("Publicar")
-              ]),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "btn btn-md-2 btn-border-think btn-transparent c-grey"
-                },
-                [_vm._v("Ver")]
-              )
-            ])
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "tab-pane",
-          attrs: { id: "blog", role: "tabpanel", "aria-expanded": "true" }
-        },
-        [
-          _c("form", [
-            _vm._m(4),
-            _vm._v(" "),
-            _vm._m(5),
-            _vm._v(" "),
-            _c("div", { staticClass: "add-options-message" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "options-message",
-                  attrs: {
-                    href: "#",
-                    "data-toggle": "tooltip",
-                    "data-placement": "top",
-                    "data-original-title": "ADD PHOTOS"
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "olymp-camera-icon",
-                      attrs: {
-                        "data-toggle": "modal",
-                        "data-target": "#update-header-photo"
-                      }
-                    },
-                    [
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "options-message",
+                    attrs: {
+                      href: "#",
+                      "data-toggle": "tooltip",
+                      "data-placement": "top",
+                      "data-original-title": "ADD LOCATION"
+                    }
+                  },
+                  [
+                    _c("svg", { staticClass: "olymp-small-pin-icon" }, [
                       _c("use", {
                         attrs: {
                           "xlink:href":
-                            "svg-icons/sprites/icons.svg#olymp-camera-icon"
+                            "svg-icons/sprites/icons.svg#olymp-small-pin-icon"
                         }
                       })
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "options-message",
-                  attrs: {
-                    href: "#",
-                    "data-toggle": "tooltip",
-                    "data-placement": "top",
-                    "data-original-title": "TAG YOUR FRIENDS"
-                  }
-                },
-                [
-                  _c("svg", { staticClass: "olymp-computer-icon" }, [
-                    _c("use", {
-                      attrs: {
-                        "xlink:href":
-                          "svg-icons/sprites/icons.svg#olymp-computer-icon"
-                      }
-                    })
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "options-message",
-                  attrs: {
-                    href: "#",
-                    "data-toggle": "tooltip",
-                    "data-placement": "top",
-                    "data-original-title": "ADD LOCATION"
-                  }
-                },
-                [
-                  _c("svg", { staticClass: "olymp-small-pin-icon" }, [
-                    _c("use", {
-                      attrs: {
-                        "xlink:href":
-                          "svg-icons/sprites/icons.svg#olymp-small-pin-icon"
-                      }
-                    })
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c("button", { staticClass: "btn btn-primary btn-md-2" }, [
-                _vm._v("Publicar")
-              ]),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "btn btn-md-2 btn-border-think btn-transparent c-grey"
-                },
-                [_vm._v("Ver")]
-              )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("button", { staticClass: "btn btn-primary btn-md-2" }, [
+                  _vm._v("Publicar")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "btn btn-md-2 btn-border-think btn-transparent c-grey"
+                  },
+                  [_vm._v("Ver")]
+                )
+              ])
             ])
-          ])
-        ]
-      )
+          ]
+        )
+      ])
     ])
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "author-thumb" }, [
-      _c("img", {
-        attrs: { src: "/img/avatar1.jpg", width: "40px", alt: "author" }
-      })
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -57573,14 +55078,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "author-thumb" }, [
-      _c("img", { attrs: { src: "img/author-page.jpg", alt: "author" } })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c(
       "div",
       { staticClass: "form-group with-icon label-floating is-empty" },
@@ -57595,14 +55092,6 @@ var staticRenderFns = [
         })
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "author-thumb" }, [
-      _c("img", { attrs: { src: "img/author-page.jpg", alt: "author" } })
-    ])
   },
   function() {
     var _vm = this
@@ -58062,7 +55551,19 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(6)
+              _c("div", { staticClass: "top-header-author" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "author-thumb",
+                    attrs: { href: "02-ProfilePage.html" }
+                  },
+                  [_vm._t("default")],
+                  2
+                ),
+                _vm._v(" "),
+                _vm._m(6)
+              ])
             ])
           ])
         ]
@@ -58189,25 +55690,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "top-header-author" }, [
+    return _c("div", { staticClass: "author-content" }, [
       _c(
         "a",
-        { staticClass: "author-thumb", attrs: { href: "02-ProfilePage.html" } },
-        [_c("img", { attrs: { src: "img/author-main1.jpg", alt: "author" } })]
+        {
+          staticClass: "h4 author-name",
+          attrs: { href: "02-ProfilePage.html" }
+        },
+        [_vm._v("James Spiegel")]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "author-content" }, [
-        _c(
-          "a",
-          {
-            staticClass: "h4 author-name",
-            attrs: { href: "02-ProfilePage.html" }
-          },
-          [_vm._v("James Spiegel")]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "country" }, [_vm._v("San Francisco, CA")])
-      ])
+      _c("div", { staticClass: "country" }, [_vm._v("San Francisco, CA")])
     ])
   }
 ]
@@ -58225,6 +55718,2964 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 63 */,
+/* 64 */,
+/* 65 */,
+/* 66 */,
+/* 67 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(68)
+/* template */
+var __vue_template__ = __webpack_require__(69)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/BlockLeftFeed.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7e8dbc97", Component.options)
+  } else {
+    hotAPI.reload("data-v-7e8dbc97", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 68 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+/* 69 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass:
+        "col col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-12 col-12"
+    },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _c("div", { staticClass: "ui-block" }, [
+        _vm._m(2),
+        _vm._v(" "),
+        _c("ol", { staticClass: "widget w-playlist" }, [
+          _c(
+            "li",
+            {
+              staticClass: "js-open-popup",
+              attrs: { "data-popup-target": ".playlist-popup" }
+            },
+            [
+              _c("div", { staticClass: "playlist-thumb" }, [
+                _c("img", {
+                  attrs: { src: "img/playlist6.jpg", alt: "thumb-composition" }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "overlay" }),
+                _vm._v(" "),
+                _c("a", { staticClass: "play-icon", attrs: { href: "#" } }, [
+                  _c("svg", { staticClass: "olymp-music-play-icon-big" }, [
+                    _c("use", {
+                      attrs: {
+                        "xlink:href":
+                          "svg-icons/sprites/icons-music.svg#olymp-music-play-icon-big"
+                      }
+                    })
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._m(3),
+              _vm._v(" "),
+              _c("div", { staticClass: "composition-time" }, [
+                _c(
+                  "time",
+                  {
+                    staticClass: "published",
+                    attrs: { datetime: "2017-03-24T18:18" }
+                  },
+                  [_vm._v("3:22")]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "more" }, [
+                  _c("svg", { staticClass: "olymp-three-dots-icon" }, [
+                    _c("use", {
+                      attrs: {
+                        "xlink:href":
+                          "svg-icons/sprites/icons.svg#olymp-three-dots-icon"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(4)
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              staticClass: "js-open-popup",
+              attrs: { "data-popup-target": ".playlist-popup" }
+            },
+            [
+              _c("div", { staticClass: "playlist-thumb" }, [
+                _c("img", {
+                  attrs: { src: "img/playlist7.jpg", alt: "thumb-composition" }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "overlay" }),
+                _vm._v(" "),
+                _c("a", { staticClass: "play-icon", attrs: { href: "#" } }, [
+                  _c("svg", { staticClass: "olymp-music-play-icon-big" }, [
+                    _c("use", {
+                      attrs: {
+                        "xlink:href":
+                          "svg-icons/sprites/icons-music.svg#olymp-music-play-icon-big"
+                      }
+                    })
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._m(5),
+              _vm._v(" "),
+              _c("div", { staticClass: "composition-time" }, [
+                _c(
+                  "time",
+                  {
+                    staticClass: "published",
+                    attrs: { datetime: "2017-03-24T18:18" }
+                  },
+                  [_vm._v("5:48")]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "more" }, [
+                  _c("svg", { staticClass: "olymp-three-dots-icon" }, [
+                    _c("use", {
+                      attrs: {
+                        "xlink:href":
+                          "svg-icons/sprites/icons.svg#olymp-three-dots-icon"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(6)
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              staticClass: "js-open-popup",
+              attrs: { "data-popup-target": ".playlist-popup" }
+            },
+            [
+              _c("div", { staticClass: "playlist-thumb" }, [
+                _c("img", {
+                  attrs: { src: "img/playlist8.jpg", alt: "thumb-composition" }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "overlay" }),
+                _vm._v(" "),
+                _c("a", { staticClass: "play-icon", attrs: { href: "#" } }, [
+                  _c("svg", { staticClass: "olymp-music-play-icon-big" }, [
+                    _c("use", {
+                      attrs: {
+                        "xlink:href":
+                          "svg-icons/sprites/icons-music.svg#olymp-music-play-icon-big"
+                      }
+                    })
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._m(7),
+              _vm._v(" "),
+              _c("div", { staticClass: "composition-time" }, [
+                _c(
+                  "time",
+                  {
+                    staticClass: "published",
+                    attrs: { datetime: "2017-03-24T18:18" }
+                  },
+                  [_vm._v("3:06")]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "more" }, [
+                  _c("svg", { staticClass: "olymp-three-dots-icon" }, [
+                    _c("use", {
+                      attrs: {
+                        "xlink:href":
+                          "svg-icons/sprites/icons.svg#olymp-three-dots-icon"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(8)
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              staticClass: "js-open-popup",
+              attrs: { "data-popup-target": ".playlist-popup" }
+            },
+            [
+              _c("div", { staticClass: "playlist-thumb" }, [
+                _c("img", {
+                  attrs: { src: "img/playlist9.jpg", alt: "thumb-composition" }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "overlay" }),
+                _vm._v(" "),
+                _c("a", { staticClass: "play-icon", attrs: { href: "#" } }, [
+                  _c("svg", { staticClass: "olymp-music-play-icon-big" }, [
+                    _c("use", {
+                      attrs: {
+                        "xlink:href":
+                          "svg-icons/sprites/icons-music.svg#olymp-music-play-icon-big"
+                      }
+                    })
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._m(9),
+              _vm._v(" "),
+              _c("div", { staticClass: "composition-time" }, [
+                _c(
+                  "time",
+                  {
+                    staticClass: "published",
+                    attrs: { datetime: "2017-03-24T18:18" }
+                  },
+                  [_vm._v("6:17")]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "more" }, [
+                  _c("svg", { staticClass: "olymp-three-dots-icon" }, [
+                    _c("use", {
+                      attrs: {
+                        "xlink:href":
+                          "svg-icons/sprites/icons.svg#olymp-three-dots-icon"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(10)
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              staticClass: "js-open-popup",
+              attrs: { "data-popup-target": ".playlist-popup" }
+            },
+            [
+              _c("div", { staticClass: "playlist-thumb" }, [
+                _c("img", {
+                  attrs: { src: "img/playlist10.jpg", alt: "thumb-composition" }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "overlay" }),
+                _vm._v(" "),
+                _c("a", { staticClass: "play-icon", attrs: { href: "#" } }, [
+                  _c("svg", { staticClass: "olymp-music-play-icon-big" }, [
+                    _c("use", {
+                      attrs: {
+                        "xlink:href":
+                          "svg-icons/sprites/icons-music.svg#olymp-music-play-icon-big"
+                      }
+                    })
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._m(11),
+              _vm._v(" "),
+              _c("div", { staticClass: "composition-time" }, [
+                _c(
+                  "time",
+                  {
+                    staticClass: "published",
+                    attrs: { datetime: "2017-03-24T18:18" }
+                  },
+                  [_vm._v("5:40")]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "more" }, [
+                  _c("svg", { staticClass: "olymp-three-dots-icon" }, [
+                    _c("use", {
+                      attrs: {
+                        "xlink:href":
+                          "svg-icons/sprites/icons.svg#olymp-three-dots-icon"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(12)
+                ])
+              ])
+            ]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _vm._m(13),
+      _vm._v(" "),
+      _c("div", { staticClass: "ui-block" }, [
+        _vm._m(14),
+        _vm._v(" "),
+        _c("div", { staticClass: "ui-block-content" }, [
+          _c("ul", { staticClass: "widget w-last-video" }, [
+            _c("li", [
+              _c(
+                "a",
+                {
+                  staticClass: "play-video play-video--small",
+                  attrs: {
+                    href:
+                      "https://vimeo.com/ondemand/viewfromabluemoon4k/147865858"
+                  }
+                },
+                [
+                  _c("svg", { staticClass: "olymp-play-icon" }, [
+                    _c("use", {
+                      attrs: {
+                        "xlink:href":
+                          "svg-icons/sprites/icons.svg#olymp-play-icon"
+                      }
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("img", { attrs: { src: "img/video8.jpg", alt: "video" } }),
+              _vm._v(" "),
+              _vm._m(15),
+              _vm._v(" "),
+              _c("div", { staticClass: "overlay" })
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c(
+                "a",
+                {
+                  staticClass: "play-video play-video--small",
+                  attrs: { href: "https://youtube.com/watch?v=excVFQ2TWig" }
+                },
+                [
+                  _c("svg", { staticClass: "olymp-play-icon" }, [
+                    _c("use", {
+                      attrs: {
+                        "xlink:href":
+                          "svg-icons/sprites/icons.svg#olymp-play-icon"
+                      }
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("img", { attrs: { src: "img/video7.jpg", alt: "video" } }),
+              _vm._v(" "),
+              _vm._m(16),
+              _vm._v(" "),
+              _c("div", { staticClass: "overlay" })
+            ])
+          ])
+        ])
+      ])
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ui-block" }, [
+      _c("div", { staticClass: "ui-block-title" }, [
+        _c("h6", { staticClass: "title" }, [_vm._v("Profile Intro")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ui-block-content" }, [
+        _c("ul", { staticClass: "widget w-personal-info item-block" }, [
+          _c("li", [
+            _c("span", { staticClass: "title" }, [_vm._v("About Me:")]),
+            _vm._v(" "),
+            _c("span", { staticClass: "text" }, [
+              _vm._v(
+                "Hi, I’m James, I’m 36 and I work as a Digital Designer for the  “Daydreams” Agency in Pier 56."
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("span", { staticClass: "title" }, [
+              _vm._v("Favourite TV Shows:")
+            ]),
+            _vm._v(" "),
+            _c("span", { staticClass: "text" }, [
+              _vm._v(
+                "Breaking Good, RedDevil, People of Interest, The Running Dead, Found,  American Guy."
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("span", { staticClass: "title" }, [
+              _vm._v("Favourite Music Bands / Artists:")
+            ]),
+            _vm._v(" "),
+            _c("span", { staticClass: "text" }, [
+              _vm._v(
+                "Iron Maid, DC/AC, Megablow, The Ill, Kung Fighters, System of a Revenge."
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "widget w-socials" }, [
+          _c("h6", { staticClass: "title" }, [
+            _vm._v("Other Social Networks:")
+          ]),
+          _vm._v(" "),
+          _c(
+            "a",
+            { staticClass: "social-item bg-facebook", attrs: { href: "#" } },
+            [
+              _c("i", {
+                staticClass: "fab fa-facebook-f",
+                attrs: { "aria-hidden": "true" }
+              }),
+              _vm._v("\n\t\t\t\t\tFacebook\n\t\t\t\t")
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            { staticClass: "social-item bg-twitter", attrs: { href: "#" } },
+            [
+              _c("i", {
+                staticClass: "fab fa-twitter",
+                attrs: { "aria-hidden": "true" }
+              }),
+              _vm._v("\n\t\t\t\t\tTwitter\n\t\t\t\t")
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            { staticClass: "social-item bg-dribbble", attrs: { href: "#" } },
+            [
+              _c("i", {
+                staticClass: "fab fa-dribbble",
+                attrs: { "aria-hidden": "true" }
+              }),
+              _vm._v("\n\t\t\t\t\tDribbble\n\t\t\t\t")
+            ]
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ui-block" }, [
+      _c("div", { staticClass: "ui-block-title" }, [
+        _c("h6", { staticClass: "title" }, [_vm._v("James’s Badges")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ui-block-content" }, [
+        _c("ul", { staticClass: "widget w-badges" }, [
+          _c("li", [
+            _c("a", { attrs: { href: "24-CommunityBadges.html" } }, [
+              _c("img", { attrs: { src: "img/badge1.png", alt: "author" } }),
+              _vm._v(" "),
+              _c("div", { staticClass: "label-avatar bg-primary" }, [
+                _vm._v("2")
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "24-CommunityBadges.html" } }, [
+              _c("img", { attrs: { src: "img/badge4.png", alt: "author" } })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "24-CommunityBadges.html" } }, [
+              _c("img", { attrs: { src: "img/badge3.png", alt: "author" } }),
+              _vm._v(" "),
+              _c("div", { staticClass: "label-avatar bg-blue" }, [_vm._v("4")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "24-CommunityBadges.html" } }, [
+              _c("img", { attrs: { src: "img/badge6.png", alt: "author" } })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "24-CommunityBadges.html" } }, [
+              _c("img", { attrs: { src: "img/badge11.png", alt: "author" } })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "24-CommunityBadges.html" } }, [
+              _c("img", { attrs: { src: "img/badge8.png", alt: "author" } })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "24-CommunityBadges.html" } }, [
+              _c("img", { attrs: { src: "img/badge10.png", alt: "author" } })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "24-CommunityBadges.html" } }, [
+              _c("img", { attrs: { src: "img/badge13.png", alt: "author" } }),
+              _vm._v(" "),
+              _c("div", { staticClass: "label-avatar bg-breez" }, [_vm._v("2")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "24-CommunityBadges.html" } }, [
+              _c("img", { attrs: { src: "img/badge7.png", alt: "author" } })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "24-CommunityBadges.html" } }, [
+              _c("img", { attrs: { src: "img/badge12.png", alt: "author" } })
+            ])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ui-block-title" }, [
+      _c("h6", { staticClass: "title" }, [_vm._v("My Spotify Playlist")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "composition" }, [
+      _c("a", { staticClass: "composition-name", attrs: { href: "#" } }, [
+        _vm._v("The Past Starts Slow...")
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "composition-author", attrs: { href: "#" } }, [
+        _vm._v("System of a Revenge")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "more-dropdown" }, [
+      _c("li", [
+        _c("a", { attrs: { href: "#" } }, [_vm._v("Add Song to Player")])
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _c("a", { attrs: { href: "#" } }, [_vm._v("Add Playlist to Player")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "composition" }, [
+      _c("a", { staticClass: "composition-name", attrs: { href: "#" } }, [
+        _vm._v("The Pretender")
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "composition-author", attrs: { href: "#" } }, [
+        _vm._v("Kung Fighters")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "more-dropdown" }, [
+      _c("li", [
+        _c("a", { attrs: { href: "#" } }, [_vm._v("Add Song to Player")])
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _c("a", { attrs: { href: "#" } }, [_vm._v("Add Playlist to Player")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "composition" }, [
+      _c("a", { staticClass: "composition-name", attrs: { href: "#" } }, [
+        _vm._v("Blood Brothers")
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "composition-author", attrs: { href: "#" } }, [
+        _vm._v("Iron Maid")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "more-dropdown" }, [
+      _c("li", [
+        _c("a", { attrs: { href: "#" } }, [_vm._v("Add Song to Player")])
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _c("a", { attrs: { href: "#" } }, [_vm._v("Add Playlist to Player")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "composition" }, [
+      _c("a", { staticClass: "composition-name", attrs: { href: "#" } }, [
+        _vm._v("Seven Nation Army")
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "composition-author", attrs: { href: "#" } }, [
+        _vm._v("The Black Stripes")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "more-dropdown" }, [
+      _c("li", [
+        _c("a", { attrs: { href: "#" } }, [_vm._v("Add Song to Player")])
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _c("a", { attrs: { href: "#" } }, [_vm._v("Add Playlist to Player")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "composition" }, [
+      _c("a", { staticClass: "composition-name", attrs: { href: "#" } }, [
+        _vm._v("Killer Queen")
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "composition-author", attrs: { href: "#" } }, [
+        _vm._v("Archiduke")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "more-dropdown" }, [
+      _c("li", [
+        _c("a", { attrs: { href: "#" } }, [_vm._v("Add Song to Player")])
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _c("a", { attrs: { href: "#" } }, [_vm._v("Add Playlist to Player")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ui-block" }, [
+      _c("div", { staticClass: "ui-block-title" }, [
+        _c("h6", { staticClass: "title" }, [_vm._v("Twitter Feed")])
+      ]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "widget w-twitter" }, [
+        _c("li", { staticClass: "twitter-item" }, [
+          _c("div", { staticClass: "author-folder" }, [
+            _c("img", {
+              attrs: { src: "img/twitter-avatar1.png", alt: "avatar" }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "author" }, [
+              _c("a", { staticClass: "author-name", attrs: { href: "#" } }, [
+                _vm._v("Space Cowboy")
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "group", attrs: { href: "#" } }, [
+                _vm._v("@james_spiegelOK")
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "Tomorrow with the agency we will run 5 km for charity. Come and give us your support!\n\t\t\t\t\t"
+            ),
+            _c("a", { staticClass: "link-post", attrs: { href: "#" } }, [
+              _vm._v("#Daydream5K")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "post__date" }, [
+            _c(
+              "time",
+              {
+                staticClass: "published",
+                attrs: { datetime: "2017-03-24T18:18" }
+              },
+              [_vm._v("\n\t\t\t\t\t\t\t2 hours ago\n\t\t\t\t\t\t")]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "twitter-item" }, [
+          _c("div", { staticClass: "author-folder" }, [
+            _c("img", {
+              attrs: { src: "img/twitter-avatar1.png", alt: "avatar" }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "author" }, [
+              _c("a", { staticClass: "author-name", attrs: { href: "#" } }, [
+                _vm._v("Space Cowboy")
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "group", attrs: { href: "#" } }, [
+                _vm._v("@james_spiegelOK")
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v("Check out the new website of “The Bebop Bar”! "),
+            _c("a", { staticClass: "link-post", attrs: { href: "#" } }, [
+              _vm._v("bytle/thbp53f")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "post__date" }, [
+            _c(
+              "time",
+              {
+                staticClass: "published",
+                attrs: { datetime: "2017-03-24T18:18" }
+              },
+              [_vm._v("\n\t\t\t\t\t\t\t16 hours ago\n\t\t\t\t\t\t")]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "twitter-item" }, [
+          _c("div", { staticClass: "author-folder" }, [
+            _c("img", {
+              attrs: { src: "img/twitter-avatar1.png", alt: "avatar" }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "author" }, [
+              _c("a", { staticClass: "author-name", attrs: { href: "#" } }, [
+                _vm._v("Space Cowboy")
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "group", attrs: { href: "#" } }, [
+                _vm._v("@james_spiegelOK")
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "The Sunday is the annual agency camping trip and I still haven’t got a tent\n\t\t\t\t\t\t"
+            ),
+            _c("a", { staticClass: "link-post", attrs: { href: "#" } }, [
+              _vm._v("#TheWild #Indoors")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "post__date" }, [
+            _c(
+              "time",
+              {
+                staticClass: "published",
+                attrs: { datetime: "2017-03-24T18:18" }
+              },
+              [_vm._v("\n\t\t\t\t\t\t\t\tYesterday\n\t\t\t\t\t\t\t")]
+            )
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ui-block-title" }, [
+      _c("h6", { staticClass: "title" }, [_vm._v("Last Videos")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "video-content" }, [
+      _c("div", { staticClass: "title" }, [
+        _vm._v("System of a Revenge - Hypnotize...")
+      ]),
+      _vm._v(" "),
+      _c(
+        "time",
+        { staticClass: "published", attrs: { datetime: "2017-03-24T18:18" } },
+        [_vm._v("3:25")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "video-content" }, [
+      _c("div", { staticClass: "title" }, [
+        _vm._v("Green Goo - Live at Dan’s Arena")
+      ]),
+      _vm._v(" "),
+      _c(
+        "time",
+        { staticClass: "published", attrs: { datetime: "2017-03-24T18:18" } },
+        [_vm._v("5:48")]
+      )
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-7e8dbc97", module.exports)
+  }
+}
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(71)
+/* template */
+var __vue_template__ = __webpack_require__(72)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/BlockMainFeed.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-d4235f6e", Component.options)
+  } else {
+    hotAPI.reload("data-v-d4235f6e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 71 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass:
+        "col col-xl-6 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12"
+    },
+    [
+      _vm._t("form-post"),
+      _vm._v(" "),
+      _c("div", { attrs: { id: "newsfeed-items-grid" } }, [_vm._t("post")], 2),
+      _vm._v(" "),
+      _c(
+        "a",
+        {
+          staticClass: "btn btn-control btn-more",
+          attrs: {
+            id: "load-more-button",
+            href: "#",
+            "data-load-link": "items-to-load.html",
+            "data-container": "newsfeed-items-grid"
+          }
+        },
+        [
+          _c("svg", { staticClass: "olymp-three-dots-icon" }, [
+            _c("use", {
+              attrs: {
+                "xlink:href":
+                  "svg-icons/sprites/icons.svg#olymp-three-dots-icon"
+              }
+            })
+          ])
+        ]
+      )
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-d4235f6e", module.exports)
+  }
+}
+
+/***/ }),
+/* 73 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(74)
+/* template */
+var __vue_template__ = __webpack_require__(75)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/BlockRightFeed.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-3f0a9478", Component.options)
+  } else {
+    hotAPI.reload("data-v-3f0a9478", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 74 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+/* 75 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass:
+        "col col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-12 col-12"
+    },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _vm._m(2),
+      _vm._v(" "),
+      _c("div", { staticClass: "ui-block" }, [
+        _vm._m(3),
+        _vm._v(" "),
+        _c(
+          "ul",
+          {
+            staticClass:
+              "widget w-friend-pages-added notification-list friend-requests"
+          },
+          [
+            _c("li", { staticClass: "inline-items" }, [
+              _vm._m(4),
+              _vm._v(" "),
+              _vm._m(5),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  staticClass: "notification-icon",
+                  attrs: {
+                    "data-toggle": "tooltip",
+                    "data-placement": "top",
+                    "data-original-title": "ADD TO YOUR FAVS"
+                  }
+                },
+                [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("svg", { staticClass: "olymp-star-icon" }, [
+                      _c("use", {
+                        attrs: {
+                          "xlink:href":
+                            "svg-icons/sprites/icons.svg#olymp-star-icon"
+                        }
+                      })
+                    ])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "inline-items" }, [
+              _vm._m(6),
+              _vm._v(" "),
+              _vm._m(7),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  staticClass: "notification-icon",
+                  attrs: {
+                    "data-toggle": "tooltip",
+                    "data-placement": "top",
+                    "data-original-title": "ADD TO YOUR FAVS"
+                  }
+                },
+                [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("svg", { staticClass: "olymp-star-icon" }, [
+                      _c("use", {
+                        attrs: {
+                          "xlink:href":
+                            "svg-icons/sprites/icons.svg#olymp-star-icon"
+                        }
+                      })
+                    ])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "inline-items" }, [
+              _vm._m(8),
+              _vm._v(" "),
+              _vm._m(9),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  staticClass: "notification-icon",
+                  attrs: {
+                    "data-toggle": "tooltip",
+                    "data-placement": "top",
+                    "data-original-title": "ADD TO YOUR FAVS"
+                  }
+                },
+                [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("svg", { staticClass: "olymp-star-icon" }, [
+                      _c("use", {
+                        attrs: {
+                          "xlink:href":
+                            "svg-icons/sprites/icons.svg#olymp-star-icon"
+                        }
+                      })
+                    ])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "inline-items" }, [
+              _vm._m(10),
+              _vm._v(" "),
+              _vm._m(11),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  staticClass: "notification-icon",
+                  attrs: {
+                    "data-toggle": "tooltip",
+                    "data-placement": "top",
+                    "data-original-title": "ADD TO YOUR FAVS"
+                  }
+                },
+                [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("svg", { staticClass: "olymp-star-icon" }, [
+                      _c("use", {
+                        attrs: {
+                          "xlink:href":
+                            "svg-icons/sprites/icons.svg#olymp-star-icon"
+                        }
+                      })
+                    ])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "inline-items" }, [
+              _vm._m(12),
+              _vm._v(" "),
+              _vm._m(13),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  staticClass: "notification-icon",
+                  attrs: {
+                    "data-toggle": "tooltip",
+                    "data-placement": "top",
+                    "data-original-title": "ADD TO YOUR FAVS"
+                  }
+                },
+                [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("svg", { staticClass: "olymp-star-icon" }, [
+                      _c("use", {
+                        attrs: {
+                          "xlink:href":
+                            "svg-icons/sprites/icons.svg#olymp-star-icon"
+                        }
+                      })
+                    ])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "inline-items" }, [
+              _vm._m(14),
+              _vm._v(" "),
+              _vm._m(15),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  staticClass: "notification-icon",
+                  attrs: {
+                    "data-toggle": "tooltip",
+                    "data-placement": "top",
+                    "data-original-title": "ADD TO YOUR FAVS"
+                  }
+                },
+                [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("svg", { staticClass: "olymp-star-icon" }, [
+                      _c("use", {
+                        attrs: {
+                          "xlink:href":
+                            "svg-icons/sprites/icons.svg#olymp-star-icon"
+                        }
+                      })
+                    ])
+                  ])
+                ]
+              )
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _vm._m(16)
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ui-block" }, [
+      _c("div", { staticClass: "ui-block-title" }, [
+        _c("h6", { staticClass: "title" }, [_vm._v("Last Photos")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ui-block-content" }, [
+        _c("ul", { staticClass: "widget w-last-photo js-zoom-gallery" }, [
+          _c("li", [
+            _c("a", { attrs: { href: "img/last-photo10-large.jpg" } }, [
+              _c("img", {
+                attrs: { src: "img/last-photo10-large.jpg", alt: "photo" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "img/last-phot11-large.jpg" } }, [
+              _c("img", {
+                attrs: { src: "img/last-phot11-large.jpg", alt: "photo" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "img/last-phot12-large.jpg" } }, [
+              _c("img", {
+                attrs: { src: "img/last-phot12-large.jpg", alt: "photo" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "img/last-phot13-large.jpg" } }, [
+              _c("img", {
+                attrs: { src: "img/last-phot13-large.jpg", alt: "photo" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "img/last-phot14-large.jpg" } }, [
+              _c("img", {
+                attrs: { src: "img/last-phot14-large.jpg", alt: "photo" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "img/last-phot15-large.jpg" } }, [
+              _c("img", {
+                attrs: { src: "img/last-phot15-large.jpg", alt: "photo" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "img/last-phot16-large.jpg" } }, [
+              _c("img", {
+                attrs: { src: "img/last-phot16-large.jpg", alt: "photo" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "img/last-phot17-large.jpg" } }, [
+              _c("img", {
+                attrs: { src: "img/last-phot17-large.jpg", alt: "photo" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "img/last-phot18-large.jpg" } }, [
+              _c("img", {
+                attrs: { src: "img/last-phot18-large.jpg", alt: "photo" }
+              })
+            ])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ui-block" }, [
+      _c("div", { staticClass: "ui-block-title" }, [
+        _c("h6", { staticClass: "title" }, [_vm._v("Blog Posts")])
+      ]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "widget w-blog-posts" }, [
+        _c("li", [
+          _c("article", { staticClass: "hentry post" }, [
+            _c("a", { staticClass: "h4", attrs: { href: "#" } }, [
+              _vm._v("My Perfect Vacations in South America and Europe")
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "Lorem ipsum dolor sit amet, consect adipisicing elit, sed do eiusmod por incidid ut labore et."
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "post__date" }, [
+              _c(
+                "time",
+                {
+                  staticClass: "published",
+                  attrs: { datetime: "2017-03-24T18:18" }
+                },
+                [_vm._v("\n\t\t\t\t\t\t\t7 hours ago\n\t\t\t\t\t\t")]
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("article", { staticClass: "hentry post" }, [
+            _c("a", { staticClass: "h4", attrs: { href: "#" } }, [
+              _vm._v("The Big Experience of Travelling Alone")
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "Lorem ipsum dolor sit amet, consect adipisicing elit, sed do eiusmod por incidid ut labore et."
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "post__date" }, [
+              _c(
+                "time",
+                {
+                  staticClass: "published",
+                  attrs: { datetime: "2017-03-24T18:18" }
+                },
+                [_vm._v("\n\t\t\t\t\t\t\tMarch 18th, at 6:52pm\n\t\t\t\t\t\t")]
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ui-block" }, [
+      _c("div", { staticClass: "ui-block-title" }, [
+        _c("h6", { staticClass: "title" }, [_vm._v("Friends (86)")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ui-block-content" }, [
+        _c("ul", { staticClass: "widget w-faved-page js-zoom-gallery" }, [
+          _c("li", [
+            _c("a", { attrs: { href: "#" } }, [
+              _c("img", {
+                attrs: { src: "img/avatar38-sm.jpg", alt: "author" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "#" } }, [
+              _c("img", { attrs: { src: "img/avatar24-sm.jpg", alt: "user" } })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "#" } }, [
+              _c("img", {
+                attrs: { src: "img/avatar36-sm.jpg", alt: "author" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "#" } }, [
+              _c("img", { attrs: { src: "img/avatar35-sm.jpg", alt: "user" } })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "#" } }, [
+              _c("img", {
+                attrs: { src: "img/avatar34-sm.jpg", alt: "author" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "#" } }, [
+              _c("img", {
+                attrs: { src: "img/avatar33-sm.jpg", alt: "author" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "#" } }, [
+              _c("img", { attrs: { src: "img/avatar32-sm.jpg", alt: "user" } })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "#" } }, [
+              _c("img", {
+                attrs: { src: "img/avatar31-sm.jpg", alt: "author" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "#" } }, [
+              _c("img", {
+                attrs: { src: "img/avatar30-sm.jpg", alt: "author" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "#" } }, [
+              _c("img", { attrs: { src: "img/avatar29-sm.jpg", alt: "user" } })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "#" } }, [
+              _c("img", { attrs: { src: "img/avatar28-sm.jpg", alt: "user" } })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "#" } }, [
+              _c("img", { attrs: { src: "img/avatar27-sm.jpg", alt: "user" } })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "#" } }, [
+              _c("img", { attrs: { src: "img/avatar26-sm.jpg", alt: "user" } })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "#" } }, [
+              _c("img", { attrs: { src: "img/avatar25-sm.jpg", alt: "user" } })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "all-users" }, [
+            _c("a", { attrs: { href: "#" } }, [_vm._v("+74")])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ui-block-title" }, [
+      _c("h6", { staticClass: "title" }, [_vm._v("Favourite Pages")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "author-thumb" }, [
+      _c("img", { attrs: { src: "img/avatar41-sm.jpg", alt: "author" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "notification-event" }, [
+      _c("a", { staticClass: "h6 notification-friend", attrs: { href: "#" } }, [
+        _vm._v("The Marina Bar")
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "chat-message-item" }, [
+        _vm._v("Restaurant / Bar")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "author-thumb" }, [
+      _c("img", { attrs: { src: "img/avatar42-sm.jpg", alt: "author" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "notification-event" }, [
+      _c("a", { staticClass: "h6 notification-friend", attrs: { href: "#" } }, [
+        _vm._v("Tapronus Rock")
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "chat-message-item" }, [_vm._v("Rock Band")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "author-thumb" }, [
+      _c("img", { attrs: { src: "img/avatar43-sm.jpg", alt: "author" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "notification-event" }, [
+      _c("a", { staticClass: "h6 notification-friend", attrs: { href: "#" } }, [
+        _vm._v("Pixel Digital Design")
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "chat-message-item" }, [_vm._v("Company")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "author-thumb" }, [
+      _c("img", { attrs: { src: "img/avatar44-sm.jpg", alt: "author" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "notification-event" }, [
+      _c("a", { staticClass: "h6 notification-friend", attrs: { href: "#" } }, [
+        _vm._v("Thompson’s Custom Clothing Boutique")
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "chat-message-item" }, [
+        _vm._v("Clothing Store")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "author-thumb" }, [
+      _c("img", { attrs: { src: "img/avatar45-sm.jpg", alt: "author" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "notification-event" }, [
+      _c("a", { staticClass: "h6 notification-friend", attrs: { href: "#" } }, [
+        _vm._v("Crimson Agency")
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "chat-message-item" }, [_vm._v("Company")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "author-thumb" }, [
+      _c("img", { attrs: { src: "img/avatar46-sm.jpg", alt: "author" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "notification-event" }, [
+      _c("a", { staticClass: "h6 notification-friend", attrs: { href: "#" } }, [
+        _vm._v("Mannequin Angel")
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "chat-message-item" }, [
+        _vm._v("Clothing Store")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ui-block" }, [
+      _c("div", { staticClass: "ui-block-title" }, [
+        _c("h6", { staticClass: "title" }, [_vm._v("James's Poll")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ui-block-content" }, [
+        _c("ul", { staticClass: "widget w-pool" }, [
+          _c("li", [
+            _c("p", [
+              _vm._v(
+                "If you had to choose, which actor do you prefer to be the next Darkman? "
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("div", { staticClass: "skills-item" }, [
+              _c("div", { staticClass: "skills-item-info" }, [
+                _c("span", { staticClass: "skills-item-title" }, [
+                  _c("span", { staticClass: "radio" }, [
+                    _c("label", [
+                      _c("input", {
+                        attrs: { type: "radio", name: "optionsRadios" }
+                      }),
+                      _vm._v(
+                        "\n\t\t\t\t\t\t\t\t\t\tThomas Bale\n\t\t\t\t\t\t\t\t\t"
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "skills-item-count" }, [
+                  _c("span", {
+                    staticClass: "count-animate",
+                    attrs: {
+                      "data-speed": "1000",
+                      "data-refresh-interval": "50",
+                      "data-to": "62",
+                      "data-from": "0"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "units" }, [_vm._v("62%")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "skills-item-meter" }, [
+                _c("span", {
+                  staticClass: "skills-item-meter-active bg-primary",
+                  staticStyle: { width: "62%" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "counter-friends" }, [
+                _vm._v("12 friends voted for this")
+              ]),
+              _vm._v(" "),
+              _c("ul", { staticClass: "friends-harmonic" }, [
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("img", {
+                      attrs: { src: "img/friend-harmonic1.jpg", alt: "friend" }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("img", {
+                      attrs: { src: "img/friend-harmonic2.jpg", alt: "friend" }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("img", {
+                      attrs: { src: "img/friend-harmonic3.jpg", alt: "friend" }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("img", {
+                      attrs: { src: "img/friend-harmonic4.jpg", alt: "friend" }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("img", {
+                      attrs: { src: "img/friend-harmonic5.jpg", alt: "friend" }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("img", {
+                      attrs: { src: "img/friend-harmonic6.jpg", alt: "friend" }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("img", {
+                      attrs: { src: "img/friend-harmonic7.jpg", alt: "friend" }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("img", {
+                      attrs: { src: "img/friend-harmonic8.jpg", alt: "friend" }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("img", {
+                      attrs: { src: "img/friend-harmonic9.jpg", alt: "friend" }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { staticClass: "all-users", attrs: { href: "#" } }, [
+                    _vm._v("+3")
+                  ])
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("div", { staticClass: "skills-item" }, [
+              _c("div", { staticClass: "skills-item-info" }, [
+                _c("span", { staticClass: "skills-item-title" }, [
+                  _c("span", { staticClass: "radio" }, [
+                    _c("label", [
+                      _c("input", {
+                        attrs: { type: "radio", name: "optionsRadios" }
+                      }),
+                      _vm._v(
+                        "\n\t\t\t\t\t\t\t\t\t\tBen Robertson\n\t\t\t\t\t\t\t\t\t"
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "skills-item-count" }, [
+                  _c("span", {
+                    staticClass: "count-animate",
+                    attrs: {
+                      "data-speed": "1000",
+                      "data-refresh-interval": "50",
+                      "data-to": "27",
+                      "data-from": "0"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "units" }, [_vm._v("27%")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "skills-item-meter" }, [
+                _c("span", {
+                  staticClass: "skills-item-meter-active bg-primary",
+                  staticStyle: { width: "27%" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "counter-friends" }, [
+                _vm._v("7 friends voted for this")
+              ]),
+              _vm._v(" "),
+              _c("ul", { staticClass: "friends-harmonic" }, [
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("img", {
+                      attrs: { src: "img/friend-harmonic7.jpg", alt: "friend" }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("img", {
+                      attrs: { src: "img/friend-harmonic8.jpg", alt: "friend" }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("img", {
+                      attrs: { src: "img/friend-harmonic9.jpg", alt: "friend" }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("img", {
+                      attrs: { src: "img/friend-harmonic10.jpg", alt: "friend" }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("img", {
+                      attrs: { src: "img/friend-harmonic11.jpg", alt: "friend" }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("img", {
+                      attrs: { src: "img/friend-harmonic12.jpg", alt: "friend" }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("img", {
+                      attrs: { src: "img/friend-harmonic13.jpg", alt: "friend" }
+                    })
+                  ])
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("div", { staticClass: "skills-item" }, [
+              _c("div", { staticClass: "skills-item-info" }, [
+                _c("span", { staticClass: "skills-item-title" }, [
+                  _c("span", { staticClass: "radio" }, [
+                    _c("label", [
+                      _c("input", {
+                        attrs: { type: "radio", name: "optionsRadios" }
+                      }),
+                      _vm._v(
+                        "\n\t\t\t\t\t\t\t\t\t\tMichael Streiton\n\t\t\t\t\t\t\t\t\t"
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "skills-item-count" }, [
+                  _c("span", {
+                    staticClass: "count-animate",
+                    attrs: {
+                      "data-speed": "1000",
+                      "data-refresh-interval": "50",
+                      "data-to": "11",
+                      "data-from": "0"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "units" }, [_vm._v("11%")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "skills-item-meter" }, [
+                _c("span", {
+                  staticClass: "skills-item-meter-active bg-primary",
+                  staticStyle: { width: "11%" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "counter-friends" }, [
+                _vm._v("2 people voted for this")
+              ]),
+              _vm._v(" "),
+              _c("ul", { staticClass: "friends-harmonic" }, [
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("img", {
+                      attrs: { src: "img/friend-harmonic14.jpg", alt: "friend" }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("img", {
+                      attrs: { src: "img/friend-harmonic15.jpg", alt: "friend" }
+                    })
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass:
+              "btn btn-md-2 btn-border-think custom-color c-grey full-width",
+            attrs: { href: "#" }
+          },
+          [_vm._v("Vote Now!")]
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-3f0a9478", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

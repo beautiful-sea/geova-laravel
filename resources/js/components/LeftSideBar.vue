@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div class="fixed-sidebar" style="top:0">
+		<div class="fixed-sidebar" style="">
 			<div class="fixed-sidebar-left sidebar--small" id="sidebar-left">
 
 				<a href="02-ProfilePage.html" class="logo">
@@ -343,6 +343,7 @@
 			</div>
 		</div>
 	</div>
+	
 </template>
 
 		<script>
