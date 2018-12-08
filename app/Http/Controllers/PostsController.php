@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use \App\User;
+use \App\Post;
 class PostsController extends Controller
 {
     /**
@@ -60,7 +61,7 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        //
+        return Post::find($id);
     }
 
     /**
@@ -82,18 +83,21 @@ class PostsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        $data = $request->all();
+    {   
 
         $validation = $request->validate([
             'text'  =>  'required'
         ]);
 
-        $user = Auth::user();  
+        $data = $request->all();
 
-        $user->post()->create($request->all());
+        $update = Post::find($id)->update($data);
 
-        return redirect()->back();   
+       if($update){
+            return redirect()->back();
+        }else{
+            echo 'error';
+        }
     }
 
     /**
@@ -104,6 +108,8 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Post::find($id)->delete();
+
+        return redirect()->back();
     }
 }

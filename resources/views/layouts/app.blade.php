@@ -35,6 +35,8 @@
     <!-- Main Styles CSS -->
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/fonts.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/preload.min.css')}}">
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -95,7 +97,6 @@
                 </div>
             </div>
         </nav> -->   
-
         <main class="py-4">
             @yield('content')
         </main>
@@ -136,11 +137,12 @@
     <script src="{{asset('js/js_template/mediaelement-and-player.js')}}"></script>
     <script src="{{asset('js/js_template/mediaelement-playlist-plugin.min.js')}}"></script>
 
-    <!-- <script src="{{asset('js/js_template/base-init.js')}}"></script> -->
+    <script src="{{asset('js/moment/moment.js')}}"></script>
+    <script src="{{asset('js/moment/locale/pt-br.js')}}"></script>
+    
+    <script src="{{asset('js/js_template/base-init.js')}}"></script>
     <script defer src="{{asset('fonts/fontawesome-all.js')}}"></script>
 
     <script src="{{asset('Bootstrap/dist/js/bootstrap.bundle.js')}}"></script>
-    <script src="{{asset('js/moment/moment.js')}}"></script>
-    <script src="{{asset('js/moment/locale/pt-br.js')}}"></script>
 </body>
 </html>

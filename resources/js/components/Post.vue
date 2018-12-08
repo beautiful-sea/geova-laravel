@@ -5,24 +5,23 @@
 			<article class="hentry post has-post-thumbnail">
 
 				<div class="post__author author vcard inline-items">
-					<img src='/img/avatar1.jpg' alt="Foto de perfil">
-
+					<slot></slot>
 					<div class="author-date">
 						<a class="h6 post__author-name fn" href="#">Lindomar</a>
 						<div class="post__date">
 							<time class="published" id="" datetime="2004-07-24T18:18">
-								<slot name="created_at"></slot>
+								<small>{{formatDate()}}</small>
 							</time>
 						</div>
 					</div>
 
-					<div class="more"><svg class="olymp-three-dots-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg>
+					<div v-if="!editable" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg>
 						<ul class="more-dropdown">
 							<li>
-								<a href="/home/update">Editar</a>
+								<a href="#" v-on:click="preencheModalPost()" data-toggle="modal" data-target="#modal">Editar</a>
 							</li>
 							<li>
-								<a href="#">Deletar</a>
+								<a :href="url">Deletar</a>
 							</li>
 							<li>
 								<a href="#">Desligar notificações</a>
@@ -32,9 +31,8 @@
 
 				</div>
 
-				<slot name="text"></slot>
-				
-
+				<p v-if="!editable">{{this.post.text}}</p>
+				<textarea class="form-control" v-if="editable" :value.prop="this.post.text" name="text" rows="2"></textarea>
 				<div class="post-additional-info inline-items">
 
 					<a href="#" class="post-add-icon inline-items">
@@ -76,7 +74,7 @@
 					</div>
 
 
-					<div class="comments-shared">
+					<div   v-if="!editable" class="comments-shared">
 						<a href="#" class="post-add-icon inline-items">
 							<svg class="olymp-speech-balloon-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-speech-balloon-icon"></use></svg>
 							<span>5</span>
@@ -91,20 +89,22 @@
 
 				</div>
 
-				<div class="control-block-button post-control-button">
+				<div  class="control-block-button post-control-button">
+					<button v-if="editable" type="submit" class="btn btn-primary" >Salvar</button>
+					
+					<div v-if="!editable">
+						<a href="#" class="btn btn-control">
+							<svg class="olymp-like-post-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-like-post-icon"></use></svg>
+						</a>
 
-					<a href="#" class="btn btn-control">
-						<svg class="olymp-like-post-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-like-post-icon"></use></svg>
-					</a>
+						<a href="#" class="btn btn-control">
+							<svg class="olymp-comments-post-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-comments-post-icon"></use></svg>
+						</a>
 
-					<a href="#" class="btn btn-control">
-						<svg class="olymp-comments-post-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-comments-post-icon"></use></svg>
-					</a>
-
-					<a href="#" class="btn btn-control">
-						<svg class="olymp-share-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-share-icon"></use></svg>
-					</a>
-
+						<a href="#" class="btn btn-control">
+							<svg class="olymp-share-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-share-icon"></use></svg>
+						</a>
+					</div>
 				</div>
 
 			</article>
@@ -113,9 +113,19 @@
 </template>
 <script>
 export default{
-	props:['text'],
+	props:['post','editable','url','user'],
 	mounted:function(){
-		console.log(this.text);
+	},
+	methods: {
+		preencheModalPost: function(){
+			axios.get('post/'+this.post.id).then(res => {
+				this.$store.commit('setItem',res.data);
+			});
+		},
+		formatDate: function(){
+			moment.locale('pt-br');
+			return moment(this.post.created_at, "YYYYMMDD H:m").fromNow();
+		}
 	}
 };
 </script>

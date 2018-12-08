@@ -657,9 +657,6 @@
 
 <script>
 export default{
-	props:['user'],
-	mounted: function(){
-		console.log(this.user);
-	}
+	props:['user']
 };
 </script>

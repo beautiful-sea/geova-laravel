@@ -542,26 +542,26 @@
 
 									<!-- ... Fim formulário de postagem  -->
 								</div>
-									<div id="newsfeed-items-grid">
-										<!-- Postagens -->
-										<slot name="post"></slot>
-										<!-- Fim Postagens -->
-									</div>
+								<div id="newsfeed-items-grid">
+									<!-- Postagens -->
+									<slot name="post"></slot>
+									<!-- Fim Postagens -->
+								</div>
 
-									<a id="load-more-button" href="#" class="btn btn-control btn-more" data-load-link="items-to-load.html" data-container="newsfeed-items-grid"><svg class="olymp-three-dots-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg></a>
+								<a id="load-more-button" href="#" class="btn btn-control btn-more" data-load-link="items-to-load.html" data-container="newsfeed-items-grid"><svg class="olymp-three-dots-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg></a>
 
-								</main>
-							</div>
+							</main>
+						</div>
 
-							<!-- ... end Main Content -->
-
-
+						<!-- ... end Main Content -->
 
 
 
-							<!-- Right Sidebar DIV RIGHT SIDEBAR -->
-							<div class="col-md-3 div-block right">
-								<aside class="col col-xl-12 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-12 col-12">
+
+
+						<!-- Right Sidebar DIV RIGHT SIDEBAR -->
+						<div class="col-md-3 div-block right">
+							<aside class="col col-xl-12 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-12 col-12">
 
 							<!-- <div class="ui-block">
 
@@ -661,24 +661,35 @@
 						</a>
 
 						<div class="modal-header">
-							<h6 class="title">Update Header Photo</h6>
+							<h6 class="title">Atualizar foto de Perfil</h6>
 						</div>
 
 						<div class="modal-body">
-							<a href="#" class="upload-photo-item">
-								<svg class="olymp-computer-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-computer-icon"></use></svg>
+							<form method="post" :action="'/user/'+user.id" enctype="multipart/form-data">
+								<a href="#" class="upload-photo-item">
+									<label class="custom-file-upload">
+										<svg class="olymp-computer-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-computer-icon"></use></svg>
 
-								<h6>Upload Photo</h6>
-								<span>Browse your computer.</span>
-							</a>
+										<input type="file" name="img_profile" style="display:none"/>
+										<h6>Enviar Foto</h6>
+										<span>Procurar no computador</span>
+									</label>
 
-							<a href="#" class="upload-photo-item" data-toggle="modal" data-target="#choose-from-my-photo">
+								</a>
 
-								<svg class="olymp-photos-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-photos-icon"></use></svg>
+								<a href="#" class="upload-photo-item" data-toggle="modal" data-target="#choose-from-my-photo">
 
-								<h6>Choose from My Photos</h6>
-								<span>Choose from your uploaded photos</span>
-							</a>
+									<svg class="olymp-photos-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-photos-icon"></use></svg>
+
+									<h6>Escolher de Minhas Fotos</h6>
+									<span>Escolher de suas fotos enviadas</span>
+								</a>
+								<input type="hidden" name="_method" value="PUT">
+								<div align="center">
+									<button type="submit" class="btn btn-success" >Enviar Imagem</button>
+
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -880,6 +891,6 @@
 
 	<script>
 	export default{
-
+		props:['user']
 	};
 	</script>

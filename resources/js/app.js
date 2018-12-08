@@ -5,10 +5,11 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+ require('./bootstrap');
 
-window.Vue = require('vue');
-
+ window.Vue = require('vue');
+ import Vuex from 'Vuex';
+ Vue.use(Vuex);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -17,13 +18,26 @@ window.Vue = require('vue');
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-Vue.component('example', require('./components/ExampleComponent.vue'));
-Vue.component('leftsidebar', require('./components/LeftSideBarComponent.vue'));
-Vue.component('header-component', require('./components/HeaderComponent.vue'));
-Vue.component('feed', require('./components/FeedComponent.vue'));
-Vue.component('post', require('./components/PostComponent.vue'));
-Vue.component('form-post', require('./components/FormPostComponent.vue'));
-Vue.component('modal', require('./components/ModalComponent.vue'));
+ const store = new Vuex.Store({
+ 	state:{
+ 		item:{}
+ 	},
+ 	mutations:{
+ 		setItem(state,obj){
+ 			state.item = obj;
+ 		}
+ 	}
+ });
+
+ Vue.component('leftsidebar', require('./components/LeftSideBar.vue'));
+ Vue.component('header-component', require('./components/Header.vue'));
+ Vue.component('feed', require('./components/Feed.vue'));
+ Vue.component('post', require('./components/Post.vue'));
+ Vue.component('form-post', require('./components/FormPost.vue'));
+ Vue.component('modal', require('./components/Modal.vue'));
+ Vue.component('topheaderprofile', require('./components/TopHeaderProfile.vue'));
+
+
 
 
 
@@ -40,6 +54,13 @@ Vue.component('modal', require('./components/ModalComponent.vue'));
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app'
-});
+ const app = new Vue({
+ 	el: '#app',
+ 	store,
+ 	mounted:function(){
+
+ 		setTimeout(function () {
+ 			jQuery("#ms-preload").hide();
+ 		}, 1000);
+ 	}
+ });

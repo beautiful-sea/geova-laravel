@@ -35,7 +35,7 @@
 					<div class="author-thumb">
 						<img src="/img/avatar1.jpg"  width="40px" alt="author">
 					</div>
-					<div class="form-group with-icon label-floating is-empty">
+					<div class="form-group with-icon label-floating is-empty" >
 						<label class="control-label">Compartilhe o que está pensando aqui...</label>
 						<textarea class="form-control" placeholder="" name="text"></textarea>
 					</div>
@@ -55,7 +55,7 @@
 
 						<button class="btn btn-primary btn-md-2">Publicar</button>
 						<button class="btn btn-md-2 btn-border-think btn-transparent c-grey">Ver</button>
-			
+
 					</div>
 
 				</form>
