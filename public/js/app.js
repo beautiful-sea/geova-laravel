@@ -51677,7 +51677,7 @@ var render = function() {
                                       _c("use", {
                                         attrs: {
                                           "xlink:href":
-                                            "/assets/site/svg-icons/sprites/icons.svg#olymp-happy-face-icon"
+                                            "/svg-icons/sprites/icons.svg#olymp-happy-face-icon"
                                         }
                                       })
                                     ]
@@ -51702,7 +51702,7 @@ var render = function() {
                                     _c("use", {
                                       attrs: {
                                         "xlink:href":
-                                          "/assets/site/svg-icons/sprites/icons.svg#olymp-happy-face-icon"
+                                          "/svg-icons/sprites/icons.svg#olymp-happy-face-icon"
                                       }
                                     })
                                   ]
@@ -51717,7 +51717,7 @@ var render = function() {
                             _c("use", {
                               attrs: {
                                 "xlink:href":
-                                  "/assets/site/svg-icons/sprites/icons.svg#olymp-three-dots-icon"
+                                  "/svg-icons/sprites/icons.svg#olymp-three-dots-icon"
                               }
                             })
                           ])
@@ -51748,7 +51748,7 @@ var render = function() {
                                       _c("use", {
                                         attrs: {
                                           "xlink:href":
-                                            "/assets/site/svg-icons/sprites/icons.svg#olymp-happy-face-icon"
+                                            "/svg-icons/sprites/icons.svg#olymp-happy-face-icon"
                                         }
                                       })
                                     ]
@@ -51773,7 +51773,7 @@ var render = function() {
                                     _c("use", {
                                       attrs: {
                                         "xlink:href":
-                                          "/assets/site/svg-icons/sprites/icons.svg#olymp-happy-face-icon"
+                                          "/svg-icons/sprites/icons.svg#olymp-happy-face-icon"
                                       }
                                     })
                                   ]
@@ -51788,7 +51788,7 @@ var render = function() {
                             _c("use", {
                               attrs: {
                                 "xlink:href":
-                                  "/assets/site/svg-icons/sprites/icons.svg#olymp-three-dots-icon"
+                                  "/svg-icons/sprites/icons.svg#olymp-three-dots-icon"
                               }
                             })
                           ])
@@ -51805,7 +51805,7 @@ var render = function() {
                             _c("use", {
                               attrs: {
                                 "xlink:href":
-                                  "/assets/site/svg-icons/sprites/icons.svg#olymp-happy-face-icon"
+                                  "/svg-icons/sprites/icons.svg#olymp-happy-face-icon"
                               }
                             })
                           ])
@@ -51816,7 +51816,7 @@ var render = function() {
                             _c("use", {
                               attrs: {
                                 "xlink:href":
-                                  "/assets/site/svg-icons/sprites/icons.svg#olymp-three-dots-icon"
+                                  "/svg-icons/sprites/icons.svg#olymp-three-dots-icon"
                               }
                             })
                           ]),
@@ -51825,7 +51825,7 @@ var render = function() {
                             _c("use", {
                               attrs: {
                                 "xlink:href":
-                                  "/assets/site/svg-icons/sprites/icons.svg#olymp-little-delete"
+                                  "/svg-icons/sprites/icons.svg#olymp-little-delete"
                               }
                             })
                           ])
@@ -51856,7 +51856,7 @@ var render = function() {
                                       _c("use", {
                                         attrs: {
                                           "xlink:href":
-                                            "/assets/site/svg-icons/sprites/icons.svg#olymp-happy-face-icon"
+                                            "/svg-icons/sprites/icons.svg#olymp-happy-face-icon"
                                         }
                                       })
                                     ]
@@ -51881,7 +51881,7 @@ var render = function() {
                                     _c("use", {
                                       attrs: {
                                         "xlink:href":
-                                          "/assets/site/svg-icons/sprites/icons.svg#olymp-happy-face-icon"
+                                          "/svg-icons/sprites/icons.svg#olymp-happy-face-icon"
                                       }
                                     })
                                   ]
@@ -51896,7 +51896,7 @@ var render = function() {
                             _c("use", {
                               attrs: {
                                 "xlink:href":
-                                  "/assets/site/svg-icons/sprites/icons.svg#olymp-three-dots-icon"
+                                  "/svg-icons/sprites/icons.svg#olymp-three-dots-icon"
                               }
                             })
                           ])
@@ -51942,7 +51942,7 @@ var render = function() {
                           _c("use", {
                             attrs: {
                               "xlink:href":
-                                "/assets/site/svg-icons/sprites/icons.svg#olymp-comments-post-icon"
+                                "/svg-icons/sprites/icons.svg#olymp-comments-post-icon"
                             }
                           })
                         ])
@@ -51953,7 +51953,7 @@ var render = function() {
                           _c("use", {
                             attrs: {
                               "xlink:href":
-                                "/assets/site/svg-icons/sprites/icons.svg#olymp-three-dots-icon"
+                                "/svg-icons/sprites/icons.svg#olymp-three-dots-icon"
                             }
                           })
                         ]),
@@ -51962,7 +51962,7 @@ var render = function() {
                           _c("use", {
                             attrs: {
                               "xlink:href":
-                                "/assets/site/svg-icons/sprites/icons.svg#olymp-little-delete"
+                                "/svg-icons/sprites/icons.svg#olymp-little-delete"
                             }
                           })
                         ])
@@ -51979,7 +51979,7 @@ var render = function() {
                           _c("use", {
                             attrs: {
                               "xlink:href":
-                                "/assets/site/svg-icons/sprites/icons.svg#olymp-happy-face-icon"
+                                "/svg-icons/sprites/icons.svg#olymp-happy-face-icon"
                             }
                           })
                         ])
@@ -51990,7 +51990,7 @@ var render = function() {
                           _c("use", {
                             attrs: {
                               "xlink:href":
-                                "/assets/site/svg-icons/sprites/icons.svg#olymp-three-dots-icon"
+                                "/svg-icons/sprites/icons.svg#olymp-three-dots-icon"
                             }
                           })
                         ]),
@@ -51999,7 +51999,7 @@ var render = function() {
                           _c("use", {
                             attrs: {
                               "xlink:href":
-                                "/assets/site/svg-icons/sprites/icons.svg#olymp-little-delete"
+                                "/svg-icons/sprites/icons.svg#olymp-little-delete"
                             }
                           })
                         ])
@@ -52016,7 +52016,7 @@ var render = function() {
                           _c("use", {
                             attrs: {
                               "xlink:href":
-                                "/assets/site/svg-icons/sprites/icons.svg#olymp-comments-post-icon"
+                                "/svg-icons/sprites/icons.svg#olymp-comments-post-icon"
                             }
                           })
                         ])
@@ -52029,7 +52029,7 @@ var render = function() {
                           _c("use", {
                             attrs: {
                               "xlink:href":
-                                "/assets/site/svg-icons/sprites/icons.svg#olymp-three-dots-icon"
+                                "/svg-icons/sprites/icons.svg#olymp-three-dots-icon"
                             }
                           })
                         ]),
@@ -52038,7 +52038,7 @@ var render = function() {
                           _c("use", {
                             attrs: {
                               "xlink:href":
-                                "/assets/site/svg-icons/sprites/icons.svg#olymp-little-delete"
+                                "/svg-icons/sprites/icons.svg#olymp-little-delete"
                             }
                           })
                         ])
@@ -52055,7 +52055,7 @@ var render = function() {
                           _c("use", {
                             attrs: {
                               "xlink:href":
-                                "/assets/site/svg-icons/sprites/icons.svg#olymp-happy-face-icon"
+                                "/svg-icons/sprites/icons.svg#olymp-happy-face-icon"
                             }
                           })
                         ])
@@ -52066,7 +52066,7 @@ var render = function() {
                           _c("use", {
                             attrs: {
                               "xlink:href":
-                                "/assets/site/svg-icons/sprites/icons.svg#olymp-three-dots-icon"
+                                "/svg-icons/sprites/icons.svg#olymp-three-dots-icon"
                             }
                           })
                         ]),
@@ -52075,7 +52075,7 @@ var render = function() {
                           _c("use", {
                             attrs: {
                               "xlink:href":
-                                "/assets/site/svg-icons/sprites/icons.svg#olymp-little-delete"
+                                "/svg-icons/sprites/icons.svg#olymp-little-delete"
                             }
                           })
                         ])
@@ -52092,7 +52092,7 @@ var render = function() {
                           _c("use", {
                             attrs: {
                               "xlink:href":
-                                "/assets/site/svg-icons/sprites/icons.svg#olymp-heart-icon"
+                                "/svg-icons/sprites/icons.svg#olymp-heart-icon"
                             }
                           })
                         ])
@@ -52103,7 +52103,7 @@ var render = function() {
                           _c("use", {
                             attrs: {
                               "xlink:href":
-                                "/assets/site/svg-icons/sprites/icons.svg#olymp-three-dots-icon"
+                                "/svg-icons/sprites/icons.svg#olymp-three-dots-icon"
                             }
                           })
                         ]),
@@ -52112,7 +52112,7 @@ var render = function() {
                           _c("use", {
                             attrs: {
                               "xlink:href":
-                                "/assets/site/svg-icons/sprites/icons.svg#olymp-little-delete"
+                                "/svg-icons/sprites/icons.svg#olymp-little-delete"
                             }
                           })
                         ])
@@ -52566,9 +52566,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "author-thumb" }, [
-      _c("img", {
-        attrs: { src: "/assets/site/img/avatar55-sm.jpg", alt: "author" }
-      })
+      _c("img", { attrs: { src: "/img/avatar55-sm.jpg", alt: "author" } })
     ])
   },
   function() {
@@ -52590,9 +52588,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "author-thumb" }, [
-      _c("img", {
-        attrs: { src: "/assets/site/img/avatar56-sm.jpg", alt: "author" }
-      })
+      _c("img", { attrs: { src: "/img/avatar56-sm.jpg", alt: "author" } })
     ])
   },
   function() {
@@ -52614,9 +52610,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "author-thumb" }, [
-      _c("img", {
-        attrs: { src: "/assets/site/img/avatar57-sm.jpg", alt: "author" }
-      })
+      _c("img", { attrs: { src: "/img/avatar57-sm.jpg", alt: "author" } })
     ])
   },
   function() {
@@ -52640,9 +52634,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "author-thumb" }, [
-      _c("img", {
-        attrs: { src: "/assets/site/img/avatar58-sm.jpg", alt: "author" }
-      })
+      _c("img", { attrs: { src: "/img/avatar58-sm.jpg", alt: "author" } })
     ])
   },
   function() {
@@ -52678,9 +52670,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "author-thumb" }, [
-      _c("img", {
-        attrs: { src: "/assets/site/img/avatar62-sm.jpg", alt: "author" }
-      })
+      _c("img", { attrs: { src: "/img/avatar62-sm.jpg", alt: "author" } })
     ])
   },
   function() {
@@ -52718,9 +52708,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "author-thumb" }, [
-      _c("img", {
-        attrs: { src: "/assets/site/img/avatar63-sm.jpg", alt: "author" }
-      })
+      _c("img", { attrs: { src: "/img/avatar63-sm.jpg", alt: "author" } })
     ])
   },
   function() {
@@ -52759,9 +52747,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "author-thumb" }, [
-      _c("img", {
-        attrs: { src: "/assets/site/img/avatar64-sm.jpg", alt: "author" }
-      })
+      _c("img", { attrs: { src: "/img/avatar64-sm.jpg", alt: "author" } })
     ])
   },
   function() {
@@ -52799,9 +52785,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "comment-photo" }, [
-      _c("img", {
-        attrs: { src: "/assets/site/img/comment-photo1.jpg", alt: "photo" }
-      }),
+      _c("img", { attrs: { src: "/img/comment-photo1.jpg", alt: "photo" } }),
       _vm._v(" "),
       _c("span", [
         _vm._v("“She looks incredible in that outfit! We should see each...”")
@@ -52813,9 +52797,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "author-thumb" }, [
-      _c("img", {
-        attrs: { src: "/assets/site/img/avatar65-sm.jpg", alt: "author" }
-      })
+      _c("img", { attrs: { src: "/img/avatar65-sm.jpg", alt: "author" } })
     ])
   },
   function() {
@@ -52853,9 +52835,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "author-thumb" }, [
-      _c("img", {
-        attrs: { src: "/assets/site/img/avatar66-sm.jpg", alt: "author" }
-      })
+      _c("img", { attrs: { src: "/img/avatar66-sm.jpg", alt: "author" } })
     ])
   },
   function() {
@@ -53230,6 +53210,53 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: ['user']
@@ -53264,10 +53291,10 @@ var render = function() {
       {
         staticClass: "modal fade",
         attrs: {
-          id: "update-header-photo",
+          id: "update-profile-photo",
           tabindex: "-1",
           role: "dialog",
-          "aria-labelledby": "update-header-photo",
+          "aria-labelledby": "update-profile-photo",
           "aria-hidden": "true"
         }
       },
@@ -53389,6 +53416,131 @@ var render = function() {
       {
         staticClass: "modal fade",
         attrs: {
+          id: "update-header-photo",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "update-header-photo",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog window-popup update-header-photo",
+            attrs: { role: "document" }
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "close icon-close",
+                  attrs: {
+                    href: "#",
+                    "data-dismiss": "modal",
+                    "aria-label": "Close"
+                  }
+                },
+                [
+                  _c("svg", { staticClass: "olymp-close-icon" }, [
+                    _c("use", {
+                      attrs: {
+                        "xlink:href":
+                          "svg-icons/sprites/icons.svg#olymp-close-icon"
+                      }
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _vm._m(2),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c(
+                  "form",
+                  {
+                    attrs: {
+                      method: "post",
+                      action: "/user/" + _vm.user.id,
+                      enctype: "multipart/form-data"
+                    }
+                  },
+                  [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "upload-photo-item",
+                        attrs: { href: "#" }
+                      },
+                      [
+                        _c("label", { staticClass: "custom-file-upload" }, [
+                          _c("svg", { staticClass: "olymp-computer-icon" }, [
+                            _c("use", {
+                              attrs: {
+                                "xlink:href":
+                                  "svg-icons/sprites/icons.svg#olymp-computer-icon"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            staticStyle: { display: "none" },
+                            attrs: { type: "file", name: "img_profile" }
+                          }),
+                          _vm._v(" "),
+                          _c("h6", [_vm._v("Enviar Foto")]),
+                          _vm._v(" "),
+                          _c("span", [_vm._v("Procurar no computador")])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "upload-photo-item",
+                        attrs: {
+                          href: "#",
+                          "data-toggle": "modal",
+                          "data-target": "#choose-from-my-photo"
+                        }
+                      },
+                      [
+                        _c("svg", { staticClass: "olymp-photos-icon" }, [
+                          _c("use", {
+                            attrs: {
+                              "xlink:href":
+                                "svg-icons/sprites/icons.svg#olymp-photos-icon"
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("h6", [_vm._v("Escolher de Minhas Fotos")]),
+                        _vm._v(" "),
+                        _c("span", [_vm._v("Escolher de suas fotos enviadas")])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      attrs: { type: "hidden", name: "_method", value: "PUT" }
+                    }),
+                    _vm._v(" "),
+                    _vm._m(3)
+                  ]
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
           id: "choose-from-my-photo",
           tabindex: "-1",
           role: "dialog",
@@ -53489,14 +53641,14 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _vm._m(2)
+              _vm._m(4)
             ])
           ]
         )
       ]
     ),
     _vm._v(" "),
-    _vm._m(3)
+    _vm._m(5)
   ])
 }
 var staticRenderFns = [
@@ -53506,6 +53658,26 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header" }, [
       _c("h6", { staticClass: "title" }, [_vm._v("Atualizar foto de Perfil")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { align: "center" } }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-success", attrs: { type: "submit" } },
+        [_vm._v("Enviar Imagem")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h6", { staticClass: "title" }, [_vm._v("Atualizar foto de Capa")])
     ])
   },
   function() {
@@ -54283,7 +54455,7 @@ var render = function() {
             : _vm._e(),
           _vm._v(" "),
           !_vm.editable
-            ? _c("div", [
+            ? _c("span", [
                 _c(
                   "a",
                   { staticClass: "btn btn-control", attrs: { href: "#" } },
@@ -55200,6 +55372,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: ['header', 'body', 'footer', 'token', 'method', 'action', 'background'],
@@ -55472,7 +55645,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+	props: ['user']
+});
 
 /***/ }),
 /* 61 */
@@ -55562,7 +55737,20 @@ var render = function() {
                   2
                 ),
                 _vm._v(" "),
-                _vm._m(6)
+                _c("div", { staticClass: "author-content" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "h4 author-name",
+                      attrs: { href: "02-ProfilePage.html" }
+                    },
+                    [_vm._v(_vm._s(_vm.user.name))]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "country" }, [
+                    _vm._v("San Francisco, CA")
+                  ])
+                ])
               ])
             ])
           ])
@@ -55657,7 +55845,7 @@ var staticRenderFns = [
               attrs: {
                 href: "#",
                 "data-toggle": "modal",
-                "data-target": "#update-header-photo"
+                "data-target": "#update-profile-photo"
               }
             },
             [_vm._v("Atualizar foto de perfil")]
@@ -55685,23 +55873,6 @@ var staticRenderFns = [
         ])
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "author-content" }, [
-      _c(
-        "a",
-        {
-          staticClass: "h4 author-name",
-          attrs: { href: "02-ProfilePage.html" }
-        },
-        [_vm._v("James Spiegel")]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "country" }, [_vm._v("San Francisco, CA")])
-    ])
   }
 ]
 render._withStripped = true

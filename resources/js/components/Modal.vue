@@ -2,6 +2,7 @@
 	<div class="modal fade" id="modal" tabindex="-1" role="dialog"  aria-hidden="true" >
 		<div class="modal-dialog" role="document">
 			<div class="modal-content" :style="defineStyleModalContent">
+
 				<form :action="this.action" :method="defineMethod">
 					<div v-if="header" class="modal-header">
 						<slot name="modal-header"></slot>

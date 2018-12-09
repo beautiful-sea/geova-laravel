@@ -57,7 +57,7 @@
 
 									<ul class="more-dropdown more-with-triangle triangle-bottom-right">
 										<li>
-											<a href="#" data-toggle="modal" data-target="#update-header-photo">Atualizar foto de perfil</a>
+											<a href="#" data-toggle="modal" data-target="#update-profile-photo">Atualizar foto de perfil</a>
 										</li>
 										<li>
 											<a href="#" data-toggle="modal" data-target="#update-header-photo">Atualizar foto de capa</a>
@@ -74,7 +74,7 @@
 								<slot></slot>
 							</a>
 							<div class="author-content">
-								<a href="02-ProfilePage.html" class="h4 author-name">James Spiegel</a>
+								<a href="02-ProfilePage.html" class="h4 author-name">{{user.name}}</a>
 								<div class="country">San Francisco, CA</div>
 							</div>
 						</div>
@@ -88,6 +88,6 @@
 </template>
 <script>
 export default{
-
+	props:['user']
 };
 </script>

@@ -92,7 +92,7 @@
 				<div  class="control-block-button post-control-button">
 					<button v-if="editable" type="submit" class="btn btn-primary" >Salvar</button>
 					
-					<div v-if="!editable">
+					<span v-if="!editable">
 						<a href="#" class="btn btn-control">
 							<svg class="olymp-like-post-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-like-post-icon"></use></svg>
 						</a>
@@ -104,7 +104,7 @@
 						<a href="#" class="btn btn-control">
 							<svg class="olymp-share-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-share-icon"></use></svg>
 						</a>
-					</div>
+					</span>
 				</div>
 
 			</article>

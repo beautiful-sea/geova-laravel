@@ -27,6 +27,12 @@
         });
     </script>
 
+
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="{{asset('bootstrap/dist/css/bootstrap-reboot.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('bootstrap/dist/css/bootstrap.css')}}">
@@ -37,13 +43,6 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/fonts.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/preload.min.css')}}">
 
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
