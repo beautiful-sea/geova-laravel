@@ -86,21 +86,22 @@ class UsersController extends Controller
       }
   }
 
-  public function uploadImage(Request $request){
+  public function uploadImage(Request $request,$image){
         $user = Auth::user();
         $data = $request->all();
+        $img = "img_{$image}";
         //Verifica se arquivo é valido
-        if($request->hasFile('img_profile') && $request->file('img_profile')->isValid()){
+        if($request->hasFile("img_{$image}") && $request->file("img_{$image}")->isValid()){
 
-            if($user->img_profile){//Se usuário ja possui imagem de perfil
-            $name = explode('.',$user->img_profile);
+            if($user->$img){//Se usuário ja possui imagem de perfil
+            $name = explode('.',$user->$img);
             $name = $name[0];
             }else{
-              $name = $user->id.'-profile-'.kebab_case($user->name);             
+              $name = $user->id."-{$image}-".kebab_case($user->name);             
             }
-          $file = $request->file('img_profile');
+          $file = $request->file("img_{$image}");
           $filename = "{$name}.png"; 
-          $data['img_profile'] = $filename;
+          $data["img_{$image}"] = $filename;
           if($file){
             Storage::disk('local')->put("users/{$filename}",File::get($file));
             $update = $user->update($data);

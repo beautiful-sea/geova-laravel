@@ -25,14 +25,17 @@ return redirect('home');
 Route::resource('posts','PostsController');
 
 
-	Route::prefix('post')->group(function () {
-		Route::put('/{id}','PostsController@update');
-		Route::get('/delete/{id}','PostsController@destroy');
-		Route::get('/{id}','PostsController@show');
-	});
+Route::prefix('post')->group(function () {
+	Route::put('/{id}','PostsController@update');
+	Route::get('/delete/{id}','PostsController@destroy');
+	Route::get('/{id}','PostsController@show');
+});
+Route::prefix('user')->group(function () {
+	Route::put('/uploadImg/{image}','UsersController@uploadImage');
+});
 
 
-Route::put('user/{id}','UsersController@uploadImage');
+
 
 
 

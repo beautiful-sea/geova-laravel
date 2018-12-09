@@ -18,7 +18,7 @@
 					<div v-if="!editable" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg>
 						<ul class="more-dropdown">
 							<li>
-								<a href="#" v-on:click="preencheModalPost()" data-toggle="modal" data-target="#modal">Editar</a>
+								<a href="#" v-on:click="preencheModalPost()" data-toggle="modal" data-target="#editPost">Editar</a>
 							</li>
 							<li>
 								<a :href="url">Deletar</a>
@@ -75,7 +75,7 @@
 
 
 					<div   v-if="!editable" class="comments-shared">
-						<a href="#" class="post-add-icon inline-items">
+						<a href="#" class="post-add-icon inline-items" data-toggle="modal" data-target="#update-profile-photo">
 							<svg class="olymp-speech-balloon-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-speech-balloon-icon"></use></svg>
 							<span>5</span>
 						</a>

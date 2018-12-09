@@ -14079,6 +14079,7 @@ Vue.component('topheaderprofile', __webpack_require__(59));
 Vue.component('blockleftfeed', __webpack_require__(67));
 Vue.component('blockmainfeed', __webpack_require__(70));
 Vue.component('blockrightfeed', __webpack_require__(73));
+Vue.component('uploadimage', __webpack_require__(76));
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
@@ -53209,54 +53210,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: ['user']
@@ -53291,10 +53244,10 @@ var render = function() {
       {
         staticClass: "modal fade",
         attrs: {
-          id: "update-profile-photo",
+          id: "update-header-photo",
           tabindex: "-1",
           role: "dialog",
-          "aria-labelledby": "update-profile-photo",
+          "aria-labelledby": "update-header-photo",
           "aria-hidden": "true"
         }
       },
@@ -53416,131 +53369,6 @@ var render = function() {
       {
         staticClass: "modal fade",
         attrs: {
-          id: "update-header-photo",
-          tabindex: "-1",
-          role: "dialog",
-          "aria-labelledby": "update-header-photo",
-          "aria-hidden": "true"
-        }
-      },
-      [
-        _c(
-          "div",
-          {
-            staticClass: "modal-dialog window-popup update-header-photo",
-            attrs: { role: "document" }
-          },
-          [
-            _c("div", { staticClass: "modal-content" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "close icon-close",
-                  attrs: {
-                    href: "#",
-                    "data-dismiss": "modal",
-                    "aria-label": "Close"
-                  }
-                },
-                [
-                  _c("svg", { staticClass: "olymp-close-icon" }, [
-                    _c("use", {
-                      attrs: {
-                        "xlink:href":
-                          "svg-icons/sprites/icons.svg#olymp-close-icon"
-                      }
-                    })
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _vm._m(2),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-body" }, [
-                _c(
-                  "form",
-                  {
-                    attrs: {
-                      method: "post",
-                      action: "/user/" + _vm.user.id,
-                      enctype: "multipart/form-data"
-                    }
-                  },
-                  [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "upload-photo-item",
-                        attrs: { href: "#" }
-                      },
-                      [
-                        _c("label", { staticClass: "custom-file-upload" }, [
-                          _c("svg", { staticClass: "olymp-computer-icon" }, [
-                            _c("use", {
-                              attrs: {
-                                "xlink:href":
-                                  "svg-icons/sprites/icons.svg#olymp-computer-icon"
-                              }
-                            })
-                          ]),
-                          _vm._v(" "),
-                          _c("input", {
-                            staticStyle: { display: "none" },
-                            attrs: { type: "file", name: "img_profile" }
-                          }),
-                          _vm._v(" "),
-                          _c("h6", [_vm._v("Enviar Foto")]),
-                          _vm._v(" "),
-                          _c("span", [_vm._v("Procurar no computador")])
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "upload-photo-item",
-                        attrs: {
-                          href: "#",
-                          "data-toggle": "modal",
-                          "data-target": "#choose-from-my-photo"
-                        }
-                      },
-                      [
-                        _c("svg", { staticClass: "olymp-photos-icon" }, [
-                          _c("use", {
-                            attrs: {
-                              "xlink:href":
-                                "svg-icons/sprites/icons.svg#olymp-photos-icon"
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("h6", [_vm._v("Escolher de Minhas Fotos")]),
-                        _vm._v(" "),
-                        _c("span", [_vm._v("Escolher de suas fotos enviadas")])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("input", {
-                      attrs: { type: "hidden", name: "_method", value: "PUT" }
-                    }),
-                    _vm._v(" "),
-                    _vm._m(3)
-                  ]
-                )
-              ])
-            ])
-          ]
-        )
-      ]
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "modal fade",
-        attrs: {
           id: "choose-from-my-photo",
           tabindex: "-1",
           role: "dialog",
@@ -53641,37 +53469,17 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _vm._m(4)
+              _vm._m(2)
             ])
           ]
         )
       ]
     ),
     _vm._v(" "),
-    _vm._m(5)
+    _vm._m(3)
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header" }, [
-      _c("h6", { staticClass: "title" }, [_vm._v("Atualizar foto de Perfil")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { attrs: { align: "center" } }, [
-      _c(
-        "button",
-        { staticClass: "btn btn-success", attrs: { type: "submit" } },
-        [_vm._v("Enviar Imagem")]
-      )
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -54345,7 +54153,7 @@ var render = function() {
                           attrs: {
                             href: "#",
                             "data-toggle": "modal",
-                            "data-target": "#modal"
+                            "data-target": "#editPost"
                           },
                           on: {
                             click: function($event) {
@@ -54406,7 +54214,11 @@ var render = function() {
                   "a",
                   {
                     staticClass: "post-add-icon inline-items",
-                    attrs: { href: "#" }
+                    attrs: {
+                      href: "#",
+                      "data-toggle": "modal",
+                      "data-target": "#update-profile-photo"
+                    }
                   },
                   [
                     _c("svg", { staticClass: "olymp-speech-balloon-icon" }, [
@@ -55373,9 +55185,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	props: ['header', 'body', 'footer', 'token', 'method', 'action', 'background'],
+	props: ['header', 'body', 'footer', 'token', 'method', 'action', 'background', 'id', 'enctype', 'dialog_class'],
 	data: function data() {
 		return {
 			alterMethod: ""
@@ -55396,7 +55209,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			return 'post';
 		},
 		defineStyleModalContent: function defineStyleModalContent() {
-			if (this.background) {
+			if (!parseInt(this.background)) {
 				return 'background-color:#fff0;border-color:#fff0';
 			} else {
 				return '';
@@ -55418,78 +55231,104 @@ var render = function() {
     {
       staticClass: "modal fade",
       attrs: {
-        id: "modal",
+        id: _vm.id,
         tabindex: "-1",
         role: "dialog",
         "aria-hidden": "true"
       }
     },
     [
-      _c("div", { staticClass: "modal-dialog", attrs: { role: "document" } }, [
-        _c(
-          "div",
-          { staticClass: "modal-content", style: _vm.defineStyleModalContent },
-          [
-            _c(
-              "form",
-              { attrs: { action: this.action, method: _vm.defineMethod } },
-              [
-                _vm.header
-                  ? _c(
-                      "div",
-                      { staticClass: "modal-header" },
-                      [_vm._t("modal-header")],
-                      2
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.body
-                  ? _c(
-                      "div",
-                      { staticClass: "modal-body" },
-                      [_vm._t("modal-body")],
-                      2
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.footer
-                  ? _c(
-                      "div",
-                      { staticClass: "modal-footer" },
-                      [
-                        _vm._t("modal-footer"),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-secondary",
-                            attrs: { type: "button", "data-dismiss": "modal" }
-                          },
-                          [_vm._v("Fechar")]
-                        )
-                      ],
-                      2
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.alterMethod
-                  ? _c("input", {
-                      attrs: { type: "hidden", name: "_method" },
-                      domProps: { value: _vm.alterMethod }
-                    })
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.token
-                  ? _c("input", {
-                      attrs: { type: "hidden", name: "_token" },
-                      domProps: { value: _vm.token }
-                    })
-                  : _vm._e()
-              ]
-            )
-          ]
-        )
-      ])
+      _c(
+        "div",
+        {
+          class: _vm.dialog_class ? _vm.dialog_class : "modal-dialog",
+          attrs: { role: "document" }
+        },
+        [
+          _vm.body || _vm.header || _vm.footer
+            ? _c(
+                "div",
+                {
+                  staticClass: "modal-content",
+                  style: _vm.defineStyleModalContent
+                },
+                [
+                  _c(
+                    "form",
+                    {
+                      attrs: {
+                        action: this.action,
+                        method: _vm.defineMethod,
+                        enctype: _vm.enctype ? "multipart/form-data" : ""
+                      }
+                    },
+                    [
+                      parseInt(_vm.header)
+                        ? _c(
+                            "div",
+                            { staticClass: "modal-header" },
+                            [_vm._t("modal-header")],
+                            2
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      parseInt(_vm.body)
+                        ? _c(
+                            "div",
+                            { staticClass: "modal-body" },
+                            [_vm._t("modal-body")],
+                            2
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      parseInt(_vm.footer)
+                        ? _c(
+                            "div",
+                            { staticClass: "modal-footer" },
+                            [
+                              _vm._t("modal-footer"),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-secondary",
+                                  attrs: {
+                                    type: "button",
+                                    "data-dismiss": "modal"
+                                  }
+                                },
+                                [_vm._v("Fechar")]
+                              )
+                            ],
+                            2
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.alterMethod
+                        ? _c("input", {
+                            attrs: { type: "hidden", name: "_method" },
+                            domProps: { value: _vm.alterMethod }
+                          })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.token
+                        ? _c("input", {
+                            attrs: { type: "hidden", name: "_token" },
+                            domProps: { value: _vm.token }
+                          })
+                        : _vm._e()
+                    ]
+                  )
+                ]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          !_vm.body && !_vm.header && !_vm.footer
+            ? _vm._t("modal-content")
+            : _vm._e()
+        ],
+        2
+      )
     ]
   )
 }
@@ -55644,6 +55483,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: ['user']
@@ -55665,11 +55505,38 @@ var render = function() {
         [
           _c("div", { staticClass: "ui-block" }, [
             _c("div", { staticClass: "top-header" }, [
-              _vm._m(0),
+              _c(
+                "div",
+                {
+                  staticClass: "top-header-thumb",
+                  staticStyle: { height: "640px" }
+                },
+                [
+                  _vm.user.img_header
+                    ? _c("img", {
+                        staticStyle: { height: "-webkit-fill-available" },
+                        attrs: {
+                          src: "storage/users/" + _vm.user.img_header,
+                          alt: "Imagem de capa"
+                        }
+                      })
+                    : _vm._e(),
+                  _vm._v(" "),
+                  !_vm.user.img_header
+                    ? _c("img", {
+                        staticStyle: { height: "-webkit-fill-available" },
+                        attrs: {
+                          src: "img/top-header1.jpg",
+                          alt: "Imagem de Capa"
+                        }
+                      })
+                    : _vm._e()
+                ]
+              ),
               _vm._v(" "),
               _c("div", { staticClass: "profile-section" }, [
                 _c("div", { staticClass: "row" }, [
-                  _vm._m(1),
+                  _vm._m(0),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -55679,9 +55546,9 @@ var render = function() {
                     },
                     [
                       _c("ul", { staticClass: "profile-menu" }, [
-                        _vm._m(2),
+                        _vm._m(1),
                         _vm._v(" "),
-                        _vm._m(3),
+                        _vm._m(2),
                         _vm._v(" "),
                         _c("li", [
                           _c("div", { staticClass: "more" }, [
@@ -55698,7 +55565,7 @@ var render = function() {
                               ]
                             ),
                             _vm._v(" "),
-                            _vm._m(4)
+                            _vm._m(3)
                           ])
                         ])
                       ])
@@ -55720,7 +55587,7 @@ var render = function() {
                         })
                       ]),
                       _vm._v(" "),
-                      _vm._m(5)
+                      _vm._m(4)
                     ]
                   )
                 ])
@@ -55760,14 +55627,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "top-header-thumb" }, [
-      _c("img", { attrs: { src: "img/top-header1.jpg", alt: "nature" } })
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -58845,6 +58704,225 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-3f0a9478", module.exports)
+  }
+}
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(77)
+/* template */
+var __vue_template__ = __webpack_require__(78)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/uploadImage.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-181809df", Component.options)
+  } else {
+    hotAPI.reload("data-v-181809df", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 77 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	props: ['method', 'action', 'name']
+});
+
+/***/ }),
+/* 78 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "modal-content" }, [
+    _c(
+      "a",
+      {
+        staticClass: "close icon-close",
+        attrs: { href: "#", "data-dismiss": "modal", "aria-label": "Close" }
+      },
+      [
+        _c("svg", { staticClass: "olymp-close-icon" }, [
+          _c("use", {
+            attrs: {
+              "xlink:href": "svg-icons/sprites/icons.svg#olymp-close-icon"
+            }
+          })
+        ])
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "modal-header" }, [
+      _c("h6", { staticClass: "title" }, [_vm._t("default")], 2)
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "modal-body" }, [
+      _c(
+        "form",
+        {
+          attrs: {
+            method: _vm.method,
+            action: _vm.action,
+            enctype: "multipart/form-data"
+          }
+        },
+        [
+          _c("a", { staticClass: "upload-photo-item", attrs: { href: "#" } }, [
+            _c("label", { staticClass: "custom-file-upload" }, [
+              _c("svg", { staticClass: "olymp-computer-icon" }, [
+                _c("use", {
+                  attrs: {
+                    "xlink:href":
+                      "svg-icons/sprites/icons.svg#olymp-computer-icon"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                staticStyle: { display: "none" },
+                attrs: { type: "file", name: _vm.name }
+              }),
+              _vm._v(" "),
+              _c("h6", [_vm._v("Enviar Foto")]),
+              _vm._v(" "),
+              _c("span", [_vm._v("Procurar no computador")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "upload-photo-item",
+              attrs: {
+                href: "#",
+                "data-toggle": "modal",
+                "data-target": "#choose-from-my-photo"
+              }
+            },
+            [
+              _c("svg", { staticClass: "olymp-photos-icon" }, [
+                _c("use", {
+                  attrs: {
+                    "xlink:href":
+                      "svg-icons/sprites/icons.svg#olymp-photos-icon"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("h6", [_vm._v("Escolher de Minhas Fotos")]),
+              _vm._v(" "),
+              _c("span", [_vm._v("Escolher de suas fotos enviadas")])
+            ]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            attrs: { type: "hidden", name: "_method", value: "PUT" }
+          }),
+          _vm._v(" "),
+          _vm._m(0)
+        ]
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { align: "center" } }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-success", attrs: { type: "submit" } },
+        [_vm._v("Enviar Imagem")]
+      )
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-181809df", module.exports)
   }
 }
 

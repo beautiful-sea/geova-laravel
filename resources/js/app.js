@@ -39,6 +39,7 @@
  Vue.component('blockleftfeed', require('./components/BlockLeftFeed.vue'));
  Vue.component('blockmainfeed', require('./components/BlockMainFeed.vue'));
  Vue.component('blockrightfeed', require('./components/BlockRightFeed.vue'));
+ Vue.component('uploadimage', require('./components/uploadImage.vue'));
 
 
 
