@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Auth;
-use \App\User;
-use \App\Post;
 use Illuminate\Support\Facades\DB;
-class PostsController extends Controller
+
+class LikesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,23 +33,37 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$idPost)
     {   
-        $data = $request->all();
+        $user = \Auth::user();
 
-        $validation = $request->validate([
-            'text'  =>  'required'
-        ]);
+        $post = \App\Post::find($idPost);
 
-        unset($data['type']);
+        $role = [
+            'users_id'  =>  $user->id,
+            'posts_id'  =>  $idPost
+        ];
 
-        $user = Auth::user();  
+        //Verifica se já existe like do usuário no post
+        //Array_filter para remover os espaços vazios do array
+        $verify =  array_filter((array)DB::table('user_like_post')
+            ->where('users_id', $role['users_id'])->where('posts_id', $role['posts_id'])->get());
 
-        $user->post()->create($request->all());
+        if(empty($verify)){
+            // //Instanciando novo like
+            $like = new \App\LikePost([
+                'users_id'  =>  $user->id,
+                'posts_id'  =>  $idPost
+            ]);
 
-        return redirect()->back();          
+            //criando o like
+            $post->likes()->save($like);
+        }else{
+            //remove like
+            $delete = DB::table('user_like_post')->where('users_id', $role['users_id'])->where('posts_id', $role['posts_id'])->delete();
+        }
 
-
+        return $user->post()->get();
     }
 
     /**
@@ -62,7 +74,9 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        return Post::find($id);
+        $post = \App\Post::find($id);
+
+        return $post->likes()->get();
     }
 
     /**
@@ -76,14 +90,6 @@ class PostsController extends Controller
         //
     }
 
-    public function myPosts()
-    {  
-        $user = Auth::user();
-        
-        $posts = $user->post()->get();
-
-        return json_encode($posts);
-    }
     /**
      * Update the specified resource in storage.
      *
@@ -92,21 +98,8 @@ class PostsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {   
-
-        $validation = $request->validate([
-            'text'  =>  'required'
-        ]);
-
-        $data = $request->all();
-
-        $update = Post::find($id)->update($data);
-
-       if($update){
-            return redirect()->back();
-        }else{
-            return redirect()->back()->with(['error'=> 'Erro ao editar post']);
-        }
+    {
+        //
     }
 
     /**
@@ -117,8 +110,6 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        Post::find($id)->delete();
-
-        return redirect()->back();
+        //
     }
 }

@@ -25,7 +25,7 @@
 					</div>
 
 					<div class="modal-body">
-						<form method="post" :action="'/user/'+user.id" enctype="multipart/form-data">
+						<form method="post" action="'/user/id'" enctype="multipart/form-data">
 							<a href="#" class="upload-photo-item">
 								<label class="custom-file-upload">
 									<svg class="olymp-computer-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-computer-icon"></use></svg>
@@ -250,6 +250,11 @@
 
 <script>
 export default{
-	props:['user']
+	props:[],
+	mounted:function(){
+		axios.get('/post/myposts').then(res =>{
+			this.$store.commit('setPosts',res.data)
+		})
+	}
 };
 </script>

@@ -2,8 +2,7 @@
 	<div class="modal fade" :id="id" tabindex="-1" role="dialog"  aria-hidden="true" >
 		<div :class="(dialog_class)?dialog_class:'modal-dialog'" role="document">
 			<div v-if="body || header || footer" class="modal-content" :style="defineStyleModalContent">
-
-				<form :action="this.action" :method="defineMethod" :enctype="(enctype)?'multipart/form-data':''">
+				<form :action="action" :method="defineMethod" :enctype="(enctype)?'multipart/form-data':''">
 					<div v-if="parseInt(header)" class="modal-header">
 						<slot name="modal-header"></slot>
 					</div>
@@ -20,7 +19,10 @@
 					<input v-if="token" type="hidden" name="_token" :value="token">
 				</form>
 			</div>
-			<slot v-if="!body && !header && !footer" name="modal-content"></slot>
+			<!-- Caso queria montar um modal personalizado -->
+			<div v-if="!body && !header && !footer" class="modal-content" :style="defineStyleModalContent">
+				<slot  name="modal-content"></slot>
+			</div>
 		</div>
 	</div>
 

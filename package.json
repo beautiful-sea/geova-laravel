@@ -21,6 +21,8 @@
         "vuex": "^3.0.1"
     },
     "dependencies": {
-        "laravel-vuex": "^0.2.6"
+        "laravel-echo": "^1.5.1",
+        "laravel-vuex": "^0.2.6",
+        "pusher-js": "^4.3.1"
     }
 }

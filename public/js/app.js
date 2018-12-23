@@ -65,6 +65,115 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports) {
+
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file.
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+module.exports = function normalizeComponent (
+  rawScriptExports,
+  compiledTemplate,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier /* server only */
+) {
+  var esModule
+  var scriptExports = rawScriptExports = rawScriptExports || {}
+
+  // ES6 modules interop
+  var type = typeof rawScriptExports.default
+  if (type === 'object' || type === 'function') {
+    esModule = rawScriptExports
+    scriptExports = rawScriptExports.default
+  }
+
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (compiledTemplate) {
+    options.render = compiledTemplate.render
+    options.staticRenderFns = compiledTemplate.staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = injectStyles
+  }
+
+  if (hook) {
+    var functional = options.functional
+    var existing = functional
+      ? options.render
+      : options.beforeCreate
+
+    if (!functional) {
+      // inject component registration as beforeCreate hook
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    } else {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return existing(h, context)
+      }
+    }
+  }
+
+  return {
+    esModule: esModule,
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -374,115 +483,6 @@ module.exports = {
 
 
 /***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file.
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-module.exports = function normalizeComponent (
-  rawScriptExports,
-  compiledTemplate,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier /* server only */
-) {
-  var esModule
-  var scriptExports = rawScriptExports = rawScriptExports || {}
-
-  // ES6 modules interop
-  var type = typeof rawScriptExports.default
-  if (type === 'object' || type === 'function') {
-    esModule = rawScriptExports
-    scriptExports = rawScriptExports.default
-  }
-
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (compiledTemplate) {
-    options.render = compiledTemplate.render
-    options.staticRenderFns = compiledTemplate.staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = injectStyles
-  }
-
-  if (hook) {
-    var functional = options.functional
-    var existing = functional
-      ? options.render
-      : options.beforeCreate
-
-    if (!functional) {
-      // inject component registration as beforeCreate hook
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    } else {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return existing(h, context)
-      }
-    }
-  }
-
-  return {
-    esModule: esModule,
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
-/***/ }),
 /* 2 */
 /***/ (function(module, exports) {
 
@@ -516,7 +516,7 @@ module.exports = g;
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(1);
 var normalizeHeaderName = __webpack_require__(22);
 
 var DEFAULT_CONTENT_TYPE = {
@@ -13780,7 +13780,7 @@ process.umask = function() { return 0; };
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(1);
 var settle = __webpack_require__(23);
 var buildURL = __webpack_require__(25);
 var parseHeaders = __webpack_require__(26);
@@ -14028,7 +14028,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(13);
-module.exports = __webpack_require__(62);
+module.exports = __webpack_require__(80);
 
 
 /***/ }),
@@ -14060,11 +14060,38 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_0_Vuex__["a" /* default */]);
 
 var store = new __WEBPACK_IMPORTED_MODULE_0_Vuex__["a" /* default */].Store({
   state: {
-    item: {}
+    posts: {},
+    comments: {},
+    onEditPost: {},
+    onCommentPost: {
+      user: {},
+      likes: {},
+      comments: {}
+    }
+  },
+  getters: {
+    all_my_posts: function all_my_posts(state) {
+      return state.posts;
+    },
+    getOnEditPost: function getOnEditPost(state) {
+      return state.onEdit;
+    },
+    getOnCommentPost: function getOnCommentPost(state) {
+      return state.onCommentPost;
+    }
   },
   mutations: {
-    setItem: function setItem(state, obj) {
-      state.item = obj;
+    setPosts: function setPosts(state, obj) {
+      state.posts = obj;
+    },
+    setComments: function setComments(state, obj) {
+      state.comments = obj;
+    },
+    setOnEditPost: function setOnEditPost(state, obj) {
+      state.onEditPost = obj;
+    },
+    setOnCommentPost: function setOnCommentPost(state, obj) {
+      state.onCommentPost = obj;
     }
   }
 });
@@ -14076,10 +14103,12 @@ Vue.component('post', __webpack_require__(50));
 Vue.component('form-post', __webpack_require__(53));
 Vue.component('modal', __webpack_require__(56));
 Vue.component('topheaderprofile', __webpack_require__(59));
-Vue.component('blockleftfeed', __webpack_require__(67));
-Vue.component('blockmainfeed', __webpack_require__(70));
-Vue.component('blockrightfeed', __webpack_require__(73));
-Vue.component('uploadimage', __webpack_require__(76));
+Vue.component('blockleftfeed', __webpack_require__(62));
+Vue.component('blockmainfeed', __webpack_require__(65));
+Vue.component('blockrightfeed', __webpack_require__(68));
+Vue.component('uploadimage', __webpack_require__(71));
+Vue.component('commentspost', __webpack_require__(74));
+Vue.component('editpost', __webpack_require__(77));
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
@@ -35268,7 +35297,7 @@ module.exports = __webpack_require__(19);
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(1);
 var bind = __webpack_require__(6);
 var Axios = __webpack_require__(21);
 var defaults = __webpack_require__(3);
@@ -35355,7 +35384,7 @@ function isSlowBuffer (obj) {
 
 
 var defaults = __webpack_require__(3);
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(1);
 var InterceptorManager = __webpack_require__(30);
 var dispatchRequest = __webpack_require__(31);
 
@@ -35440,7 +35469,7 @@ module.exports = Axios;
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(1);
 
 module.exports = function normalizeHeaderName(headers, normalizedName) {
   utils.forEach(headers, function processHeader(value, name) {
@@ -35520,7 +35549,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(1);
 
 function encode(val) {
   return encodeURIComponent(val).
@@ -35593,7 +35622,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(1);
 
 // Headers whose duplicates are ignored by node
 // c.f. https://nodejs.org/api/http.html#http_message_headers
@@ -35653,7 +35682,7 @@ module.exports = function parseHeaders(headers) {
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(1);
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -35771,7 +35800,7 @@ module.exports = btoa;
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(1);
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -35831,7 +35860,7 @@ module.exports = (
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(1);
 
 function InterceptorManager() {
   this.handlers = [];
@@ -35890,7 +35919,7 @@ module.exports = InterceptorManager;
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(1);
 var transformData = __webpack_require__(32);
 var isCancel = __webpack_require__(10);
 var defaults = __webpack_require__(3);
@@ -35983,7 +36012,7 @@ module.exports = function dispatchRequest(config) {
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(1);
 
 /**
  * Transform the data for a request or a response
@@ -48322,7 +48351,7 @@ var index_esm = {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = __webpack_require__(42)
 /* template */
@@ -50051,7 +50080,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = __webpack_require__(45)
 /* template */
@@ -52912,7 +52941,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = __webpack_require__(48)
 /* template */
@@ -53212,7 +53241,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	props: ['user']
+	props: [],
+	mounted: function mounted() {
+		var _this = this;
+
+		axios.get('/post/myposts').then(function (res) {
+			_this.$store.commit('setPosts', res.data);
+		});
+	}
 });
 
 /***/ }),
@@ -53290,7 +53326,7 @@ var render = function() {
                   {
                     attrs: {
                       method: "post",
-                      action: "/user/" + _vm.user.id,
+                      action: "'/user/id'",
                       enctype: "multipart/form-data"
                     }
                   },
@@ -53915,7 +53951,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = __webpack_require__(51)
 /* template */
@@ -54060,37 +54096,59 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	props: ['post', 'editable', 'url', 'user'],
-	mounted: function mounted() {},
-	methods: {
-		preencheModalPost: function preencheModalPost() {
-			var _this = this;
+	props: ['url', 'user'],
+	data: function data() {
+		return {
+			posts: {}
+		};
+	},
+	created: function created() {
+		var _this = this;
 
-			axios.get('post/' + this.post.id).then(function (res) {
-				_this.$store.commit('setItem', res.data);
+		axios.get('/post/myposts').then(function (res) {
+			_this.$store.commit('setPosts', res.data);
+			_this.posts = _this.$store.getters.all_my_posts;
+		});
+	},
+	watch: {
+		posts: function posts(val) {
+			this.posts = this.$store.getters.all_my_posts;
+		}
+	},
+	methods: {
+		setOnEditPost: function setOnEditPost(post) {
+			this.$store.commit('setOnEditPost', post);
+		},
+		setOnCommentPost: function setOnCommentPost(post) {
+			this.$store.commit('setOnCommentPost', post);
+		},
+		formatDate: function formatDate(date) {
+			moment.locale('pt-br');
+			return moment(date, "YYYYMMDD H:m").fromNow();
+		},
+		formatName: function formatName(name) {
+			return name.split(' ').slice(0, 1).join(' ');
+		},
+
+		likePost: function likePost(post) {
+			var _this2 = this;
+
+			axios('post/likePost/' + post).then(function (res) {
+				_this2.$store.commit('setPosts', res.data);
+				_this2.posts = _this2.$store.getters.all_my_posts;
 			});
 		},
-		formatDate: function formatDate() {
-			moment.locale('pt-br');
-			return moment(this.post.created_at, "YYYYMMDD H:m").fromNow();
+		defineColorLike: function defineColorLike(likes) {
+			var color = '';
+			var user_auth = this.user.id;
+			$.each(likes, function (key, value) {
+				if (value.users_id == user_auth) {
+					color = "fill: #ff5e3a";
+				}
+			});
+			return color;
 		}
 	}
 });
@@ -54103,39 +54161,52 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "ui-block" }, [
-      _c("article", { staticClass: "hentry post has-post-thumbnail" }, [
-        _c(
-          "div",
-          { staticClass: "post__author author vcard inline-items" },
-          [
-            _vm._t("default"),
-            _vm._v(" "),
-            _c("div", { staticClass: "author-date" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "h6 post__author-name fn",
-                  attrs: { href: "#" }
-                },
-                [_vm._v("Lindomar")]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "post__date" }, [
-                _c(
-                  "time",
-                  {
-                    staticClass: "published",
-                    attrs: { id: "", datetime: "2004-07-24T18:18" }
-                  },
-                  [_c("small", [_vm._v(_vm._s(_vm.formatDate()))])]
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            !_vm.editable
-              ? _c("div", { staticClass: "more" }, [
+  return _c(
+    "div",
+    _vm._l(_vm.posts, function(post) {
+      return _c(
+        "div",
+        { staticClass: "ui-block" },
+        [
+          _c("article", { staticClass: "hentry post has-post-thumbnail" }, [
+            _c(
+              "div",
+              { staticClass: "post__author author vcard inline-items" },
+              [
+                _c("img", {
+                  attrs: {
+                    src: "storage/users/" + post.user.img_profile,
+                    alt: "Foto de perfil"
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "author-date" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "h6 post__author-name fn",
+                      attrs: { href: "#" }
+                    },
+                    [_vm._v(_vm._s(post.user.name))]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "post__date" }, [
+                    _c(
+                      "time",
+                      {
+                        staticClass: "published",
+                        attrs: { id: "datetime", datetime: post.created_at }
+                      },
+                      [
+                        _c("small", [
+                          _vm._v(_vm._s(_vm.formatDate(post.created_at)))
+                        ])
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "more" }, [
                   _c("svg", { staticClass: "olymp-three-dots-icon" }, [
                     _c("use", {
                       attrs: {
@@ -54157,7 +54228,7 @@ var render = function() {
                           },
                           on: {
                             click: function($event) {
-                              _vm.preencheModalPost()
+                              _vm.setOnEditPost(post)
                             }
                           }
                         },
@@ -54165,159 +54236,212 @@ var render = function() {
                       )
                     ]),
                     _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: _vm.url } }, [_vm._v("Deletar")])
-                    ]),
+                    _vm._m(0, true),
                     _vm._v(" "),
-                    _vm._m(0)
+                    _vm._m(1, true)
                   ])
                 ])
-              : _vm._e()
-          ],
-          2
-        ),
-        _vm._v(" "),
-        !_vm.editable ? _c("p", [_vm._v(_vm._s(this.post.text))]) : _vm._e(),
-        _vm._v(" "),
-        _vm.editable
-          ? _c("textarea", {
-              staticClass: "form-control",
-              attrs: { name: "text", rows: "2" },
-              domProps: { value: this.post.text }
-            })
-          : _vm._e(),
-        _vm._v(" "),
-        _c("div", { staticClass: "post-additional-info inline-items" }, [
-          _c(
-            "a",
-            { staticClass: "post-add-icon inline-items", attrs: { href: "#" } },
-            [
-              _c("svg", { staticClass: "olymp-heart-icon" }, [
-                _c("use", {
-                  attrs: {
-                    "xlink:href": "svg-icons/sprites/icons.svg#olymp-heart-icon"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("span", [_vm._v("22")])
-            ]
-          ),
-          _vm._v(" "),
-          _vm._m(1),
-          _vm._v(" "),
-          _vm._m(2),
-          _vm._v(" "),
-          !_vm.editable
-            ? _c("div", { staticClass: "comments-shared" }, [
+              ]
+            ),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(post.text))]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "post-additional-info inline-items" },
+              [
                 _c(
                   "a",
                   {
                     staticClass: "post-add-icon inline-items",
-                    attrs: {
-                      href: "#",
-                      "data-toggle": "modal",
-                      "data-target": "#update-profile-photo"
+                    attrs: { href: "javascript:void(0)" },
+                    on: {
+                      click: function($event) {
+                        _vm.likePost(post.id)
+                      }
                     }
                   },
                   [
-                    _c("svg", { staticClass: "olymp-speech-balloon-icon" }, [
-                      _c("use", {
-                        attrs: {
-                          "xlink:href":
-                            "svg-icons/sprites/icons.svg#olymp-speech-balloon-icon"
-                        }
-                      })
-                    ]),
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "olymp-heart-icon",
+                        style: _vm.defineColorLike(post.likes)
+                      },
+                      [
+                        _c("use", {
+                          attrs: {
+                            "xlink:href":
+                              "svg-icons/sprites/icons.svg#olymp-heart-icon"
+                          }
+                        })
+                      ]
+                    ),
                     _vm._v(" "),
-                    _c("span", [_vm._v("5")])
+                    _c("span", [_vm._v(_vm._s(post.likes.length))])
                   ]
                 ),
                 _vm._v(" "),
                 _c(
-                  "a",
-                  {
-                    staticClass: "post-add-icon inline-items",
-                    attrs: { href: "#" }
-                  },
-                  [
-                    _c("svg", { staticClass: "olymp-share-icon" }, [
-                      _c("use", {
-                        attrs: {
-                          "xlink:href":
-                            "svg-icons/sprites/icons.svg#olymp-share-icon"
+                  "ul",
+                  { staticClass: "friends-harmonic" },
+                  _vm._l(post.likes, function(like) {
+                    return _c("li", [
+                      _c("a", { attrs: { href: "#" } }, [
+                        _c("img", {
+                          attrs: {
+                            src: "storage/users/" + like.user.img_profile,
+                            alt: "friend"
+                          }
+                        })
+                      ])
+                    ])
+                  })
+                ),
+                _vm._v(" "),
+                _vm._l(post.likes, function(like) {
+                  return post.likes.length == 1
+                    ? _c("div", { staticClass: "names-people-likes" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v(_vm._s(like.user.name))
+                        ]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" curtiu a publicação\n\t\t\t\t")
+                      ])
+                    : _vm._e()
+                }),
+                _vm._v(" "),
+                post.likes.length == 2
+                  ? _c("div", { staticClass: "names-people-likes" }, [
+                      _c("a", { attrs: { href: "#" } }, [
+                        _vm._v(_vm._s(_vm.formatName(post.likes[0].user.name)))
+                      ]),
+                      _vm._v(" e "),
+                      _c("a", { attrs: { href: "#" } }, [
+                        _vm._v(
+                          _vm._s(_vm.formatName(post.likes[1].user.name)) + " "
+                        )
+                      ]),
+                      _c("br"),
+                      _vm._v(" curtiram a publicação\n\t\t\t\t")
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("div", { staticClass: "comments-shared" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "post-add-icon inline-items",
+                      attrs: {
+                        href: "#",
+                        "data-toggle": "modal",
+                        "data-target": "#commentPost"
+                      },
+                      on: {
+                        click: function($event) {
+                          _vm.setOnCommentPost(post)
                         }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("2")])
-                  ]
-                )
-              ])
-            : _vm._e()
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "control-block-button post-control-button" }, [
-          _vm.editable
-            ? _c(
-                "button",
-                { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-                [_vm._v("Salvar")]
-              )
-            : _vm._e(),
+                      }
+                    },
+                    [
+                      _c("svg", { staticClass: "olymp-speech-balloon-icon" }, [
+                        _c("use", {
+                          attrs: {
+                            "xlink:href":
+                              "svg-icons/sprites/icons.svg#olymp-speech-balloon-icon"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v(_vm._s(post.comments.length))])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "post-add-icon inline-items",
+                      attrs: { href: "#" }
+                    },
+                    [
+                      _c("svg", { staticClass: "olymp-share-icon" }, [
+                        _c("use", {
+                          attrs: {
+                            "xlink:href":
+                              "svg-icons/sprites/icons.svg#olymp-share-icon"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("2")])
+                    ]
+                  )
+                ])
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "control-block-button post-control-button" },
+              [
+                _c("span", [
+                  _c(
+                    "a",
+                    { staticClass: "btn btn-control", attrs: { href: "#" } },
+                    [
+                      _c("svg", { staticClass: "olymp-like-post-icon" }, [
+                        _c("use", {
+                          attrs: {
+                            "xlink:href":
+                              "svg-icons/sprites/icons.svg#olymp-like-post-icon"
+                          }
+                        })
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    { staticClass: "btn btn-control", attrs: { href: "#" } },
+                    [
+                      _c("svg", { staticClass: "olymp-comments-post-icon" }, [
+                        _c("use", {
+                          attrs: {
+                            "xlink:href":
+                              "svg-icons/sprites/icons.svg#olymp-comments-post-icon"
+                          }
+                        })
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    { staticClass: "btn btn-control", attrs: { href: "#" } },
+                    [
+                      _c("svg", { staticClass: "olymp-share-icon" }, [
+                        _c("use", {
+                          attrs: {
+                            "xlink:href":
+                              "svg-icons/sprites/icons.svg#olymp-share-icon"
+                          }
+                        })
+                      ])
+                    ]
+                  )
+                ])
+              ]
+            )
+          ]),
           _vm._v(" "),
-          !_vm.editable
-            ? _c("span", [
-                _c(
-                  "a",
-                  { staticClass: "btn btn-control", attrs: { href: "#" } },
-                  [
-                    _c("svg", { staticClass: "olymp-like-post-icon" }, [
-                      _c("use", {
-                        attrs: {
-                          "xlink:href":
-                            "svg-icons/sprites/icons.svg#olymp-like-post-icon"
-                        }
-                      })
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  { staticClass: "btn btn-control", attrs: { href: "#" } },
-                  [
-                    _c("svg", { staticClass: "olymp-comments-post-icon" }, [
-                      _c("use", {
-                        attrs: {
-                          "xlink:href":
-                            "svg-icons/sprites/icons.svg#olymp-comments-post-icon"
-                        }
-                      })
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  { staticClass: "btn btn-control", attrs: { href: "#" } },
-                  [
-                    _c("svg", { staticClass: "olymp-share-icon" }, [
-                      _c("use", {
-                        attrs: {
-                          "xlink:href":
-                            "svg-icons/sprites/icons.svg#olymp-share-icon"
-                        }
-                      })
-                    ])
-                  ]
-                )
-              ])
-            : _vm._e()
-        ])
-      ])
-    ])
-  ])
+          _vm._t("commentsposts")
+        ],
+        2
+      )
+    })
+  )
 }
 var staticRenderFns = [
   function() {
@@ -54325,66 +54449,15 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("li", [
+      _c("a", { attrs: { href: "'post/delete/'" } }, [_vm._v("Deletar")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
       _c("a", { attrs: { href: "#" } }, [_vm._v("Desligar notificações")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("ul", { staticClass: "friends-harmonic" }, [
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "img/friend-harmonic9.jpg", alt: "friend" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "img/friend-harmonic10.jpg", alt: "friend" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "img/friend-harmonic7.jpg", alt: "friend" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "img/friend-harmonic8.jpg", alt: "friend" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "img/friend-harmonic11.jpg", alt: "friend" }
-          })
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "names-people-likes" }, [
-      _c("a", { attrs: { href: "#" } }, [_vm._v("Jimmy")]),
-      _vm._v(", "),
-      _c("a", { attrs: { href: "#" } }, [_vm._v("Andrea")]),
-      _vm._v(" and\n\t\t\t\t\t"),
-      _c("br"),
-      _vm._v("47 more liked this\n\t\t\t\t")
     ])
   }
 ]
@@ -54402,7 +54475,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = __webpack_require__(54)
 /* template */
@@ -55111,7 +55184,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = __webpack_require__(57)
 /* template */
@@ -55159,6 +55232,8 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
 //
 //
 //
@@ -55257,7 +55332,7 @@ var render = function() {
                     "form",
                     {
                       attrs: {
-                        action: this.action,
+                        action: _vm.action,
                         method: _vm.defineMethod,
                         enctype: _vm.enctype ? "multipart/form-data" : ""
                       }
@@ -55324,10 +55399,17 @@ var render = function() {
             : _vm._e(),
           _vm._v(" "),
           !_vm.body && !_vm.header && !_vm.footer
-            ? _vm._t("modal-content")
+            ? _c(
+                "div",
+                {
+                  staticClass: "modal-content",
+                  style: _vm.defineStyleModalContent
+                },
+                [_vm._t("modal-content")],
+                2
+              )
             : _vm._e()
-        ],
-        2
+        ]
       )
     ]
   )
@@ -55347,7 +55429,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = __webpack_require__(60)
 /* template */
@@ -55614,9 +55696,7 @@ var render = function() {
                     [_vm._v(_vm._s(_vm.user.name))]
                   ),
                   _vm._v(" "),
-                  _c("div", { staticClass: "country" }, [
-                    _vm._v("San Francisco, CA")
-                  ])
+                  _c("div", { staticClass: "country" }, [_vm._v("Valença, RJ")])
                 ])
               ])
             ])
@@ -55745,24 +55825,14 @@ if (false) {
 
 /***/ }),
 /* 62 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 63 */,
-/* 64 */,
-/* 65 */,
-/* 66 */,
-/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(68)
+var __vue_script__ = __webpack_require__(63)
 /* template */
-var __vue_template__ = __webpack_require__(69)
+var __vue_template__ = __webpack_require__(64)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -55801,7 +55871,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 68 */
+/* 63 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -56221,7 +56291,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
-/* 69 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -56595,13 +56665,9 @@ var staticRenderFns = [
       _c("div", { staticClass: "ui-block-content" }, [
         _c("ul", { staticClass: "widget w-personal-info item-block" }, [
           _c("li", [
-            _c("span", { staticClass: "title" }, [_vm._v("About Me:")]),
+            _c("span", { staticClass: "title" }, [_vm._v("Sobre Mim:")]),
             _vm._v(" "),
-            _c("span", { staticClass: "text" }, [
-              _vm._v(
-                "Hi, I’m James, I’m 36 and I work as a Digital Designer for the  “Daydreams” Agency in Pier 56."
-              )
-            ])
+            _c("span", { staticClass: "text" })
           ]),
           _vm._v(" "),
           _c("li", [
@@ -57078,15 +57144,15 @@ if (false) {
 }
 
 /***/ }),
-/* 70 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(71)
+var __vue_script__ = __webpack_require__(66)
 /* template */
-var __vue_template__ = __webpack_require__(72)
+var __vue_template__ = __webpack_require__(67)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -57125,7 +57191,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 71 */
+/* 66 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -57156,7 +57222,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
-/* 72 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -57211,15 +57277,15 @@ if (false) {
 }
 
 /***/ }),
-/* 73 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(74)
+var __vue_script__ = __webpack_require__(69)
 /* template */
-var __vue_template__ = __webpack_require__(75)
+var __vue_template__ = __webpack_require__(70)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -57258,7 +57324,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 74 */
+/* 69 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -57763,7 +57829,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
-/* 75 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -58708,15 +58774,15 @@ if (false) {
 }
 
 /***/ }),
-/* 76 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(77)
+var __vue_script__ = __webpack_require__(72)
 /* template */
-var __vue_template__ = __webpack_require__(78)
+var __vue_template__ = __webpack_require__(73)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -58755,7 +58821,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 77 */
+/* 72 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -58805,7 +58871,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 78 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -58925,6 +58991,985 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-181809df", module.exports)
   }
 }
+
+/***/ }),
+/* 74 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(75)
+/* template */
+var __vue_template__ = __webpack_require__(76)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/CommentsPost.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-542c6ac2", Component.options)
+  } else {
+    hotAPI.reload("data-v-542c6ac2", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 75 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	props: ['action', 'method'],
+	computed: {
+		user: function user() {
+			return this.$store.state.onCommentPost.user;
+		},
+		post: function post() {
+			return this.$store.state.onCommentPost;
+		},
+		comments: function comments() {
+			return this.$store.state.onCommentPost.comments;
+		}
+	},
+	methods: {
+		formatDate: function formatDate(date) {
+			moment.locale('pt-br');
+			return moment(date, "YYYYMMDD H:m").fromNow();
+		},
+		getFirstName: function getFirstName(name) {
+			return name.split(' ').slice(0, 1).join(' ');
+		}
+	}
+});
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "ui-block" }, [
+      _c("article", { staticClass: "hentry post has-post-thumbnail" }, [
+        _c("div", { staticClass: "post__author author vcard inline-items" }, [
+          _c("img", {
+            attrs: {
+              src: "storage/users/" + _vm.user.img_profile,
+              alt: "Foto de perfil"
+            }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "author-date" }, [
+            _c(
+              "a",
+              { staticClass: "h6 post__author-name fn", attrs: { href: "#" } },
+              [_vm._v(_vm._s(_vm.user.name))]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "post__date" }, [
+              _c(
+                "time",
+                {
+                  staticClass: "published",
+                  attrs: { id: "datetime", datetime: "post.created_at" }
+                },
+                [
+                  _c("small", [
+                    _vm._v(_vm._s(_vm.formatDate(_vm.post.created_at)))
+                  ])
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "more" }, [
+            _c("svg", { staticClass: "olymp-three-dots-icon" }, [
+              _c("use", {
+                attrs: {
+                  "xlink:href":
+                    "svg-icons/sprites/icons.svg#olymp-three-dots-icon"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _vm._m(0)
+          ])
+        ]),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.post.text))]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "post-additional-info inline-items" },
+          [
+            _c(
+              "a",
+              {
+                staticClass: "post-add-icon inline-items",
+                attrs: { href: "javascript:void(0)" }
+              },
+              [
+                _c(
+                  "svg",
+                  {
+                    staticClass: "olymp-heart-icon",
+                    staticStyle: { fill: "#ff5e3a!important" }
+                  },
+                  [
+                    _c("use", {
+                      attrs: {
+                        "xlink:href":
+                          "svg-icons/sprites/icons.svg#olymp-heart-icon"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(_vm.post.likes.length))])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "ul",
+              { staticClass: "friends-harmonic" },
+              _vm._l(_vm.post.likes, function(like) {
+                return _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("img", {
+                      attrs: {
+                        src: "storage/users/" + like.user.img_profile,
+                        alt: "friend"
+                      }
+                    })
+                  ])
+                ])
+              })
+            ),
+            _vm._v(" "),
+            _vm._l(_vm.post.likes, function(like) {
+              return _vm.post.likes.length == 1
+                ? _c("div", { staticClass: "names-people-likes" }, [
+                    _c("a", { attrs: { href: "#" } }, [
+                      _vm._v(_vm._s(like.user.name))
+                    ]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" curtiu a publicação\n\t\t\t\t\t")
+                  ])
+                : _vm._e()
+            }),
+            _vm._v(" "),
+            _vm.post.likes.length == 2
+              ? _c("div", { staticClass: "names-people-likes" }, [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _vm._v(
+                      _vm._s(_vm.getFirstName(_vm.post.likes[0].user.name))
+                    )
+                  ]),
+                  _vm._v(" e "),
+                  _c("a", { attrs: { href: "#" } }, [
+                    _vm._v(
+                      _vm._s(_vm.getFirstName(_vm.post.likes[1].user.name)) +
+                        " "
+                    )
+                  ]),
+                  _c("br"),
+                  _vm._v(" curtiram a publicação\n\t\t\t\t\t")
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c("div", { staticClass: "comments-shared" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "post-add-icon inline-items",
+                  attrs: {
+                    href: "#",
+                    "data-toggle": "modal",
+                    "data-target": "#commentPost"
+                  }
+                },
+                [
+                  _c("svg", { staticClass: "olymp-speech-balloon-icon" }, [
+                    _c("use", {
+                      attrs: {
+                        "xlink:href":
+                          "svg-icons/sprites/icons.svg#olymp-speech-balloon-icon"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("span")
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "post-add-icon inline-items",
+                  attrs: { href: "#" }
+                },
+                [
+                  _c("svg", { staticClass: "olymp-share-icon" }, [
+                    _c("use", {
+                      attrs: {
+                        "xlink:href":
+                          "svg-icons/sprites/icons.svg#olymp-share-icon"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("2")])
+                ]
+              )
+            ])
+          ],
+          2
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "control-block-button post-control-button" }, [
+          _c("span", [
+            _c("a", { staticClass: "btn btn-control", attrs: { href: "#" } }, [
+              _c("svg", { staticClass: "olymp-like-post-icon" }, [
+                _c("use", {
+                  attrs: {
+                    "xlink:href":
+                      "svg-icons/sprites/icons.svg#olymp-like-post-icon"
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("a", { staticClass: "btn btn-control", attrs: { href: "#" } }, [
+              _c("svg", { staticClass: "olymp-comments-post-icon" }, [
+                _c("use", {
+                  attrs: {
+                    "xlink:href":
+                      "svg-icons/sprites/icons.svg#olymp-comments-post-icon"
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("a", { staticClass: "btn btn-control", attrs: { href: "#" } }, [
+              _c("svg", { staticClass: "olymp-share-icon" }, [
+                _c("use", {
+                  attrs: {
+                    "xlink:href": "svg-icons/sprites/icons.svg#olymp-share-icon"
+                  }
+                })
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ui-block" }, [
+        _c(
+          "ul",
+          {
+            staticClass: "comments-list style-2",
+            staticStyle: { "max-height": "400px", overflow: "overlay" }
+          },
+          _vm._l(_vm.comments, function(comment) {
+            return _vm.comments
+              ? _c("li", { staticClass: "comment-item" }, [
+                  _c("div", { staticClass: "post__author author vcard" }, [
+                    comment.user.img_profile
+                      ? _c("img", {
+                          attrs: {
+                            src: "storage/users/" + comment.user.img_profile,
+                            alt: "author"
+                          }
+                        })
+                      : _c("img", {
+                          attrs: { src: "img/avatar1.jpg", alt: "author" }
+                        }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "author-date",
+                        staticStyle: { overflow: "visible!important" }
+                      },
+                      [
+                        _c("p", [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "h6 post__author-name fn",
+                              attrs: { href: "#" }
+                            },
+                            [_vm._v(_vm._s(comment.name))]
+                          ),
+                          _vm._v(" " + _vm._s(comment.text))
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "post-add-icon inline-items",
+                            attrs: { href: "#" }
+                          },
+                          [
+                            _c("svg", { staticClass: "olymp-heart-icon" }, [
+                              _c("use", {
+                                attrs: {
+                                  "xlink:href":
+                                    "svg-icons/sprites/icons.svg#olymp-heart-icon"
+                                }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("span", [_vm._v(_vm._s(comment.likes.length))])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          { staticClass: "reply", attrs: { href: "#" } },
+                          [_vm._v("Responder")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "post__date" }, [
+                          _c(
+                            "time",
+                            {
+                              staticClass: "published",
+                              attrs: { datetime: "2017-03-24T18:18" }
+                            },
+                            [
+                              _vm._v(
+                                "\n\t\t\t\t\t\t\t\t\t\t" +
+                                  _vm._s(_vm.formatDate(comment.created_at)) +
+                                  "\n\t\t\t\t\t\t\t\t\t"
+                              )
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "more",
+                            staticStyle: { float: "right", position: "none" }
+                          },
+                          [
+                            _c(
+                              "svg",
+                              { staticClass: "olymp-three-dots-icon" },
+                              [
+                                _c("use", {
+                                  attrs: {
+                                    "xlink:href":
+                                      "svg-icons/sprites/icons.svg#olymp-three-dots-icon"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _vm._m(1, true)
+                          ]
+                        )
+                      ]
+                    )
+                  ])
+                ])
+              : _vm._e()
+          })
+        ),
+        _vm._v(" "),
+        _c(
+          "form",
+          {
+            staticClass: "comment-form inline-items",
+            attrs: { action: _vm.action, method: _vm.method }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "post__author author vcard inline-items" },
+              [
+                _vm._t("img_profile"),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group with-icon-right " }, [
+                  _c("textarea", {
+                    staticClass: "form-control",
+                    attrs: { placeholder: "", name: "text" }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "add-options-message" }, [
+                    _c(
+                      "a",
+                      { staticClass: "options-message", attrs: { href: "#" } },
+                      [
+                        _c("svg", { staticClass: "olymp-camera-icon" }, [
+                          _c("use", {
+                            attrs: {
+                              "xlink:href":
+                                "svg-icons/sprites/icons.svg#olymp-camera-icon"
+                            }
+                          })
+                        ])
+                      ]
+                    )
+                  ])
+                ])
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              { staticClass: "btn btn-default", attrs: { type: "submit" } },
+              [_vm._v("Comentar")]
+            )
+          ]
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "more-dropdown" }, [
+      _c("li", [
+        _c("a", { attrs: { href: "'post/delete/'" } }, [_vm._v("Deletar")])
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _c("a", { attrs: { href: "#" } }, [_vm._v("Desligar notificações")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "ul",
+      {
+        staticClass: "more-dropdown",
+        staticStyle: { top: "auto!important", bottom: "0!important" }
+      },
+      [
+        _c("li", [
+          _c(
+            "a",
+            {
+              attrs: {
+                href: "#",
+                "data-toggle": "modal",
+                "data-target": "#editPost"
+              }
+            },
+            [_vm._v("Editar")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Deletar")])])
+      ]
+    )
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-542c6ac2", module.exports)
+  }
+}
+
+/***/ }),
+/* 77 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(78)
+/* template */
+var __vue_template__ = __webpack_require__(79)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/EditPost.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4292f396", Component.options)
+  } else {
+    hotAPI.reload("data-v-4292f396", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 78 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	props: ['token'],
+	computed: {
+		post: function post() {
+			return this.$store.state.onEditPost;
+		},
+		user: function user() {
+			return this.$store.state.onEditPost.user;
+		},
+		formatedDate: function formatedDate() {
+			moment.locale('pt-br');
+			return moment(this.post.created_at, "YYYYMMDD H:m").fromNow();
+		}
+	}
+});
+
+/***/ }),
+/* 79 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "ui-block" },
+      [
+        _c("article", { staticClass: "hentry post has-post-thumbnail" }, [
+          _c(
+            "form",
+            { attrs: { action: "/post/" + _vm.post.id, method: "post" } },
+            [
+              _vm.user
+                ? _c(
+                    "div",
+                    { staticClass: "post__author author vcard inline-items" },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "storage/users/" + _vm.user.img_profile,
+                          alt: "Foto de perfil"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "author-date" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "h6 post__author-name fn",
+                            attrs: { href: "#" }
+                          },
+                          [_vm._v(_vm._s(_vm.user.name))]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "post__date" }, [
+                          _c(
+                            "time",
+                            {
+                              staticClass: "published",
+                              attrs: {
+                                id: "datetime",
+                                datetime: _vm.post.created_at,
+                                pubdate: ""
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n\t\t\t\t\t\t\t\t" +
+                                  _vm._s(_vm.formatedDate) +
+                                  "\n\t\t\t\t\t\t\t"
+                              )
+                            ]
+                          )
+                        ])
+                      ])
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _c("textarea", {
+                staticClass: "form-control",
+                attrs: { name: "text" },
+                domProps: { value: _vm.post.text }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "post-additional-info inline-items" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "post-add-icon inline-items",
+                    attrs: { href: "javascript:void(0)" }
+                  },
+                  [
+                    _c("svg", { staticClass: "olymp-heart-icon" }, [
+                      _c("use", {
+                        attrs: {
+                          "xlink:href":
+                            "svg-icons/sprites/icons.svg#olymp-heart-icon"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("span")
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "names-people-likes" })
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                attrs: { type: "hidden", name: "_method", value: "put" }
+              }),
+              _vm._v(" "),
+              _c("input", {
+                attrs: { type: "hidden", name: "_token" },
+                domProps: { value: _vm.token }
+              }),
+              _vm._v(" "),
+              _vm._m(0)
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _vm._t("commentsposts")
+      ],
+      2
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "control-block-button post-control-button" },
+      [
+        _c(
+          "button",
+          { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+          [_vm._v("Salvar")]
+        )
+      ]
+    )
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-4292f396", module.exports)
+  }
+}
+
+/***/ }),
+/* 80 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Auth;
-use \App\User;
+use \App\Comment;
 use \App\Post;
-use Illuminate\Support\Facades\DB;
-class PostsController extends Controller
+use \App\User;
+use \Auth;
+
+class CommentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,7 +25,7 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
         //
     }
@@ -35,23 +36,18 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {   
-        $data = $request->all();
+    public function store(Request $request,$id)
+    {
+        $post = Post::find($id);
 
-        $validation = $request->validate([
-            'text'  =>  'required'
+        $user = Auth::user();
+
+        $post->comments()->create([
+            'text'=>$request->text,
+            'users_id'=>$user->id
         ]);
 
-        unset($data['type']);
-
-        $user = Auth::user();  
-
-        $user->post()->create($request->all());
-
-        return redirect()->back();          
-
-
+        return redirect()->back();
     }
 
     /**
@@ -62,7 +58,12 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        return Post::find($id);
+        $comment = Comment::with(['user'])->where('posts_id','=',$id)
+        ->join('users','users.id','=','comments.users_id')
+        ->select('comments.*','users.name','users.img_profile')
+        ->get();
+        return json_encode($comment);
+        // return Post::find($id)::with(['user','comments'])->where('id','=',$id)->get();
     }
 
     /**
@@ -76,14 +77,6 @@ class PostsController extends Controller
         //
     }
 
-    public function myPosts()
-    {  
-        $user = Auth::user();
-        
-        $posts = $user->post()->get();
-
-        return json_encode($posts);
-    }
     /**
      * Update the specified resource in storage.
      *
@@ -92,21 +85,8 @@ class PostsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {   
-
-        $validation = $request->validate([
-            'text'  =>  'required'
-        ]);
-
-        $data = $request->all();
-
-        $update = Post::find($id)->update($data);
-
-       if($update){
-            return redirect()->back();
-        }else{
-            return redirect()->back()->with(['error'=> 'Erro ao editar post']);
-        }
+    {
+        //
     }
 
     /**
@@ -117,8 +97,6 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        Post::find($id)->delete();
-
-        return redirect()->back();
+        //
     }
 }

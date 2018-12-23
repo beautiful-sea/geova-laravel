@@ -8,20 +8,19 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\DB;
 
 
-class Post extends Authenticatable
+class LikePost extends Authenticatable
 {
     use Notifiable;
 
-    public $with = ['user','likes','comments'];
+    public $with = ['user'];
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        'text',
-    ];
+    protected $fillable = ['users_id'];
 
+    protected $table = "user_like_post";
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -29,15 +28,9 @@ class Post extends Authenticatable
      */
 
     public function user(){
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User','users_id');
     }
-
-    public function comments()
-    {
-        return $this->hasMany('App\Comment','posts_id');
-    }
-    public function likes()
-    {
-        return $this->hasMany('App\LikePost','posts_id');
+    public function post(){
+        return $this->belongsTo('App\Post');
     }
 }

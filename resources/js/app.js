@@ -20,11 +20,38 @@
 
  const store = new Vuex.Store({
  	state:{
- 		item:{}
+ 		posts:{},
+ 		comments:{},
+ 		onEditPost:{},
+ 		onCommentPost:{
+ 			user:{},
+ 			likes:{},
+ 			comments:{}
+ 		}
+ 	},
+ 	getters:{
+ 		all_my_posts(state){
+ 			return state.posts
+ 		},
+ 		getOnEditPost(state){
+ 			return state.onEdit
+ 		},
+ 		getOnCommentPost(state){
+ 			return state.onCommentPost
+ 		}
  	},
  	mutations:{
- 		setItem(state,obj){
- 			state.item = obj;
+ 		setPosts(state,obj){
+ 			state.posts = obj
+ 		},
+  		setComments(state,obj){
+ 			state.comments = obj
+ 		},
+ 		setOnEditPost(state,obj){
+ 			state.onEditPost = obj
+ 		},
+ 		setOnCommentPost(state,obj){
+ 			state.onCommentPost = obj
  		}
  	}
  });
@@ -40,6 +67,9 @@
  Vue.component('blockmainfeed', require('./components/BlockMainFeed.vue'));
  Vue.component('blockrightfeed', require('./components/BlockRightFeed.vue'));
  Vue.component('uploadimage', require('./components/uploadImage.vue'));
+ Vue.component('commentspost', require('./components/CommentsPost.vue'));
+ Vue.component('editpost', require('./components/EditPost.vue'));
+
 
 
 

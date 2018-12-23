@@ -76,7 +76,7 @@
 							</a>
 							<div class="author-content">
 								<a href="02-ProfilePage.html" class="h4 author-name">{{user.name}}</a>
-								<div class="country">San Francisco, CA</div>
+								<div class="country">Valença, RJ</div>
 							</div>
 						</div>
 					</div>
