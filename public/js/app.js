@@ -14071,13 +14071,18 @@ var store = new __WEBPACK_IMPORTED_MODULE_0_Vuex__["a" /* default */].Store({
   },
   getters: {
     all_my_posts: function all_my_posts(state) {
-      return state.posts;
+      return function () {
+        return state.posts;
+      };
     },
     getOnEditPost: function getOnEditPost(state) {
       return state.onEdit;
     },
+
     getOnCommentPost: function getOnCommentPost(state) {
-      return state.onCommentPost;
+      return function () {
+        return state.onCommentPost;
+      };
     }
   },
   mutations: {
@@ -54109,13 +54114,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 		axios.get('/post/myposts').then(function (res) {
 			_this.$store.commit('setPosts', res.data);
-			_this.posts = _this.$store.getters.all_my_posts;
+			_this.$store.watch(_this.$store.getters.all_my_posts, function (posts) {
+				_this.posts = posts;
+			});
 		});
-	},
-	watch: {
-		posts: function posts(val) {
-			this.posts = this.$store.getters.all_my_posts;
-		}
 	},
 	methods: {
 		setOnEditPost: function setOnEditPost(post) {
@@ -54123,6 +54125,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		},
 		setOnCommentPost: function setOnCommentPost(post) {
 			this.$store.commit('setOnCommentPost', post);
+			$("#commentPost").modal('show');
 		},
 		formatDate: function formatDate(date) {
 			moment.locale('pt-br');
@@ -54135,7 +54138,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		likePost: function likePost(post) {
 			var _this2 = this;
 
-			axios('post/likePost/' + post).then(function (res) {
+			axios('post/like/' + post).then(function (res) {
 				_this2.$store.commit('setPosts', res.data);
 				_this2.posts = _this2.$store.getters.all_my_posts;
 			});
@@ -54333,11 +54336,7 @@ var render = function() {
                     "a",
                     {
                       staticClass: "post-add-icon inline-items",
-                      attrs: {
-                        href: "#",
-                        "data-toggle": "modal",
-                        "data-target": "#commentPost"
-                      },
+                      attrs: { href: "javascript:void(0)" },
                       on: {
                         click: function($event) {
                           _vm.setOnCommentPost(post)
@@ -54449,7 +54448,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("li", [
-      _c("a", { attrs: { href: "'post/delete/'" } }, [_vm._v("Deletar")])
+      _c("a", { attrs: { href: "post/delete/" } }, [_vm._v("Deletar")])
     ])
   },
   function() {
@@ -55591,7 +55590,7 @@ var render = function() {
                 "div",
                 {
                   staticClass: "top-header-thumb",
-                  staticStyle: { height: "640px" }
+                  staticStyle: { height: "440px" }
                 },
                 [
                   _vm.user.img_header
@@ -59213,17 +59212,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	props: ['action', 'method'],
-	computed: {
-		user: function user() {
-			return this.$store.state.onCommentPost.user;
-		},
-		post: function post() {
-			return this.$store.state.onCommentPost;
-		},
-		comments: function comments() {
-			return this.$store.state.onCommentPost.comments;
-		}
+	props: ['action', 'method', 'user_auth'],
+	data: function data() {
+		return {
+			post: {
+				user: {},
+				likes: {}
+			},
+			comment: {
+				text: ''
+			}
+		};
+	},
+	mounted: function mounted() {
+		var _this = this;
+
+		this.$store.watch(this.$store.getters.getOnCommentPost, function (posts) {
+			_this.post = posts;
+		});
 	},
 	methods: {
 		formatDate: function formatDate(date) {
@@ -59232,6 +59238,68 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		},
 		getFirstName: function getFirstName(name) {
 			return name.split(' ').slice(0, 1).join(' ');
+		},
+
+		likePost: function likePost() {
+			var _this2 = this;
+
+			axios('post/like/' + this.post.id).then(function (res) {
+				//Percorrer response dos posts do usuário e encontrar o que está sendo usado
+				//no modal de comentários para atualiza-lo
+				for (var i = 0; i < res.data.length; i++) {
+					if (res.data[i]['id'] == _this2.post.id) {
+						_this2.$store.commit('setOnCommentPost', res.data[i]);
+					}
+				}
+				//Atualizando o post do feed(fora do modal)
+				_this2.$store.commit('setPosts', res.data);
+			});
+		},
+		likeComment: function likeComment(comment) {
+			var _this3 = this;
+
+			axios('comments/like/' + comment.id + '/' + this.post.id).then(function (res) {
+				_this3.$store.commit('setOnCommentPost', res.data);
+			});
+		},
+		submitComment: function submitComment(event) {
+			if (this.comment != '') {
+				var retorno = "";
+				$.ajax({
+					type: "POST",
+					url: 'comments/' + this.post.id,
+					async: false,
+					data: { text: this.comment.text },
+					success: function success(data) {
+						retorno = JSON.parse(data);
+					},
+					error: function error(data) {
+						//erro aqui
+					}
+				});
+				this.$store.commit('setOnCommentPost', retorno);
+				this.comment = '';
+			}
+		},
+		delComment: function delComment(comment) {
+			var _this4 = this;
+
+			axios.get('comments/delete/' + this.post.id + '/' + comment.id).then(function (res) {
+				_this4.$store.commit('setOnCommentPost', res.data);
+			});
+		},
+		defineColorLike: function defineColorLike(likes) {
+			var color = '';
+			var user_auth = this.user_auth.id;
+			//Percorrer os likes do post ou do comentário em questão e
+			//verificar se o usuário autenticado deu like, caso true,
+			//deixar o botão de like colorido
+			$.each(likes, function (key, value) {
+				if (value.users_id == user_auth) {
+					color = "fill: #ff5e3a";
+				}
+			});
+			return color;
 		}
 	}
 });
@@ -59250,7 +59318,7 @@ var render = function() {
         _c("div", { staticClass: "post__author author vcard inline-items" }, [
           _c("img", {
             attrs: {
-              src: "storage/users/" + _vm.user.img_profile,
+              src: "storage/users/" + _vm.post.user.img_profile,
               alt: "Foto de perfil"
             }
           }),
@@ -59259,7 +59327,7 @@ var render = function() {
             _c(
               "a",
               { staticClass: "h6 post__author-name fn", attrs: { href: "#" } },
-              [_vm._v(_vm._s(_vm.user.name))]
+              [_vm._v(_vm._s(_vm.post.user.name))]
             ),
             _vm._v(" "),
             _c("div", { staticClass: "post__date" }, [
@@ -59288,7 +59356,15 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _vm._m(0)
+            _c("ul", { staticClass: "more-dropdown" }, [
+              _vm.user_auth.id == _vm.post.user.id
+                ? _c("li", [
+                    _c("a", { attrs: { href: "" } }, [_vm._v("Deletar")])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm._m(0)
+            ])
           ])
         ]),
         _vm._v(" "),
@@ -59302,14 +59378,19 @@ var render = function() {
               "a",
               {
                 staticClass: "post-add-icon inline-items",
-                attrs: { href: "javascript:void(0)" }
+                attrs: { href: "javascript:void(0)" },
+                on: {
+                  click: function($event) {
+                    _vm.likePost()
+                  }
+                }
               },
               [
                 _c(
                   "svg",
                   {
                     staticClass: "olymp-heart-icon",
-                    staticStyle: { fill: "#ff5e3a!important" }
+                    style: _vm.defineColorLike(_vm.post.likes)
                   },
                   [
                     _c("use", {
@@ -59467,8 +59548,8 @@ var render = function() {
             staticClass: "comments-list style-2",
             staticStyle: { "max-height": "400px", overflow: "overlay" }
           },
-          _vm._l(_vm.comments, function(comment) {
-            return _vm.comments
+          _vm._l(_vm.post.comments, function(comment) {
+            return _vm.post.comments
               ? _c("li", { staticClass: "comment-item" }, [
                   _c("div", { staticClass: "post__author author vcard" }, [
                     comment.user.img_profile
@@ -59481,6 +59562,15 @@ var render = function() {
                       : _c("img", {
                           attrs: { src: "img/avatar1.jpg", alt: "author" }
                         }),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "h6 post__author-name fn",
+                        attrs: { href: "#" }
+                      },
+                      [_vm._v(_vm._s(comment.user.name))]
+                    ),
                     _vm._v(" "),
                     _c(
                       "div",
@@ -59505,17 +59595,29 @@ var render = function() {
                           "a",
                           {
                             staticClass: "post-add-icon inline-items",
-                            attrs: { href: "#" }
+                            attrs: { href: "javascript:void(0)" },
+                            on: {
+                              click: function($event) {
+                                _vm.likeComment(comment)
+                              }
+                            }
                           },
                           [
-                            _c("svg", { staticClass: "olymp-heart-icon" }, [
-                              _c("use", {
-                                attrs: {
-                                  "xlink:href":
-                                    "svg-icons/sprites/icons.svg#olymp-heart-icon"
-                                }
-                              })
-                            ]),
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "olymp-heart-icon",
+                                style: _vm.defineColorLike(comment.likes)
+                              },
+                              [
+                                _c("use", {
+                                  attrs: {
+                                    "xlink:href":
+                                      "svg-icons/sprites/icons.svg#olymp-heart-icon"
+                                  }
+                                })
+                              ]
+                            ),
                             _vm._v(" "),
                             _c("span", [_vm._v(_vm._s(comment.likes.length))])
                           ]
@@ -59564,7 +59666,50 @@ var render = function() {
                               ]
                             ),
                             _vm._v(" "),
-                            _vm._m(1, true)
+                            _c(
+                              "ul",
+                              {
+                                staticClass: "more-dropdown",
+                                staticStyle: {
+                                  top: "auto!important",
+                                  bottom: "0!important"
+                                }
+                              },
+                              [
+                                _vm.user_auth.id == comment.user.id
+                                  ? _c("li", [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: {
+                                            href: "#",
+                                            "data-toggle": "modal",
+                                            "data-target": "#editPost"
+                                          }
+                                        },
+                                        [_vm._v("Editar")]
+                                      )
+                                    ])
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _vm.user_auth.id == comment.user.id
+                                  ? _c("li", [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:void(0)" },
+                                          on: {
+                                            click: function($event) {
+                                              _vm.delComment(comment)
+                                            }
+                                          }
+                                        },
+                                        [_vm._v("Deletar")]
+                                      )
+                                    ])
+                                  : _vm._e()
+                              ]
+                            )
                           ]
                         )
                       ]
@@ -59579,7 +59724,13 @@ var render = function() {
           "form",
           {
             staticClass: "comment-form inline-items",
-            attrs: { action: _vm.action, method: _vm.method }
+            attrs: { action: "#", id: "formComment", method: "post" },
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                _vm.submitComment()
+              }
+            }
           },
           [
             _c(
@@ -59590,8 +59741,25 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group with-icon-right " }, [
                   _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.comment.text,
+                        expression: "comment.text"
+                      }
+                    ],
                     staticClass: "form-control",
-                    attrs: { placeholder: "", name: "text" }
+                    attrs: { placeholder: "", name: "text" },
+                    domProps: { value: _vm.comment.text },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.comment, "text", $event.target.value)
+                      }
+                    }
                   }),
                   _vm._v(" "),
                   _c("div", { staticClass: "add-options-message" }, [
@@ -59631,44 +59799,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("ul", { staticClass: "more-dropdown" }, [
-      _c("li", [
-        _c("a", { attrs: { href: "'post/delete/'" } }, [_vm._v("Deletar")])
-      ]),
-      _vm._v(" "),
-      _c("li", [
-        _c("a", { attrs: { href: "#" } }, [_vm._v("Desligar notificações")])
-      ])
+    return _c("li", [
+      _c("a", { attrs: { href: "#" } }, [_vm._v("Desligar notificações")])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "ul",
-      {
-        staticClass: "more-dropdown",
-        staticStyle: { top: "auto!important", bottom: "0!important" }
-      },
-      [
-        _c("li", [
-          _c(
-            "a",
-            {
-              attrs: {
-                href: "#",
-                "data-toggle": "modal",
-                "data-target": "#editPost"
-              }
-            },
-            [_vm._v("Editar")]
-          )
-        ]),
-        _vm._v(" "),
-        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Deletar")])])
-      ]
-    )
   }
 ]
 render._withStripped = true

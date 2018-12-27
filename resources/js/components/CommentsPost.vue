@@ -1,13 +1,13 @@
 <template >
-	<div >
+	<div>
 		<!-- Post -->
 		<div class="ui-block">
 			<article class="hentry post has-post-thumbnail">
 
 				<div class="post__author author vcard inline-items">
-					<img :src="'storage/users/'+user.img_profile" alt="Foto de perfil">
+					<img :src="'storage/users/'+post.user.img_profile" alt="Foto de perfil">
 					<div class="author-date">
-						<a class="h6 post__author-name fn" href="#">{{user.name}}</a>
+						<a class="h6 post__author-name fn" href="#">{{post.user.name}}</a>
 						<div class="post__date">
 							<time class="published" id="datetime" datetime="post.created_at">
 								<small>{{formatDate(post.created_at)}}</small>
@@ -21,8 +21,8 @@
 							<!-- <li>
 								<a href="#" v-on:click="setOnEditPost(post)" data-toggle="modal" data-target="#editPost">Editar</a>
 							</li> -->
-							<li>
-								<a href="'post/delete/'">Deletar</a>
+							<li v-if="user_auth.id == post.user.id">
+								<a href="">Deletar</a>
 							</li>
 							<li>
 								<a href="#">Desligar notificações</a>
@@ -35,8 +35,8 @@
 				<p>{{post.text}}</p>
 				<div class="post-additional-info inline-items">
 
-					<a href="javascript:void(0)"  class="post-add-icon inline-items" >
-						<svg class="olymp-heart-icon" style="fill: #ff5e3a!important"><use  xlink:href="svg-icons/sprites/icons.svg#olymp-heart-icon" ></use></svg>
+					<a href="javascript:void(0)"  class="post-add-icon inline-items" @click="likePost()" >
+						<svg class="olymp-heart-icon" :style="defineColorLike(post.likes)"><use  xlink:href="svg-icons/sprites/icons.svg#olymp-heart-icon" ></use></svg>
 						<span>{{post.likes.length}}</span>
 					</a>
 
@@ -100,15 +100,15 @@
 			<div class="ui-block" >
 
 				<ul  class="comments-list style-2" style="max-height:400px;overflow:overlay" >
-					<li  v-for="comment in comments"  class="comment-item" v-if="comments">
+					<li  v-for="comment in post.comments"  class="comment-item" v-if="post.comments">
 						<div class="post__author author vcard">
 							<img v-if="comment.user.img_profile" :src="'storage/users/'+comment.user.img_profile" alt="author">
 							<img v-else="comment.user.img_profile" src="img/avatar1.jpg" alt="author">
-
+							<a class="h6 post__author-name fn" href="#">{{comment.user.name}}</a>
 							<div class="author-date" style="overflow:visible!important">
 								<p><a class="h6 post__author-name fn" href="#">{{comment.name}}</a> {{comment.text}}</p>
-								<a href="#" class="post-add-icon inline-items">
-									<svg class="olymp-heart-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-heart-icon"></use></svg>
+								<a href="javascript:void(0)" class="post-add-icon inline-items" @click="likeComment(comment)" >
+									<svg class="olymp-heart-icon" :style="defineColorLike(comment.likes)"><use xlink:href="svg-icons/sprites/icons.svg#olymp-heart-icon"></use></svg>
 									<span>{{comment.likes.length}}</span>
 								</a>
 
@@ -123,11 +123,11 @@
 								<!-- <a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg></a> -->
 								<div  class="more" style="float:right;position:none"><svg class="olymp-three-dots-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg>
 									<ul class="more-dropdown" style="top:auto!important;bottom:0!important">
-										<li>
+										<li v-if="user_auth.id == comment.user.id">
 											<a href="#" data-toggle="modal" data-target="#editPost">Editar</a>
 										</li>
-										<li>
-											<a href="#">Deletar</a>
+										<li v-if="user_auth.id == comment.user.id">
+											<a href="javascript:void(0)" @click="delComment(comment)">Deletar</a>
 										</li>
 									</ul>
 								</div>
@@ -139,12 +139,12 @@
 				<!-- FIM Comentários do post -->
 
 				<!-- Formulário para comentar no post -->
-				<form class="comment-form inline-items" :action="action" :method="method">
+				<form class="comment-form inline-items" action="#" id="formComment" method="post" @submit.prevent="submitComment()">
 
 					<div class="post__author author vcard inline-items">
 						<slot name="img_profile"></slot>
 						<div class="form-group with-icon-right ">
-							<textarea class="form-control" placeholder="" name="text"></textarea>
+							<textarea class="form-control" placeholder="" name="text" v-model="comment.text"></textarea>
 							<div class="add-options-message">
 								<a href="#" class="options-message">
 									<svg class="olymp-camera-icon">
@@ -166,17 +166,22 @@
 </template>
 <script>
 export default{
-	props:['action','method'],
-	computed:{
-		user(){
-			return this.$store.state.onCommentPost.user
-		},
-		post(){
-			return this.$store.state.onCommentPost
-		},
-		comments(){
-			return this.$store.state.onCommentPost.comments
+	props:['action','method','user_auth'],
+	data: function(){
+		return{
+			post:{
+				user:{},
+				likes:{}
+			},
+			comment:{
+				text:''
+			}
 		}
+	},
+	mounted:function(){
+		this.$store.watch(this.$store.getters.getOnCommentPost,posts=>{
+			this.post = posts;
+		})
 	},
 	methods:{
 		formatDate: function(date){
@@ -185,6 +190,64 @@ export default{
 		},
 		getFirstName(name){
 			return name.split(' ').slice(0, 1).join(' ');
+		},
+		likePost: function(){
+			axios('post/like/'+this.post.id).
+			then(res =>{
+				//Percorrer response dos posts do usuário e encontrar o que está sendo usado
+				//no modal de comentários para atualiza-lo
+				for (var i = 0; i < res.data.length; i++) {
+					if(res.data[i]['id'] == this.post.id){
+						this.$store.commit('setOnCommentPost',res.data[i]);
+					}
+				}
+				//Atualizando o post do feed(fora do modal)
+				this.$store.commit('setPosts',res.data);
+			});
+		},
+		likeComment:function(comment){
+			axios('comments/like/'+comment.id+'/'+this.post.id).
+			then(res =>{
+				this.$store.commit('setOnCommentPost',res.data);
+			});			
+		},
+		submitComment(event){
+			if(this.comment != ''){
+				var retorno = "";
+				$.ajax({
+					type: "POST",
+					url: 'comments/'+this.post.id,
+					async:false,
+					data: {text:this.comment.text},
+					success: function(data){
+						retorno = JSON.parse(data);
+					},
+					error:function(data){
+						//erro aqui
+					}
+				});
+				this.$store.commit('setOnCommentPost',retorno);
+				this.comment = '';
+			}
+		},
+		delComment(comment){
+			axios.get('comments/delete/'+this.post.id+'/'+comment.id).
+			then(res => {
+				this.$store.commit('setOnCommentPost',res.data);
+			});
+		},
+		defineColorLike(likes){
+			var color = '';
+			var user_auth = this.user_auth.id;
+			//Percorrer os likes do post ou do comentário em questão e
+			//verificar se o usuário autenticado deu like, caso true,
+			//deixar o botão de like colorido
+			$.each(likes,function(key, value){
+				if(value.users_id == user_auth){
+					color = "fill: #ff5e3a";
+				}
+			});
+			return color;
 		}
 	}
 };

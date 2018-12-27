@@ -30,15 +30,11 @@
  		}
  	},
  	getters:{
- 		all_my_posts(state){
- 			return state.posts
- 		},
+ 		all_my_posts:state => () => state.posts,
  		getOnEditPost(state){
  			return state.onEdit
  		},
- 		getOnCommentPost(state){
- 			return state.onCommentPost
- 		}
+ 		getOnCommentPost:state => () => state.onCommentPost
  	},
  	mutations:{
  		setPosts(state,obj){

@@ -7,7 +7,7 @@
 			<div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 				<div class="ui-block">
 					<div class="top-header">
-						<div class="top-header-thumb" style="height:640px">
+						<div class="top-header-thumb" style="height:440px">
 							<img v-if="user.img_header" :src="'storage/users/'+user.img_header" style="height:-webkit-fill-available" alt="Imagem de capa">
 							<img v-if="!(user.img_header)" src="img/top-header1.jpg" style="height:-webkit-fill-available" alt="Imagem de Capa">
 						</div>

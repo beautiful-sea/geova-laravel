@@ -19,7 +19,7 @@ class LikeComment extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        
+        'comments_id','users_id'
     ];
 
     protected $table = "user_like_comment";

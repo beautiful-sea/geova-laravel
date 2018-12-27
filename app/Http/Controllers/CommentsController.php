@@ -7,6 +7,8 @@ use \App\Comment;
 use \App\Post;
 use \App\User;
 use \Auth;
+use Illuminate\Support\Facades\DB;
+
 
 class CommentsController extends Controller
 {
@@ -36,18 +38,18 @@ class CommentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,$id)
+    public function store(Request $request,$postId)
     {
-        $post = Post::find($id);
+        $post = Post::find($postId);
 
-        $user = Auth::user();
+        $user = \Auth::user();
 
         $post->comments()->create([
             'text'=>$request->text,
             'users_id'=>$user->id
         ]);
 
-        return redirect()->back();
+        return json_encode(Post::find($postId));
     }
 
     /**
@@ -64,6 +66,39 @@ class CommentsController extends Controller
         ->get();
         return json_encode($comment);
         // return Post::find($id)::with(['user','comments'])->where('id','=',$id)->get();
+    }
+
+    public function like($commentId,$postId){
+        
+        $user = \Auth::user();
+
+        $comment = Comment::find($commentId);
+
+        $role = [
+            'users_id'  =>  $user->id,
+            'comments_id'  =>  $commentId
+        ];
+
+        //Verifica se já existe like do usuário no post
+        //Array_filter para remover os espaços vazios do array
+        $verify =  array_filter((array)DB::table('user_like_comment')
+            ->where('users_id', $role['users_id'])->where('comments_id', $role['comments_id'])->get());
+
+        if(empty($verify)){
+            // //Instanciando novo like
+            $like = new \App\LikeComment([
+                'users_id'  =>  $user->id,
+                'comments_id'  =>  $commentId
+            ]);
+
+            //criando o like
+            $comment->likes()->save($like);
+        }else{
+            //remove like
+            $delete = DB::table('user_like_comment')->where('users_id', $role['users_id'])->where('comments_id', $role['comments_id'])->delete();
+        }
+
+        return Post::find($postId);
     }
 
     /**
@@ -95,8 +130,11 @@ class CommentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($postId,$commentId)
     {
-        //
+        Comment::destroy($commentId);
+
+        return Post::find($postId);
+
     }
 }

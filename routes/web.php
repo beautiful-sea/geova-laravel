@@ -32,8 +32,7 @@ Route::prefix('post')->group(function () {
 	Route::put('/{id}','PostsController@update');
 	Route::get('/delete/{id}','PostsController@destroy');
 	Route::get('/{id}','PostsController@show');
-	Route::get('/likePost/{id}','LikesController@store');
-
+	Route::get('/like/{id}','LikesController@store');
 });
 
 Route::prefix('user')->group(function () {
@@ -42,7 +41,9 @@ Route::prefix('user')->group(function () {
 
 Route::prefix('comments')->group(function(){
 	Route::get('/{id}','CommentsController@show');
-	Route::post('/{id}','CommentsController@store');
+	Route::get('/like/{commentId}/{postId}','CommentsController@like');
+	Route::get('/delete/{postId}/{commentId}','CommentsController@destroy');
+	Route::post('/{postId}','CommentsController@store');
 
 });
 

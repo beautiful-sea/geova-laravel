@@ -19,7 +19,7 @@ class Comment extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'text'
+        'text','users_id'
     ];
 
     /**

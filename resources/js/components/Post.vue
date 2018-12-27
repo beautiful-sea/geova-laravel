@@ -21,7 +21,7 @@
 								<a href="#" v-on:click="setOnEditPost(post)" data-toggle="modal" data-target="#editPost">Editar</a>
 							</li>
 							<li>
-								<a href="'post/delete/'">Deletar</a>
+								<a href="post/delete/">Deletar</a>
 							</li>
 							<li>
 								<a href="#">Desligar notificações</a>
@@ -59,7 +59,7 @@
 
 
 					<div  class="comments-shared">
-						<a href="#" class="post-add-icon inline-items" @click="setOnCommentPost(post)"  data-toggle="modal" data-target="#commentPost">
+						<a href="javascript:void(0)" class="post-add-icon inline-items" @click="setOnCommentPost(post)" >
 							<svg class="olymp-speech-balloon-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-speech-balloon-icon"></use></svg>
 							<span>{{post.comments.length}}</span>
 						</a>
@@ -106,14 +106,11 @@ export default{
 	created: function(){
 		axios.get('/post/myposts').then(res =>{
 			this.$store.commit('setPosts',res.data);
-			this.posts = this.$store.getters.all_my_posts;
-
+			this.$store.watch(this.$store.getters.all_my_posts,posts=>{
+				this.posts = posts;
+			})
 		})
-	},
-	watch:{
-		posts: function(val){
-			this.posts = this.$store.getters.all_my_posts
-		}
+
 	},
 	methods: {
 		setOnEditPost: function(post){
@@ -121,6 +118,7 @@ export default{
 		},
 		setOnCommentPost: function(post){
 			this.$store.commit('setOnCommentPost',post);
+			$("#commentPost").modal('show');
 		},
 		formatDate: function(date){
 			moment.locale('pt-br');
@@ -130,7 +128,7 @@ export default{
 			return name.split(' ').slice(0, 1).join(' ');
 		},
 		likePost: function(post){
-			axios('post/likePost/'+post).
+			axios('post/like/'+post).
 			then(res =>{
 				this.$store.commit('setPosts',res.data);
 				this.posts = this.$store.getters.all_my_posts;
