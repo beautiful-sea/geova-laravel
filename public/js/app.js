@@ -57772,73 +57772,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+	data: function data() {
+		return {
+			friends: []
+		};
+	},
+	mounted: function mounted() {
+		var _this = this;
+
+		axios.get('user/friends').then(function (res) {
+			_this.friends = res.data;
+		});
+	}
+});
 
 /***/ }),
 /* 70 */
@@ -57859,10 +57807,55 @@ var render = function() {
       _vm._v(" "),
       _vm._m(1),
       _vm._v(" "),
-      _vm._m(2),
+      _c("div", { staticClass: "ui-block" }, [
+        _c("div", { staticClass: "ui-block-title" }, [
+          _c("h6", { staticClass: "title" }, [
+            _vm._v("Amigos (" + _vm._s(_vm.friends.length) + ")")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "ui-block-content" }, [
+          _c(
+            "ul",
+            { staticClass: "widget w-faved-page js-zoom-gallery" },
+            [
+              _vm._l(_vm.friends, function(friend, index) {
+                return _c("li", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: "#",
+                        "data-toggle": "tooltip",
+                        "data-placement": "top",
+                        title: friend.name
+                      }
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "storage/users/" + friend.img_profile,
+                          alt: "author"
+                        }
+                      })
+                    ]
+                  )
+                ])
+              }),
+              _vm._v(" "),
+              _vm.friends.length >= 4
+                ? _c("li", { staticClass: "all-users" }, [
+                    _c("a", { attrs: { href: "#" } }, [_vm._v("+74")])
+                  ])
+                : _vm._e()
+            ],
+            2
+          )
+        ])
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "ui-block" }, [
-        _vm._m(3),
+        _vm._m(2),
         _vm._v(" "),
         _c(
           "ul",
@@ -57872,130 +57865,130 @@ var render = function() {
           },
           [
             _c("li", { staticClass: "inline-items" }, [
+              _vm._m(3),
+              _vm._v(" "),
               _vm._m(4),
               _vm._v(" "),
+              _c(
+                "span",
+                {
+                  staticClass: "notification-icon",
+                  attrs: {
+                    "data-toggle": "tooltip",
+                    "data-placement": "top",
+                    "data-original-title": "ADD TO YOUR FAVS"
+                  }
+                },
+                [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("svg", { staticClass: "olymp-star-icon" }, [
+                      _c("use", {
+                        attrs: {
+                          "xlink:href":
+                            "svg-icons/sprites/icons.svg#olymp-star-icon"
+                        }
+                      })
+                    ])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "inline-items" }, [
               _vm._m(5),
               _vm._v(" "),
-              _c(
-                "span",
-                {
-                  staticClass: "notification-icon",
-                  attrs: {
-                    "data-toggle": "tooltip",
-                    "data-placement": "top",
-                    "data-original-title": "ADD TO YOUR FAVS"
-                  }
-                },
-                [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("svg", { staticClass: "olymp-star-icon" }, [
-                      _c("use", {
-                        attrs: {
-                          "xlink:href":
-                            "svg-icons/sprites/icons.svg#olymp-star-icon"
-                        }
-                      })
-                    ])
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "inline-items" }, [
               _vm._m(6),
               _vm._v(" "),
+              _c(
+                "span",
+                {
+                  staticClass: "notification-icon",
+                  attrs: {
+                    "data-toggle": "tooltip",
+                    "data-placement": "top",
+                    "data-original-title": "ADD TO YOUR FAVS"
+                  }
+                },
+                [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("svg", { staticClass: "olymp-star-icon" }, [
+                      _c("use", {
+                        attrs: {
+                          "xlink:href":
+                            "svg-icons/sprites/icons.svg#olymp-star-icon"
+                        }
+                      })
+                    ])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "inline-items" }, [
               _vm._m(7),
               _vm._v(" "),
-              _c(
-                "span",
-                {
-                  staticClass: "notification-icon",
-                  attrs: {
-                    "data-toggle": "tooltip",
-                    "data-placement": "top",
-                    "data-original-title": "ADD TO YOUR FAVS"
-                  }
-                },
-                [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("svg", { staticClass: "olymp-star-icon" }, [
-                      _c("use", {
-                        attrs: {
-                          "xlink:href":
-                            "svg-icons/sprites/icons.svg#olymp-star-icon"
-                        }
-                      })
-                    ])
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "inline-items" }, [
               _vm._m(8),
               _vm._v(" "),
+              _c(
+                "span",
+                {
+                  staticClass: "notification-icon",
+                  attrs: {
+                    "data-toggle": "tooltip",
+                    "data-placement": "top",
+                    "data-original-title": "ADD TO YOUR FAVS"
+                  }
+                },
+                [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("svg", { staticClass: "olymp-star-icon" }, [
+                      _c("use", {
+                        attrs: {
+                          "xlink:href":
+                            "svg-icons/sprites/icons.svg#olymp-star-icon"
+                        }
+                      })
+                    ])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "inline-items" }, [
               _vm._m(9),
               _vm._v(" "),
-              _c(
-                "span",
-                {
-                  staticClass: "notification-icon",
-                  attrs: {
-                    "data-toggle": "tooltip",
-                    "data-placement": "top",
-                    "data-original-title": "ADD TO YOUR FAVS"
-                  }
-                },
-                [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("svg", { staticClass: "olymp-star-icon" }, [
-                      _c("use", {
-                        attrs: {
-                          "xlink:href":
-                            "svg-icons/sprites/icons.svg#olymp-star-icon"
-                        }
-                      })
-                    ])
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "inline-items" }, [
               _vm._m(10),
               _vm._v(" "),
+              _c(
+                "span",
+                {
+                  staticClass: "notification-icon",
+                  attrs: {
+                    "data-toggle": "tooltip",
+                    "data-placement": "top",
+                    "data-original-title": "ADD TO YOUR FAVS"
+                  }
+                },
+                [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("svg", { staticClass: "olymp-star-icon" }, [
+                      _c("use", {
+                        attrs: {
+                          "xlink:href":
+                            "svg-icons/sprites/icons.svg#olymp-star-icon"
+                        }
+                      })
+                    ])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "inline-items" }, [
               _vm._m(11),
               _vm._v(" "),
-              _c(
-                "span",
-                {
-                  staticClass: "notification-icon",
-                  attrs: {
-                    "data-toggle": "tooltip",
-                    "data-placement": "top",
-                    "data-original-title": "ADD TO YOUR FAVS"
-                  }
-                },
-                [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("svg", { staticClass: "olymp-star-icon" }, [
-                      _c("use", {
-                        attrs: {
-                          "xlink:href":
-                            "svg-icons/sprites/icons.svg#olymp-star-icon"
-                        }
-                      })
-                    ])
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "inline-items" }, [
               _vm._m(12),
               _vm._v(" "),
-              _vm._m(13),
-              _vm._v(" "),
               _c(
                 "span",
                 {
@@ -58022,9 +58015,9 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("li", { staticClass: "inline-items" }, [
-              _vm._m(14),
+              _vm._m(13),
               _vm._v(" "),
-              _vm._m(15),
+              _vm._m(14),
               _vm._v(" "),
               _c(
                 "span",
@@ -58054,7 +58047,7 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _vm._m(16)
+      _vm._m(15)
     ]
   )
 }
@@ -58202,120 +58195,6 @@ var staticRenderFns = [
                 [_vm._v("\n\t\t\t\t\t\t\tMarch 18th, at 6:52pm\n\t\t\t\t\t\t")]
               )
             ])
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ui-block" }, [
-      _c("div", { staticClass: "ui-block-title" }, [
-        _c("h6", { staticClass: "title" }, [_vm._v("Friends (86)")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ui-block-content" }, [
-        _c("ul", { staticClass: "widget w-faved-page js-zoom-gallery" }, [
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("img", {
-                attrs: { src: "img/avatar38-sm.jpg", alt: "author" }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("img", { attrs: { src: "img/avatar24-sm.jpg", alt: "user" } })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("img", {
-                attrs: { src: "img/avatar36-sm.jpg", alt: "author" }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("img", { attrs: { src: "img/avatar35-sm.jpg", alt: "user" } })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("img", {
-                attrs: { src: "img/avatar34-sm.jpg", alt: "author" }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("img", {
-                attrs: { src: "img/avatar33-sm.jpg", alt: "author" }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("img", { attrs: { src: "img/avatar32-sm.jpg", alt: "user" } })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("img", {
-                attrs: { src: "img/avatar31-sm.jpg", alt: "author" }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("img", {
-                attrs: { src: "img/avatar30-sm.jpg", alt: "author" }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("img", { attrs: { src: "img/avatar29-sm.jpg", alt: "user" } })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("img", { attrs: { src: "img/avatar28-sm.jpg", alt: "user" } })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("img", { attrs: { src: "img/avatar27-sm.jpg", alt: "user" } })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("img", { attrs: { src: "img/avatar26-sm.jpg", alt: "user" } })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("img", { attrs: { src: "img/avatar25-sm.jpg", alt: "user" } })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "all-users" }, [
-            _c("a", { attrs: { href: "#" } }, [_vm._v("+74")])
           ])
         ])
       ])

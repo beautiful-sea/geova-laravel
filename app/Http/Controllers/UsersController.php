@@ -9,8 +9,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Http\Response;
 
 use Auth;
-class UsersController extends Controller
-{
+class UsersController extends Controller{
     /**
      * Display a listing of the resource.
      *
@@ -77,16 +76,16 @@ class UsersController extends Controller
         $data = $request->all();
 
 
-      $update = $user->update($data);
+        $update = $user->update($data);
 
-      if($update){
-        return redirect()->back();
-      }else{
-        return redirect()->back()->with('errors',"Erro ao atualizar dados");
-      }
-  }
+        if($update){
+            return redirect()->back();
+        }else{
+            return redirect()->back()->with('errors',"Erro ao atualizar dados");
+        }
+    }
 
-  public function uploadImage(Request $request,$image){
+    public function uploadImage(Request $request,$image){
         $user = Auth::user();
         $data = $request->all();
         $img = "img_{$image}";
@@ -94,30 +93,41 @@ class UsersController extends Controller
         if($request->hasFile("img_{$image}") && $request->file("img_{$image}")->isValid()){
 
             if($user->$img){//Se usuário ja possui imagem de perfil
-            $name = explode('.',$user->$img);
-            $name = $name[0];
+                $name = explode('.',$user->$img);
+                $name = $name[0];
             }else{
               $name = $user->id."-{$image}-".kebab_case($user->name);             
+              }
+              $file = $request->file("img_{$image}");
+              $filename = "{$name}.png"; 
+              $data["img_{$image}"] = $filename;
+              if($file){
+                Storage::disk('local')->put("users/{$filename}",File::get($file));
+                $update = $user->update($data);
+            }else{
+                return redirect()->back()->with('errors','Erro ao salvar imagem');
             }
-          $file = $request->file("img_{$image}");
-          $filename = "{$name}.png"; 
-          $data["img_{$image}"] = $filename;
-          if($file){
-            Storage::disk('local')->put("users/{$filename}",File::get($file));
-            $update = $user->update($data);
-          }else{
-             return redirect()->back()->with('errors','Erro ao salvar imagem');
-          }
 
-      }
-      return redirect()->back();
-  }
+        }
+        return redirect()->back();
+    }
 
-  public function getImage($filename){
-    $file = Storage::disk('local')->get("users/{$filename}");
-    return 'new Response($file,200)';
-  }
+    public function getImage($filename){
+        $file = Storage::disk('local')->get("users/{$filename}");
+        return 'new Response($file,200)';
+    }
 
+    public function getFriends(){
+        $user = \Auth::user();
+
+        $friends = DB::table('users_follow_users')
+            ->join('users','users.id','=','users_follow_users.users_id_followed')
+            ->select('users.id','users.name','users.email','users.img_profile','users.img_header','users.about_me')
+            ->get();
+        return $friends;
+    }
+// SELECT users.*,users_id_follow, users_id_followed from users_follow_users
+// left join users on(users.id = users_id_followed)
     /**
      * Remove the specified resource from storage.
      *

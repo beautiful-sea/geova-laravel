@@ -37,6 +37,7 @@ Route::prefix('post')->group(function () {
 
 Route::prefix('user')->group(function () {
 	Route::put('/uploadImg/{image}','UsersController@uploadImage');
+	Route::get('/friends','UsersController@getFriends');
 });
 
 Route::prefix('comments')->group(function(){

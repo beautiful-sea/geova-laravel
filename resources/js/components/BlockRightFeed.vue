@@ -107,84 +107,19 @@
 
 		<div class="ui-block">
 			<div class="ui-block-title">
-				<h6 class="title">Friends (86)</h6>
+				<h6 class="title">Amigos ({{friends.length}})</h6>
 			</div>
 			<div class="ui-block-content">
 
 				<!-- W-Faved-Page -->
 				
 				<ul class="widget w-faved-page js-zoom-gallery">
-					<li>
-						<a href="#">
-							<img src="img/avatar38-sm.jpg" alt="author">
+					<li v-for="(friend,index) in friends">
+						<a href="#" data-toggle="tooltip" data-placement="top" :title="friend.name">
+							<img :src="'storage/users/'+friend.img_profile" alt="author">
 						</a>
 					</li>
-					<li>
-						<a href="#">
-							<img src="img/avatar24-sm.jpg" alt="user">
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<img src="img/avatar36-sm.jpg" alt="author">
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<img src="img/avatar35-sm.jpg" alt="user">
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<img src="img/avatar34-sm.jpg" alt="author">
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<img src="img/avatar33-sm.jpg" alt="author">
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<img src="img/avatar32-sm.jpg" alt="user">
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<img src="img/avatar31-sm.jpg" alt="author">
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<img src="img/avatar30-sm.jpg" alt="author">
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<img src="img/avatar29-sm.jpg" alt="user">
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<img src="img/avatar28-sm.jpg" alt="user">
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<img src="img/avatar27-sm.jpg" alt="user">
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<img src="img/avatar26-sm.jpg" alt="user">
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<img src="img/avatar25-sm.jpg" alt="user">
-						</a>
-					</li>
-					<li class="all-users">
+					<li class="all-users" v-if="friends.length>= 4">
 						<a href="#">+74</a>
 					</li>
 				</ul>
@@ -496,6 +431,16 @@
 
 <script>
 export default{
-
+	data(){
+		return {
+			friends:[]
+		}
+	},
+	mounted(){
+		axios.get('user/friends')
+		.then(res=>{
+			this.friends = res.data;
+		});
+	}
 };
 </script>
