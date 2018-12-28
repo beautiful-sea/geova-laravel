@@ -106,17 +106,26 @@ export default{
 	created: function(){
 		axios.get('/post/myposts').then(res =>{
 			this.$store.commit('setPosts',res.data);
-			this.$store.watch(this.$store.getters.all_my_posts,posts=>{
-				this.posts = posts;
-			})
-		})
-
+		});
+		this.$store.watch(this.$store.getters.all_my_posts,posts=>{
+			this.posts = posts;
+		});
+		
 	},
 	methods: {
+		setPosts: function(){
+			console.log('fechado');
+			axios.get('/post/myposts').then(res =>{
+				this.$store.commit('setPosts',res.data);
+			});
+		},
 		setOnEditPost: function(post){
 			this.$store.commit('setOnEditPost',post)
 		},
 		setOnCommentPost: function(post){
+			axios.get('/post/myposts').then(res =>{
+				this.$store.commit('setPosts',res.data);
+			});
 			this.$store.commit('setOnCommentPost',post);
 			$("#commentPost").modal('show');
 		},

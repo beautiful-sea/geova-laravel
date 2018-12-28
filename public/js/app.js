@@ -54114,16 +54114,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 		axios.get('/post/myposts').then(function (res) {
 			_this.$store.commit('setPosts', res.data);
-			_this.$store.watch(_this.$store.getters.all_my_posts, function (posts) {
-				_this.posts = posts;
-			});
+		});
+		this.$store.watch(this.$store.getters.all_my_posts, function (posts) {
+			_this.posts = posts;
 		});
 	},
 	methods: {
+		setPosts: function setPosts() {
+			var _this2 = this;
+
+			console.log('fechado');
+			axios.get('/post/myposts').then(function (res) {
+				_this2.$store.commit('setPosts', res.data);
+			});
+		},
 		setOnEditPost: function setOnEditPost(post) {
 			this.$store.commit('setOnEditPost', post);
 		},
 		setOnCommentPost: function setOnCommentPost(post) {
+			var _this3 = this;
+
+			axios.get('/post/myposts').then(function (res) {
+				_this3.$store.commit('setPosts', res.data);
+			});
 			this.$store.commit('setOnCommentPost', post);
 			$("#commentPost").modal('show');
 		},
@@ -54136,11 +54149,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		},
 
 		likePost: function likePost(post) {
-			var _this2 = this;
+			var _this4 = this;
 
 			axios('post/like/' + post).then(function (res) {
-				_this2.$store.commit('setPosts', res.data);
-				_this2.posts = _this2.$store.getters.all_my_posts;
+				_this4.$store.commit('setPosts', res.data);
+				_this4.posts = _this4.$store.getters.all_my_posts;
 			});
 		},
 		defineColorLike: function defineColorLike(likes) {
@@ -55303,6 +55316,7 @@ var render = function() {
   return _c(
     "div",
     {
+      ref: "modalvue",
       staticClass: "modal fade",
       attrs: {
         id: _vm.id,
@@ -57195,7 +57209,6 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
 //
 //
 //
@@ -59227,11 +59240,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	mounted: function mounted() {
 		var _this = this;
 
-		this.$store.watch(this.$store.getters.getOnCommentPost, function (posts) {
-			_this.post = posts;
+		this.$store.watch(this.$store.getters.getOnCommentPost, function (post) {
+			_this.post = post;
 		});
+		$('#commentPost').on('hidden.bs.modal', this.setPosts);
 	},
+	computed: {},
 	methods: {
+		setPosts: function setPosts() {
+			var _this2 = this;
+
+			axios.get('/post/myposts').then(function (res) {
+				_this2.$store.commit('setPosts', res.data);
+			});
+		},
+
 		formatDate: function formatDate(date) {
 			moment.locale('pt-br');
 			return moment(date, "YYYYMMDD H:m").fromNow();
@@ -59241,25 +59264,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		},
 
 		likePost: function likePost() {
-			var _this2 = this;
+			var _this3 = this;
 
 			axios('post/like/' + this.post.id).then(function (res) {
 				//Percorrer response dos posts do usuário e encontrar o que está sendo usado
 				//no modal de comentários para atualiza-lo
 				for (var i = 0; i < res.data.length; i++) {
-					if (res.data[i]['id'] == _this2.post.id) {
-						_this2.$store.commit('setOnCommentPost', res.data[i]);
+					if (res.data[i]['id'] == _this3.post.id) {
+						_this3.$store.commit('setOnCommentPost', res.data[i]);
 					}
 				}
 				//Atualizando o post do feed(fora do modal)
-				_this2.$store.commit('setPosts', res.data);
+				_this3.$store.commit('setPosts', res.data);
 			});
 		},
 		likeComment: function likeComment(comment) {
-			var _this3 = this;
+			var _this4 = this;
 
 			axios('comments/like/' + comment.id + '/' + this.post.id).then(function (res) {
-				_this3.$store.commit('setOnCommentPost', res.data);
+				_this4.$store.commit('setOnCommentPost', res.data);
 			});
 		},
 		submitComment: function submitComment(event) {
@@ -59278,14 +59301,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 					}
 				});
 				this.$store.commit('setOnCommentPost', retorno);
-				this.comment = '';
+				this.comment.text = '';
 			}
 		},
 		delComment: function delComment(comment) {
-			var _this4 = this;
+			var _this5 = this;
 
 			axios.get('comments/delete/' + this.post.id + '/' + comment.id).then(function (res) {
-				_this4.$store.commit('setOnCommentPost', res.data);
+				_this5.$store.commit('setOnCommentPost', res.data);
+				var posts = _this5.$store.state.posts;
+				var index = 0;
+				$.each(posts, function (key, value) {
+					if (value.id == res.data.id) {
+						posts[key] == res.data;
+						index = key;
+					}
+				});
+				_this5.$store.commit('setPosts', posts);
 			});
 		},
 		defineColorLike: function defineColorLike(likes) {
@@ -59897,48 +59929,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: ['token'],
@@ -60026,30 +60016,6 @@ var render = function() {
                 attrs: { name: "text" },
                 domProps: { value: _vm.post.text }
               }),
-              _vm._v(" "),
-              _c("div", { staticClass: "post-additional-info inline-items" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "post-add-icon inline-items",
-                    attrs: { href: "javascript:void(0)" }
-                  },
-                  [
-                    _c("svg", { staticClass: "olymp-heart-icon" }, [
-                      _c("use", {
-                        attrs: {
-                          "xlink:href":
-                            "svg-icons/sprites/icons.svg#olymp-heart-icon"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("span")
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "names-people-likes" })
-              ]),
               _vm._v(" "),
               _c("input", {
                 attrs: { type: "hidden", name: "_method", value: "put" }

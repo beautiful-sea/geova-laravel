@@ -179,11 +179,20 @@ export default{
 		}
 	},
 	mounted:function(){
-		this.$store.watch(this.$store.getters.getOnCommentPost,posts=>{
-			this.post = posts;
+		this.$store.watch(this.$store.getters.getOnCommentPost,post=>{
+			this.post = post;
 		})
+		$('#commentPost').on('hidden.bs.modal',this.setPosts);
+	},
+	computed:{
+
 	},
 	methods:{
+		setPosts(){
+			axios.get('/post/myposts').then(res =>{
+				this.$store.commit('setPosts',res.data);
+			});
+		},
 		formatDate: function(date){
 			moment.locale('pt-br');
 			return moment(date, "YYYYMMDD H:m").fromNow();
@@ -227,13 +236,22 @@ export default{
 					}
 				});
 				this.$store.commit('setOnCommentPost',retorno);
-				this.comment = '';
+				this.comment.text = '';
 			}
 		},
 		delComment(comment){
 			axios.get('comments/delete/'+this.post.id+'/'+comment.id).
 			then(res => {
 				this.$store.commit('setOnCommentPost',res.data);
+				var posts = this.$store.state.posts;
+				var index = 0;
+				$.each(posts, function(key,value){
+					if(value.id == res.data.id){
+						posts[key] == res.data;
+						index = key;
+					}
+				});
+				this.$store.commit('setPosts',posts);
 			});
 		},
 		defineColorLike(likes){

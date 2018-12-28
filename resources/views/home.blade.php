@@ -66,8 +66,7 @@
         <form-post action_status="{{route('posts.store')}}" action_media="" action_blog="" method="post" token="{{csrf_token()}}" slot="form-post" editable="0">
             <img src="{{asset('storage/users/'.$user->img_profile)}}"  style="width: 36px;height: 36px!important" alt="author" slot="img_profile">
         </form-post>
-<!--         if($posts)
-        foreach($posts as $post) -->
+
         <post slot="post" :user="{{auth()->user()}}" >
             @if($user->img_profile)
             <img src="{{asset('storage/users/'.auth()->user()->img_profile)}} " alt="Foto de perfil">
@@ -75,10 +74,6 @@
             <img src="img/avatar1.jpg" alt="Foto de perfil">
             @endif
         </post>
-<!--         endforeach   
-        else
-        <img src="img/last-photo9-large.jpg" alt="Foto de perfil">
-        endif    -->  
     </blockmainfeed>
     
     {{-- Bloco da esquerda do Feed de Notícias --}}

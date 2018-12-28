@@ -1,5 +1,5 @@
 <template>
-	<div class="modal fade" :id="id" tabindex="-1" role="dialog"  aria-hidden="true" >
+	<div class="modal fade" :id="id" tabindex="-1" role="dialog"  aria-hidden="true" ref="modalvue">
 		<div :class="(dialog_class)?dialog_class:'modal-dialog'" role="document">
 			<div v-if="body || header || footer" class="modal-content" :style="defineStyleModalContent">
 				<form :action="action" :method="defineMethod" :enctype="(enctype)?'multipart/form-data':''">
