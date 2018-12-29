@@ -17,8 +17,8 @@
 							</a>
 						</li>
 						<li>
-							<a href="03-Newsfeed.html">
-								<svg class="olymp-newsfeed-icon left-menu-icon" data-toggle="tooltip" data-placement="right"   data-original-title="NEWSFEED"><use xlink:href="svg-icons/sprites/icons.svg#olymp-newsfeed-icon"></use></svg>
+							<a href="/">
+								<svg class="olymp-newsfeed-icon left-menu-icon" data-toggle="tooltip" data-placement="right"   data-original-title="Publicações"><use xlink:href="svg-icons/sprites/icons.svg#olymp-newsfeed-icon"></use></svg>
 							</a>
 						</li>
 						<li>
@@ -89,9 +89,9 @@
 							</a>
 						</li>
 						<li>
-							<a href="03-Newsfeed.html">
-								<svg class="olymp-newsfeed-icon left-menu-icon" data-toggle="tooltip" data-placement="right"   data-original-title="NEWSFEED"><use xlink:href="svg-icons/sprites/icons.svg#olymp-newsfeed-icon"></use></svg>
-								<span class="left-menu-title">Newsfeed</span>
+							<a href="/">
+								<svg class="olymp-newsfeed-icon left-menu-icon" data-toggle="tooltip" data-placement="right"   data-original-title="Publicações"><use xlink:href="svg-icons/sprites/icons.svg#olymp-newsfeed-icon"></use></svg>
+								<span class="left-menu-title">Publicações</span>
 							</a>
 						</li>
 						<li>

@@ -48815,7 +48815,7 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("li", [
-                  _c("a", { attrs: { href: "03-Newsfeed.html" } }, [
+                  _c("a", { attrs: { href: "/" } }, [
                     _c(
                       "svg",
                       {
@@ -48823,7 +48823,7 @@ var render = function() {
                         attrs: {
                           "data-toggle": "tooltip",
                           "data-placement": "right",
-                          "data-original-title": "NEWSFEED"
+                          "data-original-title": "Publicações"
                         }
                       },
                       [
@@ -49110,7 +49110,7 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("li", [
-                  _c("a", { attrs: { href: "03-Newsfeed.html" } }, [
+                  _c("a", { attrs: { href: "/" } }, [
                     _c(
                       "svg",
                       {
@@ -49118,7 +49118,7 @@ var render = function() {
                         attrs: {
                           "data-toggle": "tooltip",
                           "data-placement": "right",
-                          "data-original-title": "NEWSFEED"
+                          "data-original-title": "Publicações"
                         }
                       },
                       [
@@ -49132,7 +49132,7 @@ var render = function() {
                     ),
                     _vm._v(" "),
                     _c("span", { staticClass: "left-menu-title" }, [
-                      _vm._v("Newsfeed")
+                      _vm._v("Publicações")
                     ])
                   ])
                 ]),
@@ -51403,7 +51403,7 @@ var render = function() {
                   staticClass: "avatar",
                   attrs: {
                     alt: "author",
-                    src: "/img/avatar1.jpg",
+                    src: "/storage/users/" + _vm.user.img_profile,
                     width: "45px"
                   }
                 }),
@@ -51504,7 +51504,7 @@ var render = function() {
                 "a",
                 {
                   staticClass: "author-name fn",
-                  attrs: { href: "/img/avatar1.jpg" }
+                  attrs: { href: "/storage/users/" + _vm.user.img_profile }
                 },
                 [
                   _c("div", { staticClass: "author-title" }, [
@@ -51520,7 +51520,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("span", { staticClass: "author-subtitle" }, [
-                    _vm._v("username")
+                    _vm._v(_vm._s(_vm.user.email))
                   ])
                 ]
               )
