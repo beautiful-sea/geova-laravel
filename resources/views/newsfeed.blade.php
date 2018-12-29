@@ -35,7 +35,9 @@
 <leftsidebar></leftsidebar>
 
 {{-- Menu do topo do site --}}
-<header-component :user="{{json_encode(auth()->user())}}" ></header-component >
+<header-component :user="{{json_encode(auth()->user())}}" >
+	Início
+</header-component >
 
 {{-- Feed de notícias --}}
 <feed>

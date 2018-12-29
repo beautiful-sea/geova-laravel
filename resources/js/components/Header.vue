@@ -6,7 +6,7 @@
 		<header class="header" id="site-header">
 
 			<div class="page-title">
-				<h6>Página de Perfil</h6>
+				<h6><slot></slot></h6>
 			</div>
 
 			<div class="header-content-wrapper">

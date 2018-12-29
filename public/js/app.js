@@ -50805,7 +50805,9 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("header", { staticClass: "header", attrs: { id: "site-header" } }, [
-      _vm._m(0),
+      _c("div", { staticClass: "page-title" }, [
+        _c("h6", [_vm._t("default")], 2)
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "header-content-wrapper" }, [
         _c(
@@ -50861,7 +50863,7 @@ var render = function() {
                   "more-dropdown more-with-triangle triangle-top-center"
               },
               [
-                _vm._m(1),
+                _vm._m(0),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -50875,9 +50877,9 @@ var render = function() {
                       { staticClass: "notification-list friend-requests" },
                       [
                         _c("li", [
-                          _vm._m(2),
+                          _vm._m(1),
                           _vm._v(" "),
-                          _vm._m(3),
+                          _vm._m(2),
                           _vm._v(" "),
                           _c("span", { staticClass: "notification-icon" }, [
                             _c(
@@ -50950,9 +50952,9 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("li", [
-                          _vm._m(4),
+                          _vm._m(3),
                           _vm._v(" "),
-                          _vm._m(5),
+                          _vm._m(4),
                           _vm._v(" "),
                           _c("span", { staticClass: "notification-icon" }, [
                             _c(
@@ -51025,9 +51027,9 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("li", { staticClass: "accepted" }, [
-                          _vm._m(6),
+                          _vm._m(5),
                           _vm._v(" "),
-                          _vm._m(7),
+                          _vm._m(6),
                           _vm._v(" "),
                           _c("span", { staticClass: "notification-icon" }, [
                             _c(
@@ -51070,9 +51072,9 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("li", [
-                          _vm._m(8),
+                          _vm._m(7),
                           _vm._v(" "),
-                          _vm._m(9),
+                          _vm._m(8),
                           _vm._v(" "),
                           _c("span", { staticClass: "notification-icon" }, [
                             _c(
@@ -51177,7 +51179,7 @@ var render = function() {
                   "more-dropdown more-with-triangle triangle-top-center"
               },
               [
-                _vm._m(10),
+                _vm._m(9),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -51188,9 +51190,9 @@ var render = function() {
                   [
                     _c("ul", { staticClass: "notification-list" }, [
                       _c("li", [
-                        _vm._m(11),
+                        _vm._m(10),
                         _vm._v(" "),
-                        _vm._m(12),
+                        _vm._m(11),
                         _vm._v(" "),
                         _c("span", { staticClass: "notification-icon" }, [
                           _c(
@@ -51229,9 +51231,9 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("li", { staticClass: "un-read" }, [
-                        _vm._m(13),
+                        _vm._m(12),
                         _vm._v(" "),
-                        _vm._m(14),
+                        _vm._m(13),
                         _vm._v(" "),
                         _c("span", { staticClass: "notification-icon" }, [
                           _c("svg", { staticClass: "olymp-happy-face-icon" }, [
@@ -51266,9 +51268,9 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("li", { staticClass: "with-comment-photo" }, [
-                        _vm._m(15),
+                        _vm._m(14),
                         _vm._v(" "),
-                        _vm._m(16),
+                        _vm._m(15),
                         _vm._v(" "),
                         _c("span", { staticClass: "notification-icon" }, [
                           _c(
@@ -51285,7 +51287,7 @@ var render = function() {
                           )
                         ]),
                         _vm._v(" "),
-                        _vm._m(17),
+                        _vm._m(16),
                         _vm._v(" "),
                         _c("div", { staticClass: "more" }, [
                           _c("svg", { staticClass: "olymp-three-dots-icon" }, [
@@ -51309,9 +51311,9 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("li", [
-                        _vm._m(18),
+                        _vm._m(17),
                         _vm._v(" "),
-                        _vm._m(19),
+                        _vm._m(18),
                         _vm._v(" "),
                         _c("span", { staticClass: "notification-icon" }, [
                           _c("svg", { staticClass: "olymp-happy-face-icon" }, [
@@ -51346,9 +51348,9 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("li", [
-                        _vm._m(20),
+                        _vm._m(19),
                         _vm._v(" "),
-                        _vm._m(21),
+                        _vm._m(20),
                         _vm._v(" "),
                         _c("span", { staticClass: "notification-icon" }, [
                           _c("svg", { staticClass: "olymp-heart-icon" }, [
@@ -51418,7 +51420,7 @@ var render = function() {
                       attrs: { "data-mcs-theme": "dark" }
                     },
                     [
-                      _vm._m(22),
+                      _vm._m(21),
                       _vm._v(" "),
                       _c("ul", { staticClass: "account-settings" }, [
                         _c("li", [
@@ -51460,11 +51462,11 @@ var render = function() {
                         ])
                       ]),
                       _vm._v(" "),
+                      _vm._m(22),
+                      _vm._v(" "),
                       _vm._m(23),
                       _vm._v(" "),
                       _vm._m(24),
-                      _vm._v(" "),
-                      _vm._m(25),
                       _vm._v(" "),
                       _c(
                         "form",
@@ -51492,9 +51494,9 @@ var render = function() {
                         ]
                       ),
                       _vm._v(" "),
-                      _vm._m(26),
+                      _vm._m(25),
                       _vm._v(" "),
-                      _vm._m(27)
+                      _vm._m(26)
                     ]
                   )
                 ])
@@ -51682,16 +51684,16 @@ var render = function() {
                   attrs: { "data-mcs-theme": "dark" }
                 },
                 [
-                  _vm._m(28),
+                  _vm._m(27),
                   _vm._v(" "),
                   _c(
                     "ul",
                     { staticClass: "notification-list friend-requests" },
                     [
                       _c("li", [
-                        _vm._m(29),
+                        _vm._m(28),
                         _vm._v(" "),
-                        _vm._m(30),
+                        _vm._m(29),
                         _vm._v(" "),
                         _c("span", { staticClass: "notification-icon" }, [
                           _c(
@@ -51760,9 +51762,9 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("li", [
-                        _vm._m(31),
+                        _vm._m(30),
                         _vm._v(" "),
-                        _vm._m(32),
+                        _vm._m(31),
                         _vm._v(" "),
                         _c("span", { staticClass: "notification-icon" }, [
                           _c(
@@ -51831,9 +51833,9 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("li", { staticClass: "accepted" }, [
-                        _vm._m(33),
+                        _vm._m(32),
                         _vm._v(" "),
-                        _vm._m(34),
+                        _vm._m(33),
                         _vm._v(" "),
                         _c("span", { staticClass: "notification-icon" }, [
                           _c("svg", { staticClass: "olymp-happy-face-icon" }, [
@@ -51868,9 +51870,9 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("li", [
-                        _vm._m(35),
+                        _vm._m(34),
                         _vm._v(" "),
-                        _vm._m(36),
+                        _vm._m(35),
                         _vm._v(" "),
                         _c("span", { staticClass: "notification-icon" }, [
                           _c(
@@ -51964,13 +51966,13 @@ var render = function() {
                   attrs: { "data-mcs-theme": "dark" }
                 },
                 [
-                  _vm._m(37),
+                  _vm._m(36),
                   _vm._v(" "),
                   _c("ul", { staticClass: "notification-list" }, [
                     _c("li", [
-                      _vm._m(38),
+                      _vm._m(37),
                       _vm._v(" "),
-                      _vm._m(39),
+                      _vm._m(38),
                       _vm._v(" "),
                       _c("span", { staticClass: "notification-icon" }, [
                         _c("svg", { staticClass: "olymp-comments-post-icon" }, [
@@ -52005,9 +52007,9 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("li", { staticClass: "un-read" }, [
-                      _vm._m(40),
+                      _vm._m(39),
                       _vm._v(" "),
-                      _vm._m(41),
+                      _vm._m(40),
                       _vm._v(" "),
                       _c("span", { staticClass: "notification-icon" }, [
                         _c("svg", { staticClass: "olymp-happy-face-icon" }, [
@@ -52042,9 +52044,9 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("li", { staticClass: "with-comment-photo" }, [
-                      _vm._m(42),
+                      _vm._m(41),
                       _vm._v(" "),
-                      _vm._m(43),
+                      _vm._m(42),
                       _vm._v(" "),
                       _c("span", { staticClass: "notification-icon" }, [
                         _c("svg", { staticClass: "olymp-comments-post-icon" }, [
@@ -52057,7 +52059,7 @@ var render = function() {
                         ])
                       ]),
                       _vm._v(" "),
-                      _vm._m(44),
+                      _vm._m(43),
                       _vm._v(" "),
                       _c("div", { staticClass: "more" }, [
                         _c("svg", { staticClass: "olymp-three-dots-icon" }, [
@@ -52081,9 +52083,9 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("li", [
-                      _vm._m(45),
+                      _vm._m(44),
                       _vm._v(" "),
-                      _vm._m(46),
+                      _vm._m(45),
                       _vm._v(" "),
                       _c("span", { staticClass: "notification-icon" }, [
                         _c("svg", { staticClass: "olymp-happy-face-icon" }, [
@@ -52118,9 +52120,9 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("li", [
-                      _vm._m(47),
+                      _vm._m(46),
                       _vm._v(" "),
-                      _vm._m(48),
+                      _vm._m(47),
                       _vm._v(" "),
                       _c("span", { staticClass: "notification-icon" }, [
                         _c("svg", { staticClass: "olymp-heart-icon" }, [
@@ -52168,7 +52170,7 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _vm._m(49)
+          _vm._m(48)
         ])
       ]
     ),
@@ -52177,14 +52179,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "page-title" }, [
-      _c("h6", [_vm._v("Página de Perfil")])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

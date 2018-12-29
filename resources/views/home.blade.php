@@ -47,7 +47,9 @@
 <leftsidebar></leftsidebar>
 
 {{-- Menu do topo do site --}}
-<header-component :user="{{json_encode(auth()->user())}}" ></header-component >
+<header-component :user="{{json_encode(auth()->user())}}" >
+    Página de Perfil
+</header-component >
 
 {{-- Submenu com foto da capa e perfil --}}
 <topheaderprofile :user="{{auth()->user()}}">

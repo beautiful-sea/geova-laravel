@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Auth\Middleware\Authenticate;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,7 +14,7 @@
 
 Route::get('/', function () {
 	return view('newsfeed');
-});
+})->middleware('auth');
 
 Auth::routes();
 
@@ -45,7 +46,6 @@ Route::prefix('comments')->group(function(){
 	Route::get('/like/{commentId}/{postId}','CommentsController@like');
 	Route::get('/delete/{postId}/{commentId}','CommentsController@destroy');
 	Route::post('/{postId}','CommentsController@store');
-
 });
 
 
