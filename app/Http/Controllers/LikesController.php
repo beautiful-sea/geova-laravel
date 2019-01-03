@@ -62,6 +62,7 @@ class LikesController extends Controller
             $delete = DB::table('user_like_post')->where('users_id', $role['users_id'])->where('posts_id', $role['posts_id'])->delete();
         }
 
+        //Retornar todos os posts ou só os do usuário logado
         if($type == "all"){
             $post = new PostsController();
             return $post->allICanSee();

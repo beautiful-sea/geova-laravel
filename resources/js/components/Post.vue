@@ -106,13 +106,11 @@ export default{
 	created: function(){
 		axios.get('/post/'+this.type).then(res =>{
 			this.$store.commit('setPosts',res.data);
-			// console.log(this.$store.state.posts);
 		});
 
 		this.$store.watch(this.$store.getters.all_my_posts,posts=>{
 			this.posts = posts;
 		});
-		console.log(this.posts);
 	},
 	methods: {
 		setPosts: function(){
@@ -125,7 +123,7 @@ export default{
 			this.$store.commit('setOnEditPost',post)
 		},
 		setOnCommentPost: function(post){
-			axios.get('/post/myposts'+this.type).then(res =>{
+			axios.get('/post/'+this.type).then(res =>{
 				this.$store.commit('setPosts',res.data);
 			});
 			this.$store.commit('setOnCommentPost',post);

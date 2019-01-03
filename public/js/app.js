@@ -54108,13 +54108,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 		axios.get('/post/' + this.type).then(function (res) {
 			_this.$store.commit('setPosts', res.data);
-			// console.log(this.$store.state.posts);
 		});
 
 		this.$store.watch(this.$store.getters.all_my_posts, function (posts) {
 			_this.posts = posts;
 		});
-		console.log(this.posts);
 	},
 	methods: {
 		setPosts: function setPosts() {
@@ -54131,7 +54129,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		setOnCommentPost: function setOnCommentPost(post) {
 			var _this3 = this;
 
-			axios.get('/post/myposts' + this.type).then(function (res) {
+			axios.get('/post/' + this.type).then(function (res) {
 				_this3.$store.commit('setPosts', res.data);
 			});
 			this.$store.commit('setOnCommentPost', post);
@@ -59101,7 +59099,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	props: ['action', 'method', 'user_auth'],
+	props: ['action', 'method', 'user_auth', 'type'],
 	data: function data() {
 		return {
 			post: {
@@ -59126,7 +59124,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		setPosts: function setPosts() {
 			var _this2 = this;
 
-			axios.get('/post/myposts').then(function (res) {
+			axios.get('/post/' + this.type).then(function (res) {
 				_this2.$store.commit('setPosts', res.data);
 			});
 		},

@@ -166,7 +166,7 @@
 </template>
 <script>
 export default{
-	props:['action','method','user_auth'],
+	props:['action','method','user_auth','type'],
 	data: function(){
 		return{
 			post:{
@@ -189,7 +189,7 @@ export default{
 	},
 	methods:{
 		setPosts(){
-			axios.get('/post/myposts').then(res =>{
+			axios.get('/post/'+this.type).then(res =>{
 				this.$store.commit('setPosts',res.data);
 			});
 		},

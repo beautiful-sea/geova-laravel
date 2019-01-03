@@ -15,7 +15,7 @@
 <modal background="0" id="commentPost">
     <div  slot="modal-content">
         <div class="modal-body" id="commentspost">
-            <commentspost  slot="commentsposts" action="" :user_auth="{{auth()->user()}}">
+            <commentspost  slot="commentsposts" action="" :user_auth="{{auth()->user()}}" type="all">
             </commentspost>       
         </div>
     </div>  
