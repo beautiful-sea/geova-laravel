@@ -22,6 +22,7 @@ class Post extends Authenticatable
         'text',
     ];
 
+    protected $dates = ['created_at'];
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -29,7 +30,7 @@ class Post extends Authenticatable
      */
 
     public function user(){
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User','user_id');
     }
 
     public function comments()

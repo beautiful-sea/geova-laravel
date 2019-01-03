@@ -8,19 +8,23 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\DB;
 
 
-class User extends Authenticatable
+class Follower extends Authenticatable
 {
     use Notifiable;
-    
-    
+
+    public $with = [];
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
+    protected $table = 'users_follow_users';
+
     protected $fillable = [
-        'name', 'email', 'password','img_profile','img_header'
+    	'users_id_follow'
     ];
+
 
     /**
      * The attributes that should be hidden for arrays.
@@ -28,18 +32,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+       
     ];
 
-    public function post()
+    public function user()
     {
-        return $this->hasMany('App\Post');
-    }
-    public function comments()
-    {
-        return $this->hasMany('App\Comment','users_id');
-    }
-    public function follower(){
-        return $this->hasMany('App\Follower','users_id_follow');
+        return $this->belongsTo('App\User','users_id_followed');
     }
 }

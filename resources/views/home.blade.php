@@ -69,7 +69,7 @@
             <img src="{{asset('storage/users/'.$user->img_profile)}}"  style="width: 36px;height: 36px!important" alt="author" slot="img_profile">
         </form-post>
 
-        <post slot="post" :user="{{auth()->user()}}" >
+        <post slot="post" :user="{{auth()->user()}}" type="myposts" >
             @if($user->img_profile)
             <img src="{{asset('storage/users/'.auth()->user()->img_profile)}} " alt="Foto de perfil">
             @else

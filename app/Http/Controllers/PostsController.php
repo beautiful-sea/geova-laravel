@@ -84,6 +84,39 @@ class PostsController extends Controller
 
         return json_encode($posts);
     }
+
+    public function all()
+    {  
+
+        $user = Auth::user();
+
+        //Traz id das pessoas que o usuário segue
+        $followers = $user->follower()->get();
+
+        $posts = array();
+
+        foreach ($followers as $follower) {
+            $user_followed = User::find($follower->users_id_followed);
+
+            $user_followed_posts = $user_followed->post;
+
+            foreach ($user_followed_posts as $post) {
+                $posts = array_prepend($posts,$post);
+            }
+        }
+
+        foreach ($user->post as $post) {
+            $posts = array_prepend($posts,$post);
+        }
+
+        $posts = array_values(array_sort($posts, function ($value) {
+            return $value['created_at'];
+        }));
+
+        return array_reverse($posts);
+
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -102,7 +135,7 @@ class PostsController extends Controller
 
         $update = Post::find($id)->update($data);
 
-       if($update){
+        if($update){
             return redirect()->back();
         }else{
             return redirect()->back()->with(['error'=> 'Erro ao editar post']);

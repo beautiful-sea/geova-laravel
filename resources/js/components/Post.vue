@@ -1,7 +1,7 @@
 <template>
-	<div>
+	<div >
 		<div class="ui-block"  v-for="post in posts">
-
+			
 			<article class="hentry post has-post-thumbnail">
 
 				<div class="post__author author vcard inline-items">
@@ -97,25 +97,27 @@
 </template>
 <script>
 export default{
-	props:['url','user'],
+	props:['url','user','type'],
 	data: function(){
 		return{
 			posts:{}
 		}
 	},
 	created: function(){
-		axios.get('/post/myposts').then(res =>{
+		axios.get('/post/'+this.type).then(res =>{
 			this.$store.commit('setPosts',res.data);
+			// console.log(this.$store.state.posts);
 		});
+
 		this.$store.watch(this.$store.getters.all_my_posts,posts=>{
 			this.posts = posts;
 		});
-		
+		console.log(this.posts);
 	},
 	methods: {
 		setPosts: function(){
 			console.log('fechado');
-			axios.get('/post/myposts').then(res =>{
+			axios.get('/post/'+this.type).then(res =>{
 				this.$store.commit('setPosts',res.data);
 			});
 		},
@@ -123,7 +125,7 @@ export default{
 			this.$store.commit('setOnEditPost',post)
 		},
 		setOnCommentPost: function(post){
-			axios.get('/post/myposts').then(res =>{
+			axios.get('/post/myposts'+this.type).then(res =>{
 				this.$store.commit('setPosts',res.data);
 			});
 			this.$store.commit('setOnCommentPost',post);

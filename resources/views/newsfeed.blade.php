@@ -40,7 +40,7 @@
 </header-component >
 
 {{-- Feed de notícias --}}
-<feed>
+<feed type='all'>
 
     {{-- Bloco do meio do Feed de Notícias --}}
     <blockmainfeed slot="blockmainfeed">
@@ -48,12 +48,8 @@
             <img src="{{asset('storage/users/'.auth()->user()->img_profile)}}"  style="width: 36px;height: 36px!important" alt="author" slot="img_profile">
         </form-post>
 
-        <post slot="post" :user="{{auth()->user()}}" >
-            @if(auth()->user()->img_profile)
-            <img src="{{asset('storage/users/'.auth()->user()->img_profile)}} " alt="Foto de perfil">
-            @else
-            <img src="img/avatar1.jpg" alt="Foto de perfil">
-            @endif
+        <post slot="post" :user="{{auth()->user()}}" type="all">
+ 
         </post>
     </blockmainfeed>
     

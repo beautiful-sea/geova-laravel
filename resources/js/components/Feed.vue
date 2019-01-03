@@ -250,9 +250,9 @@
 
 <script>
 export default{
-	props:[],
+	props:['type'],
 	mounted:function(){
-		axios.get('/post/myposts').then(res =>{
+		axios.get('/post/'+this.type).then(res =>{
 			this.$store.commit('setPosts',res.data)
 		})
 	}

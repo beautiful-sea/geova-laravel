@@ -29,7 +29,8 @@ Route::resource('posts','PostsController');
 
 Route::prefix('post')->group(function () {
 	// dd(Request::all());
-	Route::get('/myposts','PostsController@myPosts');
+	Route::get('/myposts','PostsController@myPosts');//Traz publicações postadas pelo usuário
+	Route::get('/all','PostsController@all');//Traz publicações do usuário e de quem ele segue
 	Route::put('/{id}','PostsController@update');
 	Route::get('/delete/{id}','PostsController@destroy');
 	Route::get('/{id}','PostsController@show');
