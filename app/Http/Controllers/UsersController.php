@@ -117,13 +117,16 @@ class UsersController extends Controller{
         return 'new Response($file,200)';
     }
 
+    //Retorna pessoas que o usuário segue
     public function getFriends(){
         $user = \Auth::user();
 
         $friends = DB::table('users_follow_users')
             ->join('users','users.id','=','users_follow_users.users_id_followed')
             ->select('users.id','users.name','users.email','users.img_profile','users.img_header','users.about_me')
+            ->where('users_follow_users.users_id_follow','=',$user->id)
             ->get();
+
         return $friends;
     }
 // SELECT users.*,users_id_follow, users_id_followed from users_follow_users

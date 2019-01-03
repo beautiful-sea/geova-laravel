@@ -85,6 +85,7 @@ class PostsController extends Controller
         return json_encode($posts);
     }
 
+    //Traz todas as publicações que o usuário logado pode ver
     public function all()
     {  
 
@@ -96,23 +97,28 @@ class PostsController extends Controller
         $posts = array();
 
         foreach ($followers as $follower) {
+            //Dados de cada usuário seguido
             $user_followed = User::find($follower->users_id_followed);
-
+            //Post de cada usuário seguido 
             $user_followed_posts = $user_followed->post;
 
             foreach ($user_followed_posts as $post) {
+                //Adicionar cada post de cada usuário no array de todos posts
                 $posts = array_prepend($posts,$post);
             }
         }
 
+        //Busca post do usuário logado e juntando com o post dos usuários seguidos
         foreach ($user->post as $post) {
             $posts = array_prepend($posts,$post);
         }
 
+        //Ordenando as publicações por data de criação em ordem decrescente 
         $posts = array_values(array_sort($posts, function ($value) {
             return $value['created_at'];
         }));
 
+        //Retorna as publicações em ordem crescente
         return array_reverse($posts);
 
     }
