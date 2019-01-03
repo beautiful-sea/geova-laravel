@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
 class LikesController extends Controller
 {
     /**
@@ -33,7 +32,7 @@ class LikesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,$idPost)
+    public function store(Request $request,$type,$idPost)
     {   
         $user = \Auth::user();
 
@@ -63,7 +62,12 @@ class LikesController extends Controller
             $delete = DB::table('user_like_post')->where('users_id', $role['users_id'])->where('posts_id', $role['posts_id'])->delete();
         }
 
-        return $user->post()->get();
+        if($type == "all"){
+            $post = new PostsController();
+            return $post->allICanSee();
+        }else{
+            return $user->post()->get();
+        }
     }
 
     /**

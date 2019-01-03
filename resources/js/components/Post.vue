@@ -139,7 +139,7 @@ export default{
 			return name.split(' ').slice(0, 1).join(' ');
 		},
 		likePost: function(post){
-			axios('post/like/'+post).
+			axios('post/'+this.type+'/like/'+post).
 			then(res =>{
 				this.$store.commit('setPosts',res.data);
 				this.posts = this.$store.getters.all_my_posts;

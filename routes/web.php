@@ -30,11 +30,11 @@ Route::resource('posts','PostsController');
 Route::prefix('post')->group(function () {
 	// dd(Request::all());
 	Route::get('/myposts','PostsController@myPosts');//Traz publicações postadas pelo usuário
-	Route::get('/all','PostsController@all');//Traz publicações do usuário e de quem ele segue
+	Route::get('/all','PostsController@allICanSee');//Traz publicações do usuário e de quem ele segue
 	Route::put('/{id}','PostsController@update');
 	Route::get('/delete/{id}','PostsController@destroy');
 	Route::get('/{id}','PostsController@show');
-	Route::get('/like/{id}','LikesController@store');
+	Route::get('{type}/like/{id}','LikesController@store');
 });
 
 Route::prefix('user')->group(function () {

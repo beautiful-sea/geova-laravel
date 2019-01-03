@@ -54148,7 +54148,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		likePost: function likePost(post) {
 			var _this4 = this;
 
-			axios('post/like/' + post).then(function (res) {
+			axios('post/' + this.type + '/like/' + post).then(function (res) {
 				_this4.$store.commit('setPosts', res.data);
 				_this4.posts = _this4.$store.getters.all_my_posts;
 			});

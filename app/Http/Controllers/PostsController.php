@@ -86,7 +86,7 @@ class PostsController extends Controller
     }
 
     //Traz todas as publicações que o usuário logado pode ver
-    public function all()
+    public function allICanSee()
     {  
 
         $user = Auth::user();
@@ -119,7 +119,7 @@ class PostsController extends Controller
         }));
 
         //Retorna as publicações em ordem crescente
-        return array_reverse($posts);
+        return json_encode(array_reverse($posts));
 
     }
 
